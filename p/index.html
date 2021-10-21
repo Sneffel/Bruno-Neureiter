@@ -1,14 +1,47 @@
 <!DOCTYPE html>
 <html>
-<body>
+<head>
+<title>Karaoke</title>
+<style>
+  body{
+      overflow-x: hidden; /* Hide horizontal scrollbar */
 
+  }
+  BLOCKQUOTE{position: relative; padding: 0.5ex; }
+
+BLOCKQUOTE:after {
+    content: ''; border: 0px dotted pink;
+    padding:5px;
+    position: absolute; left: 300px; top: 0; bottom: 0; width: 30px;
+    background-image: url('Curly_bracket_right.svg'); background-size: 100% 100%
+}
+p{position:relative;
+  left: 240px;
+  bottom: 50px;
+}
+ul{
+
+    list-style-type: circle;
+}
+a{
+
+    text-decoration: none;
+}
+</style>
+</head>
+<body>
   <ul>
-   <li><a href="https://www.youtube.com/watch?v=cy-gtjsf_Go">Belli capelli</a></li>
-   <li><a href=""></a></li>
-   <li><a href=""></a></li>
-   <li><a href=""></a></li>
-   <li><a href=""></a></li>
- </ul> 
+<blockquote>
+  <li><a href="https://www.youtube.com/watch?v=hBZzeJilPD4" >Cara</a></li>
+  <li><a href="https://www.youtube.com/watch?v=QWGRaOLjszg">Quale allegria</a></li>
+</blockquote>
+<p>Dalla</p>
+<blockquote>
+  <li><a href="https://www.youtube.com/watch?v=cy-gtjsf_Go">Belli capelli</a></li>
+  <li><a href="https://www.youtube.com/watch?v=5eHhWiLo8K8">Cardiologia</a></li>
+</blockquote>
+<p>De Gregori</p>
+ </ul>
 
 </body>
 </html>

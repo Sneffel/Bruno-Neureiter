@@ -3,55 +3,55 @@
 <head>
 <title>Karaoke</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+	 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	 <link rel="stylesheet" href="../css.css">
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 	<link rel="manifest" href="/site.webmanifest">
 <style>
-  body{
-      overflow-x: hidden; /* Hide horizontal scrollbar */
-			height:100%;
-
-  }
-div{position: relative; padding: 0.5ex; }
-
-div:after {
-    content: ''; border: 0px dotted pink;
-    padding:5px;
-    position: absolute; left: 300px; top: 0; bottom: 0; width: 30px;
-    background-image: url('Curly_bracket_right.svg'); background-size: 100% 100%
+#scatola{
+	text-align: center;
+	padding:5px;
 }
-p{position:relative;
-  left: 240px;
-  bottom: 50px;
-}
-ul{
+.canzoni{
 
-    list-style-type: circle;
-		padding-left: 0px;
+text-align:left;
+padding-left: 40%;
+position: relative;
+bottom:15px;
 }
 a{
-
-    text-decoration: none;
+display: block;
+padding: 10px;
+}
+h2,h3{
+	margin-top: 28px;
+	margin-bottom: 18px !important;
+}
+.img{
+	padding:0 !important;
 }
 </style>
 </head>
 <body>
-  <ul>
-<div>
-  <li><a href="https://www.youtube.com/watch?v=hBZzeJilPD4" >Cara</a></li>
-  <li><a href="https://www.youtube.com/watch?v=QWGRaOLjszg">Quale allegria</a></li>
-	<li><a href="https://www.youtube.com/watch?v=wJyPv_FY_Cw">Futura</a></li>
+	<div id="contenuto">
+<a href="/" class="img"><img src="../pianista.jpg" alt="pianista" id="pianista"></a>
+<h2>Karaoke</h2>
+<h3>Dalla</h3>
+
+<div id="scatola">
+  <a href="https://www.youtube.com/watch?v=hBZzeJilPD4">Cara</a>
+  <a href="https://www.youtube.com/watch?v=QWGRaOLjszg">Quale allegria</a>
+	<a href="https://www.youtube.com/watch?v=wJyPv_FY_Cw">Futura</a>
 </div>
-</ul>
-<p>Dalla</p>
-<div>
-	<ul>
-  <li><a href="https://www.youtube.com/watch?v=cy-gtjsf_Go">Belli capelli</a></li>
-<del>  <li><a href="https://www.youtube.com/watch?v=5eHhWiLo8K8">Cardiologia</a></li></del>
- </ul>
+<h3>De Gregori</h3>
+
+<div id="scatola">
+  <a href="https://www.youtube.com/watch?v=cy-gtjsf_Go">Belli capelli</a>
+ <del> <a href="https://www.youtube.com/watch?v=5eHhWiLo8K8">Cardiologia</a></del>
 </div>
-<p>De Gregori</p>
+</div>
 
 
 </body>

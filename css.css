@@ -84,3 +84,15 @@ margin-bottom:15px;
 
    filter: invert(1);
 }
+.youtube{
+background: black url("img/youtube-bg.svg") no-repeat scroll 90% 50%;
+background-size: 20%;
+}
+.audio{
+background: black url("img/audio-bg.svg") no-repeat scroll 93% 40%;
+background-size: 20%;
+}
+.insta{
+background: black url("img/insta-bg.svg") no-repeat scroll 96% 50%;
+background-size: 20%;
+}

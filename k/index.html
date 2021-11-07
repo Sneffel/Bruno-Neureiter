@@ -10,25 +10,23 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 	<link rel="manifest" href="../site.webmanifest">
 <style>
+.quadrato{
+	        margin: 0;
+position:relative;
+	max-width: 300px;
+	height:300px;
+	padding:0;
+}
 .scatola{
 	text-align: center;
-	padding:5px;
 	  background-color: black;
-		max-width:300px;
-  aspect-ratio: 1;
-	        margin: auto;
-  display: flex;
+		padding:0;
 filter: grayscale(100%);
--moz-transition: all 1s ease-in !important;
--o-transition: all 1s ease-in !important;
--webkit-transition: all 1s ease-in !important;
 
+position:relative;
+max-width: 300px;
 }
-.scatola:hover{
-  background-size: 120%;
 
-
-}
 .scatola:hover a{
 	color:white;
 
@@ -46,13 +44,13 @@ text-align:left;
 padding-left: 40%;
 position: relative;
 bottom:15px;
+margin: 0;
 
 }
 a{
 display: block;
 padding: 10px;
 color:white;
-
 -moz-transition: all .25s ease-in;
 -o-transition: all .25s ease-in;
 -webkit-transition: all .25s ease-in;
@@ -64,8 +62,12 @@ h2,h3{
 }
 .img{
 	padding:0 !important;
+	margin: 0;
 }
-.degregori{
+.canta{
+
+}
+/*.degregori{
 background: black url("degregori.svg") no-repeat scroll 50% 50%;
 background-size: 100%;
 
@@ -74,38 +76,60 @@ background-size: 100%;
 background: black url("dalla.svg") no-repeat scroll 50% 50%;
 background-size: 100%;
 
-}
+}*/
 
 del{text-decoration-color:white;
 	-moz-transition: all .25s ease-in;
 	-o-transition: all .25s ease-in;
 	-webkit-transition: all .25s ease-in;}
 .centro{
-	  margin: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	  padding: 80px 0;
+}
+.canta{
+	height:100%;
+	margin: 0;
+
 }
 </style>
 </head>
 <body>
 	<div id="contenuto">
-<a href="/" class="img"><img src="../pianista.jpg" alt="pianista" id="pianista"></a>
+<a href="../" class="img"><img src="../pianista.jpg" alt="pianista" id="pianista"></a>
 <h2>Karaoke</h2>
-<h3>Dalla</h3>
 
-<div class="dalla scatola">
-	<div class="centro">
+<h3>Dalla</h3>
+<div class="scatola"><div class="quadrato">	<div class="centro">
   <a href="https://www.youtube.com/watch?v=hBZzeJilPD4">Cara</a>
   <a href="https://www.youtube.com/watch?v=QWGRaOLjszg">Quale allegria</a>
 	<a href="https://www.youtube.com/watch?v=wJyPv_FY_Cw">Futura</a>
 </div>
+<img class="canta" src="dalla.svg" alt="dalla"></div>
 </div>
-<h3>De Gregori</h3>
 
-<div class="degregori scatola">
+
+<h3>De Gregori</h3>
+<div class="scatola"><div class="quadrato">
 	<div class="centro">
   <a href="https://www.youtube.com/watch?v=cy-gtjsf_Go">Belli capelli</a>
  <del> <a href="https://www.youtube.com/watch?v=5eHhWiLo8K8">Cardiologia</a></del>
 </div>
+<img class="canta" src="degregori.svg" alt="degregori"></div>
 </div>
+
+<h3>Jimmy Fontana</h3>
+<div class="scatola"><div class="quadrato">	<div class="centro">
+  <a href="https://www.youtube.com/watch?v=32LvhHDXY2k">Cara</a>
+</div>
+<img class="canta" src="jimmy.svg" alt="jimmy"></div>
+
+</div>
+
 
 
 </div>

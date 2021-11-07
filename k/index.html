@@ -5,36 +5,54 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 	 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	 <link rel="stylesheet" href="../css.css">
-	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-	<link rel="manifest" href="/site.webmanifest">
+	<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+	<link rel="manifest" href="../site.webmanifest">
 <style>
-#scatola{
+.scatola{
 	text-align: center;
 	padding:5px;
 	  background-color: black;
+		max-width:300px;
+  aspect-ratio: 1;
+	        margin: auto;
+  display: flex;
+filter: grayscale(100%);
+-moz-transition: all 1s ease-in !important;
+-o-transition: all 1s ease-in !important;
+-webkit-transition: all 1s ease-in !important;
+
 }
-#scatola:hover{
-  background-color: white;
-}
-#scatola:hover a{
-	color:black;
+.scatola:hover{
+  background-size: 120%;
 
 
+}
+.scatola:hover a{
+	color:white;
+
+text-shadow: rgba(0,0,0,1) 0px 0px 39px;
 
 }
+.scatola:hover del{
+/* strikethroigh */
+text-decoration-color:white;
+}
+
 .canzoni{
 
 text-align:left;
 padding-left: 40%;
 position: relative;
 bottom:15px;
+
 }
 a{
 display: block;
 padding: 10px;
 color:white;
+
 -moz-transition: all .25s ease-in;
 -o-transition: all .25s ease-in;
 -webkit-transition: all .25s ease-in;
@@ -49,12 +67,12 @@ h2,h3{
 }
 .degregori{
 background: black url("degregori.svg") no-repeat scroll 50% 50%;
-background-size: 80%;
+background-size: 100%;
 
 }
 .dalla{
 background: black url("dalla.svg") no-repeat scroll 50% 50%;
-background-size: 80%;
+background-size: 100%;
 
 }
 
@@ -62,9 +80,8 @@ del{text-decoration-color:white;
 	-moz-transition: all .25s ease-in;
 	-o-transition: all .25s ease-in;
 	-webkit-transition: all .25s ease-in;}
-#scatola:hover del{
-
-text-decoration-color:black;
+.centro{
+	  margin: auto;
 }
 </style>
 </head>
@@ -74,17 +91,23 @@ text-decoration-color:black;
 <h2>Karaoke</h2>
 <h3>Dalla</h3>
 
-<div id="scatola" class="dalla">
+<div class="dalla scatola">
+	<div class="centro">
   <a href="https://www.youtube.com/watch?v=hBZzeJilPD4">Cara</a>
   <a href="https://www.youtube.com/watch?v=QWGRaOLjszg">Quale allegria</a>
 	<a href="https://www.youtube.com/watch?v=wJyPv_FY_Cw">Futura</a>
 </div>
+</div>
 <h3>De Gregori</h3>
 
-<div id="scatola" class="degregori">
+<div class="degregori scatola">
+	<div class="centro">
   <a href="https://www.youtube.com/watch?v=cy-gtjsf_Go">Belli capelli</a>
  <del> <a href="https://www.youtube.com/watch?v=5eHhWiLo8K8">Cardiologia</a></del>
 </div>
+</div>
+
+
 </div>
 
 

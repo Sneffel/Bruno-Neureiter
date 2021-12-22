@@ -1,0 +1,108 @@
+body {
+  margin: 0;
+  background-image: url('sfondo.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  color:#D4F1F4;
+  tab-size: 4;
+  font-family: 'prototyperegular', Arial, sans-serif;
+  font-size: 18px;
+
+}
+
+b{
+  font-family: 'aquire', Arial, sans-serif;
+    letter-spacing:5px;
+
+    font-size: 120%;
+
+}
+b,.titolo{
+  color: #189AB4;
+  font-variant: small-caps;
+
+}
+* {
+  box-sizing: border-box;
+}
+.centra{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+a{
+  color: inherit;
+  text-decoration: none;
+}
+table{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -350px; /* half of the height */
+  margin-left: -550px; /* half of the width */
+  height:700px;
+  width:1100px;
+  background-color:#05445E;
+}
+table , td, th {
+    border: 1px solid #189AB4;
+  /*  border-collapse: collapse;*/
+}
+.titolo{
+  height:50px;
+/*  display: grid;
+  grid-template-columns: 1fr 1fr;*/
+}
+.vuoto{
+  height:25px;
+  background-image: url("onde.svg");
+
+  background-repeat: repeat-x;
+}
+.testi{
+  width:1px;
+
+}
+.immagine{
+  background: url(smal.jpg);
+background-repeat: no-repeat;
+background-size: cover;
+width:50px;
+}
+#ora{
+  text-align: right;
+  padding-right:10px;
+  float: right;
+  letter-spacing:2px;
+  font-variant: small-caps;
+
+/*font-family: 'aquire', Arial, sans-serif;*/
+display: inline-block;
+width: .52em;
+text-align: center;
+position: relative;
+right:85px;
+color: #D4F1F4;
+}
+#ciao{
+  text-align: left;
+  padding-left:10px;
+
+  float: left;
+}
+.testititolo{
+
+}
+.scritte{
+  text-align: center;
+}
+hr{
+  border-width: 0px;
+  margin-bottom: 8px;
+  margin-top: 5px;
+}
+@media screen and (max-device-height: 1080px) {
+table{
+  height:701.5px;
+}
+}

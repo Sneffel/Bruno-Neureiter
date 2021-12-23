@@ -1,4 +1,4 @@
-body {
+body{
   margin: 0;
   background-image: url('sfondo.jpg');
   background-size: cover;
@@ -53,10 +53,10 @@ table , td, th {
 /*  display: grid;
   grid-template-columns: 1fr 1fr;*/
 }
-.vuoto{
+.vuoto,input{
   height:25px;
   background-image: url("onde.svg");
-
+background-color: #05445E;
   background-repeat: repeat-x;
 }
 .testi{
@@ -105,4 +105,19 @@ hr{
 table{
   height:701.5px;
 }
+}
+
+.form{
+  position:absolute;
+
+top:58px;
+left:10px;
+}
+input[type=text] {
+
+  border: 1px solid #189AB4;
+width:282px;
+font-family: 'prototyperegular', Arial, sans-serif;
+font-size: 18px;
+color:#D4F1F4;
 }

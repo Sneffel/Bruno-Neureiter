@@ -1,3 +1,9 @@
+/*
+
+https://www.canva.com/colors/color-palettes/summer-splash/
+
+*/
+
 body{
   margin: 0;
   background-image: url('sfondo.jpg');
@@ -57,7 +63,7 @@ table , td, th {
   height:25px;
   background-image: url("onde.svg");
 background-color: #05445E;
-  background-repeat: repeat-x;
+  background-repeat: repeat;
 }
 .testi{
   width:1px;
@@ -67,7 +73,9 @@ background-color: #05445E;
   background: url(smal.jpg);
 background-repeat: no-repeat;
 background-size: cover;
-width:50px;
+width:99px;
+height:172px;
+background-position: center center;
 }
 #ora{
   text-align: right;
@@ -115,9 +123,15 @@ left:10px;
 }
 input[type=text] {
 
-  border: 1px solid #189AB4;
-width:282px;
+  border: 0px;
+width:100%;
 font-family: 'prototyperegular', Arial, sans-serif;
 font-size: 18px;
 color:#D4F1F4;
+padding: 12px 20px;
+margin: 8px 0;
+box-sizing: border-box;
+
+background: transparent;
+border: none;
 }

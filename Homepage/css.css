@@ -135,3 +135,6 @@ box-sizing: border-box;
 background: transparent;
 border: none;
 }
+input:focus{
+    outline: none;
+}

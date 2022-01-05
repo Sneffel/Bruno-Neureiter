@@ -4,9 +4,12 @@ https://www.canva.com/colors/color-palettes/summer-splash/
 
 */
 :root {
-  --testo: #D4F1F4;
-  --principale: #189AB4;
-  --sfondo: #05445E;
+  --testo: #5cc0e2;
+  --principale: #6778cc;
+  --sfondo: #050a30;
+}
+button:hover{
+  cursor:pointer;
 }
 body{
   margin: 0;

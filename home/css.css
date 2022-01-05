@@ -3,13 +3,18 @@
 https://www.canva.com/colors/color-palettes/summer-splash/
 
 */
-
+:root {
+  --testo: #D4F1F4;
+  --principale: #189AB4;
+  --sfondo: #05445E;
+}
 body{
   margin: 0;
-  background-image: url('sfondo.jpg');
+  background-image: url('sfondo.png');
   background-size: cover;
   background-repeat: no-repeat;
-  color:#D4F1F4;
+
+  color:var(--testo);
   tab-size: 4;
   font-family: 'prototyperegular', Arial, sans-serif;
   font-size: 18px;
@@ -24,7 +29,7 @@ b{
 
 }
 b,.titolo{
-  color: #189AB4;
+  color: var(--principale);
   font-variant: small-caps;
 
 }
@@ -48,10 +53,10 @@ table{
   margin-left: -550px; /* half of the width */
   height:700px;
   width:1100px;
-  background-color:#05445E;
+  background-color:var(--sfondo);
 }
 table , td, th {
-    border: 1px solid #189AB4;
+    border: 1px solid var(--principale);
   /*  border-collapse: collapse;*/
 }
 .titolo{
@@ -62,15 +67,20 @@ table , td, th {
 .vuoto,input{
   height:25px;
   background-image: url("onde.svg");
-background-color: #05445E;
+background-color: var(--sfondo);
   background-repeat: repeat;
 }
 .testi{
   width:1px;
 
 }
+[id=home]{
+  background: url("home.png");
+}
+[id=studio]{
+  background: url("studio.png");
+}
 .immagine{
-  background: url(smal.jpg);
 background-repeat: no-repeat;
 background-size: cover;
 width:99px;
@@ -90,7 +100,7 @@ width: .52em;
 text-align: center;
 position: relative;
 right:85px;
-color: #D4F1F4;
+color: var(--testo);
 }
 #ciao{
   text-align: left;
@@ -121,13 +131,13 @@ table{
 top:58px;
 left:10px;
 }
-input[type=text] {
+input,button{
 
   border: 0px;
 width:100%;
 font-family: 'prototyperegular', Arial, sans-serif;
 font-size: 18px;
-color:#D4F1F4;
+color:var(--testo);
 padding: 12px 20px;
 margin: 8px 0;
 box-sizing: border-box;

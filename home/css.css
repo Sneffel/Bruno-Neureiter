@@ -23,7 +23,18 @@ body{
   font-size: 18px;
 
 }
+.scritte a{
+  margin: auto 15px;
+}
 
+#studio{
+  width:200px;
+}
+#home
+{
+  width:200px;
+
+}
 b{
   font-family: 'aquire', Arial, sans-serif;
     letter-spacing:5px;

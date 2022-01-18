@@ -3,6 +3,7 @@
 https://www.canva.com/colors/color-palettes/summer-splash/
 
 */
+
 :root {
   --testo: #5cc0e2;
   --principale: #6778cc;
@@ -13,7 +14,7 @@ button:hover{
 }
 body{
   margin: 0;
-  background-image: url('sfondo.jpg');
+  background-image: url('sfondo.jpg') !important;
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -161,4 +162,26 @@ border: none;
 }
 input:focus{
     outline: none;
+}
+
+.animate-in {
+    -webkit-animation: fadeIn .5s ease-in;
+    animation: fadeIn .5s ease-in;
+    background-color: #000;
+}
+
+.animate-out {
+    -webkit-transition: opacity .5s;
+    transition: opacity .5s;
+    opacity: 0;
+}
+
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }

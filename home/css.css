@@ -3,7 +3,9 @@
 https://www.canva.com/colors/color-palettes/summer-splash/
 
 */
-
+html,body{
+  height:100%;
+}
 :root {
   --testo: #5cc0e2;
   --principale: #6778cc;

@@ -44,7 +44,7 @@ b{
     font-size: 120%;
 
 }
-b,.titolo{
+b,.titolo,.nascosto{
   color: var(--principale);
   font-variant: small-caps;
 
@@ -271,4 +271,7 @@ a{
 hr{
   height: 0px;
 }
+}
+.nascosto{
+  text-decoration: none;
 }

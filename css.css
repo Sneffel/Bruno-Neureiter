@@ -23,8 +23,8 @@ h2 {
 
 a {
   text-decoration: none;
-  margin: 0;
-  pointer-events: auto;
+
+
 }
 
 p {
@@ -34,14 +34,20 @@ p {
   margin: 0;
   height: 100%;
 }
-
+.scatola a{
+  margin: 0;padding:0;
+  pointer-events: auto;
+  display:inline-block;
+width:100%;
+height:100%;
+padding: 16px 20px;
+}
 .scatola {
   background-color: white;
   margin: auto;
   max-width: 636px;
   text-align: center;
   position: relative;
-  padding: 16px 20px;
   color: black;
   text-align: center;
   vertical-align: middle;

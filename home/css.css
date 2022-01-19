@@ -273,7 +273,13 @@ a{
 hr{
   height: 0px;
 }
+.vuoto{
+text-align: center;
+ }
 }
+
+
+
 .nascosto{
   text-decoration: none;
 }

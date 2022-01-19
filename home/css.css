@@ -245,9 +245,12 @@ cellulare
 
 */
 @media screen and (max-width: 502px) {
-  html{
-    overflow-x:hidden;
+  html, body {
+    overflow-x: hidden;
   }
+  body {
+  position: relative
+}
 .titolo{
   padding: 0 20px;
 }

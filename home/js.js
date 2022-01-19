@@ -16,9 +16,6 @@ function checkTime(i) {
   return i;
 }
 
-window.addEventListener("beforeunload", function () {
-  document.body.classList.add("animate-out");
-});
 
 
 //

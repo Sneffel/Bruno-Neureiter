@@ -283,3 +283,9 @@ text-align: center;
 .nascosto{
   text-decoration: none;
 }
+
+@media screen and (max-height: 750px) {
+  #titolo{
+    display: none;
+  }
+}

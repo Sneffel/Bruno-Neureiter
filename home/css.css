@@ -267,15 +267,15 @@ text-align: center;
     display: none;
   }
 }
-  /*
+
 @media screen and (max-height: 750px) {
-  #titolo{
+  /*#titolo{
     display: none;
   }
   #vuoto{
     display: none;
 
-  }
+  }*/
   table{
     margin-top: -300px;
     height:600px;

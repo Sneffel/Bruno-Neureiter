@@ -262,7 +262,12 @@ text-align: center;
 .nascosto{
   text-decoration: none;
 }
-
+@media screen and (max-height: 751px) {
+  #casa{
+    display: none;
+  }
+}
+  /*
 @media screen and (max-height: 750px) {
   #titolo{
     display: none;
@@ -272,10 +277,10 @@ text-align: center;
 
   }
   table{
-    margin-top: -300px; /* half of the height */
+    margin-top: -300px;
     height:600px;
 
-    margin-left: -410px; /* half of the width */
+    margin-left: -410px;
     width:820px;
 
   }
@@ -283,14 +288,13 @@ text-align: center;
 
 @media screen and (max-height: 600px) {
 table{
-  margin-top: revert; /* half of the height */
+  margin-top: revert;
   top: 0;
 
 
 }
 table,tbody,tr,div{
   height: 100% !important;
-  /* min-height: 100% !important; */
 }
 .bigone{
   overflow: scroll !important;

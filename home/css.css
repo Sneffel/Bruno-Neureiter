@@ -82,8 +82,8 @@ table , td, th {
 /*  display: grid;
   grid-template-columns: 1fr 1fr;*/
 }
-.vuoto,input{
-  height:25px;
+.vuoto,input,button{
+  height:24px;
   background-image: url("onde.svg");
 background-color: var(--sfondo);
   background-repeat: repeat;
@@ -150,13 +150,13 @@ top:58px;
 left:10px;
 }
 input,button{
-
+  text-shadow:2px 2px 20px black;
   border: 0px;
 width:100%;
 font-family: 'prototyperegular', Arial, sans-serif;
 font-size: 18px;
 color:var(--testo);
-padding: 12px 20px;
+/**/
 margin: 8px 0;
 box-sizing: border-box;
 
@@ -166,7 +166,9 @@ border: none;
 input:focus{
     outline: none;
 }
-
+input{
+  padding: 0px 10px;
+}
 
 @media screen and (max-width: 1100px) {
 body,.centra,,.bigone,table,tbody,tr,td.,div

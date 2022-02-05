@@ -45,6 +45,7 @@ padding: 16px 20px;
 .scatola {
   background-color: white;
   margin: auto;
+  height:54.5px;
   max-width: 636px;
   text-align: center;
   position: relative;
@@ -96,13 +97,36 @@ padding: 16px 20px;
   visibility: hidden;
   opacity: 0;
 }
+/* SPERIMENRALE*/
+ .scatola:hover .bg{
+height: 300px;
+z-index: 1;
+opacity:0;
+
+      transition-property: height, opacity;
+      transition-duration:0.5s, 0.5s;
+      transition-delay:0s, 0.5s;
+      transition-timing-function:ease-out;
+
+}
+ .scatola .bg{
+  height:54px;
+opacity:1;
+  overflow:visible;
+
+  transition-property: height, opacity;
+  transition-duration:0s, 0.5s;
+  transition-delay:0s, 0s;
+  transition-timing-function:ease-out;
+
+    }
 
 .scatola:hover img.bg-2 {
   filter: invert(1);
   -moz-transition: all 0.5s ease-in;
   -o-transition: all 0.5s ease-in;
   -webkit-transition: all 0.5s ease-in;
-  z-index: 1;
+  z-index: 2;
   visibility: visible;
   opacity: 1;
 }
@@ -113,7 +137,7 @@ padding: 16px 20px;
 	-webkit-transition: all 0.5s ease-in;
 }
 .bg,
-.bg-2 {
+.bg-2{
   pointer-events: none;
   position: absolute;
   top: 50%;
@@ -126,11 +150,13 @@ padding: 16px 20px;
 
 @media screen and (max-width: 550px) {
   .bg,
-  .bg-2 {
+  .bg-2{
     width: 250px;
 		right:-8px;
 
   }
+  .scatola:hover .bg{
+ height: 250px; }
   h2 {
     margin-top: 7px;
     margin-bottom: 11px;
@@ -144,7 +170,7 @@ padding: 16px 20px;
 
 @media screen and (min-width: 551px) {
 	.bg,
-  .bg-2 {
+  .bg-2{
     width: 300px;
   }
 	p{  padding-right: 250px;

@@ -137,7 +137,7 @@ hr{
   margin-bottom: 8px;
   margin-top: 5px;
 }
-@media screen and (max-device-height: 1080px) {
+@media screen and (max-height: 1100px) {
 table{
   height:701.5px;
 }
@@ -169,6 +169,10 @@ input:focus{
 input{
   padding: 0px 10px;
 }
+
+
+
+
 
 @media screen and (max-width: 1100px) {
 body,.centra,,.bigone,table,tbody,tr,td.,div
@@ -243,10 +247,10 @@ word-wrap: break-word;
 word-break: break-word;
 padding: 0px;
 margin:0px;
+padding-top:45px;
 }
-input{
-  margin:10px;
-
+.vuoto{
+display:none;
 }
 a{
   display: inline-flex;
@@ -264,13 +268,13 @@ text-align: center;
 .nascosto{
   text-decoration: none;
 }
-@media screen and (max-height: 751px) {
+@media screen and (max-height: 700px) {
   #casa{
     display: none;
   }
 }
 
-@media screen and (max-height: 750px) {
+@media screen and (max-height: 700px /*& min-width: 1100px*/) {
   /*#titolo{
     display: none;
   }
@@ -282,36 +286,82 @@ text-align: center;
     margin-top: -300px;
     height:600px;
 
-    margin-left: -410px;
-    width:820px;
+    margin-left: -450px;
+    width:900px;
 
   }
 }
 
-/*@media screen and (max-height: 600px) {
+@media screen and (max-width: 1100px) and (max-height:700px){
+
+  table{
+    margin-top: 0;
+    height:100%;
+
+    margin-left:0;
+    width:100%;
+  }
+  .scritte{
+    padding:10px;
+
+  }
+}
+
+
+/* particolare : 100% */
+@media screen and (min-width: 900px) and (max-height:700px){
+.centra{
+  display: revert;
+}
+.bigone,table{
+  height:100%;
+}
 table{
-  margin-top: revert;
-  top: 0;
-
+  margin-top: -50%;
+  height:100%;
+}
+body,.centra,,.bigone,table,tbody,tr,td.,div
+  {
+width:100%;
+  }
+  table{
+    position: revert;
+    top: revert;
+  left:revert;
+    margin:revert;
+    width:100%;
+  }
+  html, body {
+    overflow-x: hidden;
+  }
+  body {
+  position: relative
+}
+.titolo{
+  padding: 0 20px;
+}
+.scritte{
+line-height: 2;
+word-wrap: break-word;
+word-break: break-word;
+padding: 0px;
+margin:0px;
+}
+input{
+  margin:10px;
 
 }
-table,tbody,tr,div{
-  height: 100% !important;
+a{
+  display: inline-flex;
 }
-.bigone{
-  overflow: scroll !important;
-
+hr{
+  height: 0px;
 }
-
-html,body{
-  height: 100%;
+.vuoto{
+text-align: center;
+ }
+}
+/*#casa{
+  display: none;
 }*/
-
-
-
-
-
-
-
-
 }

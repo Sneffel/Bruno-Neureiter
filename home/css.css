@@ -36,7 +36,7 @@ body{
 }
 #home
 {
-  width:200px;
+  width:30%;
 
 }
 b{
@@ -137,7 +137,7 @@ hr{
   margin-bottom: 8px;
   margin-top: 5px;
 }
-@media screen and (max-height: 1100px) {
+@media screen and (max-height: 900px) {
 table{
   height:701.5px;
 }
@@ -194,9 +194,7 @@ display: flex;
   }
   .titolo{
   }
-.immagine{
-  display: none !important;
-}
+
 table{
   position: revert;
   top: revert;
@@ -206,7 +204,7 @@ left:revert;
   width:100%;
 }
 table, td, th {
-	 border:none;
+	/* border:none;*/
 	 border-collapse: revert;
 }
 .titolo{
@@ -231,9 +229,12 @@ user-zoom: fixed;
 cellulare
 
 */
-@media screen and (max-width: 502px) {
+@media screen and (max-width: 550px) {
   html, body {
     overflow-x: hidden;
+  }
+  .immagine{
+    display: none !important;
   }
   body {
   position: relative
@@ -292,7 +293,7 @@ text-align: center;
   }
 }
 
-@media screen and (max-width: 1100px) and (max-height:700px){
+@media screen and (max-width: 700px) and (max-height:700px){
 
   table{
     margin-top: 0;
@@ -307,9 +308,17 @@ text-align: center;
   }
 }
 
+@media screen and (max-height: 700px) and (max-width: 700px) {
+table,.bigone{
+  height:100%;
+  width:100%;
+}
+}
+
+
 
 /* particolare : 100% */
-@media screen and (min-width: 900px) and (max-height:700px){
+@media screen and (min-width: 700px) and (max-height:700px){
 .centra{
   display: revert;
 }
@@ -364,4 +373,21 @@ text-align: center;
 /*#casa{
   display: none;
 }*/
+
+
+
+/* particolare : altezza meno 490 */
+@media screen and (max-height: 490px) {
+#home,.immagine{
+  width:15px;
+}
+.blocco{
+display: inline-block;
+padding:0 5px;
+
+}
+.scritte,.testi{
+  text-align: center;
+}
+
 }

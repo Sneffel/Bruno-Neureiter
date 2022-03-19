@@ -34,7 +34,7 @@ body{
 /*#studio{
   width:200px;
 }*/
-.immagine
+.immagine,#home,#studio
 {
   width:30%;
 
@@ -380,6 +380,7 @@ text-align: center;
 @media screen and (max-height: 490px) {
 #home,#studio,.immagine{
   width:15px;
+
 }
 .blocco{
 display: inline-block;

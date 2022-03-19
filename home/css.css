@@ -378,7 +378,7 @@ text-align: center;
 
 /* particolare : altezza meno 490 */
 @media screen and (max-height: 490px) {
-#home,.immagine{
+#home,#studio,.immagine{
   width:15px;
 }
 .blocco{

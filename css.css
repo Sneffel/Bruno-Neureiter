@@ -1,5 +1,6 @@
 body {
   background-color: #191919;
+    font-family: "Fredoka", sans-serif;
 }
 
 #contenuto {
@@ -19,11 +20,13 @@ body {
 h2 {
   margin-bottom: 30px;
   margin-top: 25px;
+  font-weight: 500;
 }
 
 a {
   text-decoration: none;
-
+  font-weight: 600;
+  color:inherit;
 
 }
 
@@ -33,6 +36,7 @@ p {
   position: relative;
   margin: 0;
   height: 100%;
+  font-weight: 400;
 }
 .scatola a{
   margin: 0;padding:0;
@@ -164,7 +168,8 @@ opacity:1;
   #contenuto {
     margin-top: 15px;
   }
-	p{  padding-right: 180px;
+	p{
+    padding-right: 200px;
 }
 }
 
@@ -173,7 +178,7 @@ opacity:1;
   .bg-2{
     width: 300px;
   }
-	p{  padding-right: 250px;
+	p{  padding-right: 280px;
 }
 }
 .animate-in {

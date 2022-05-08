@@ -18,7 +18,7 @@ button:hover{
 }
 body{
   margin: 0;
-  background-image: url('sfondo.jpg') !important;
+  background-image: url('sfondo.webp') !important;
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -99,10 +99,10 @@ background-color: var(--sfondo);
 
 }
 [id=home]{
-  background: url("home.png");
+  background: url("home.webp");
 }
 [id=studio]{
-  background: url("studio.png");
+  background: url("studio.webp");
 }
 .immagine{
 background-repeat: no-repeat;

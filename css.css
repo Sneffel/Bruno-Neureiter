@@ -1,6 +1,7 @@
 body {
   background-color: #191919;
     font-family: "Fredoka", sans-serif;
+    overflow-x: hidden;
 }
 
 #contenuto {

@@ -1,9 +1,10 @@
 body {
   background-color: #191919;
     font-family: "Fredoka", sans-serif;
-    overflow-x: hidden;
 }
-
+*{
+  overflow: hidden;
+}
 #contenuto {
   margin: 15px;
   text-align: center;

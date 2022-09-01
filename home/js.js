@@ -4,10 +4,15 @@ function startTime() {
   let h = today.getHours();
   let m = today.getMinutes();
   let s = today.getSeconds();
+  const weekday = ["Domenica","Lunedì","Martedì","Mercoledì","Giovedì","Venerdì","Sabato"];
+  let sett = weekday[today.getDay()];
+
   h = checkTime(h);
   m = checkTime(m);
   s = checkTime(s);
   document.getElementById('ora').innerHTML =  h + ":" + m + ":" + s;
+  document.getElementById('sett').innerHTML = sett + ", ";
+
   setTimeout(startTime, 1000);
 }
 

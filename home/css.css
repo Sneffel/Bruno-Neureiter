@@ -114,19 +114,22 @@ width:99px;
 height:172px;
 background-position: center center;
 }
-#ora{
+#info{
   text-align: right;
-  padding-right:10px;
   float: right;
-  letter-spacing:2px;
+  display: inline;
+position: relative;
+/* width: .52em; */
+padding-right:10px;
+position:static;
+}
+#ora{
+  letter-spacing:1.5px;
   font-variant: small-caps;
 
 /*font-family: 'aquire', Arial, sans-serif;*/
-display: inline-block;
-width: .52em;
-text-align: center;
-position: relative;
-right:85px;
+/* position: relative; */
+/* right:85px; */
 color: var(--testo);
 }
 #ciao{

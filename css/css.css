@@ -1,4 +1,10 @@
-body {
+  *{
+    box-sizing: border-box;
+  }
+  html{
+    width: 100vw;
+  }
+  body {
   display: grid;
   place-items: center;
   height: 100vh;
@@ -16,4 +22,7 @@ h1 {
 }
 a{
   text-decoration: none
+}
+a,h1,body{
+  max-width: 100%;
 }

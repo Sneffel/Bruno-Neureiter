@@ -1,29 +1,41 @@
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+let intervals = [];
 
-let interval = null;
+const h1Tags = document.querySelectorAll("h1");
 
-document.querySelector("h1").onmouseover = event => {
-  let iteration = 0;
+h1Tags.forEach(h1 => {
+  let interval = null;
 
-  clearInterval(interval);
+  h1.onmouseover = event => {
+    let iteration = 0;
 
-  interval = setInterval(() => {
-    event.target.innerText = event.target.innerText
-      .split("")
-      .map((letter, index) => {
-        if(index < iteration) {
-          return event.target.dataset.value[index];
-        }
+    clearInterval(interval);
 
-        return letters[Math.floor(Math.random() * 26)]
-      })
-      .join("");
+    interval = setInterval(() => {
+      event.target.innerText = event.target.innerText
+        .split("")
+        .map((letter, index) => {
+          if(index < iteration) {
+            return event.target.dataset.value[index];
+          }
 
-    if(iteration >= event.target.dataset.value.length){
-      clearInterval(interval);
-    }
+          return letters[Math.floor(Math.random() * 26)]
+        })
+        .join("");
 
-    iteration += 1 / 3;
-  }, 30);
-}
+      if(iteration >= event.target.dataset.value.length){
+        clearInterval(interval);
+      }
+
+      iteration += 1 / 3;
+    }, 30);
+
+    intervals.push(interval);
+  }
+
+  h1.onmouseleave = event => {
+    clearInterval(interval);
+    h1.innerText = h1.dataset.value;
+  }
+});

@@ -1,3 +1,7 @@
+:root {
+  --bg-height: 300px;
+}
+
 body {
   background-color: #191919;
   font-family: "Fredoka", sans-serif;
@@ -26,7 +30,7 @@ h2 {
 a {
   text-decoration: none;
   font-weight: 600;
-  color:inherit;
+  color: inherit;
 
 }
 
@@ -38,18 +42,21 @@ p {
   height: 100%;
   font-weight: 400;
 }
-.scatola a{
-  margin: 0;padding:0;
+
+.scatola a {
+  margin: 0;
+  padding: 0;
   pointer-events: auto;
   /* display:inline-block; */
-width:100%;
-height:100%;
-padding: 16px 20px;
+  width: 100%;
+  height: 100%;
+  padding: 16px 20px;
 }
+
 .scatola {
   background-color: white;
   margin: auto;
-  height:54.5px;
+  height: 54.5px;
   max-width: 550px;
   text-align: center;
   position: relative;
@@ -59,12 +66,8 @@ padding: 16px 20px;
   outline-style: solid;
   outline-width: thin;
   outline-color: white;
-  -moz-transition: all 0.5s ease-in;
-  -o-transition: all 0.5s ease-in;
-  -webkit-transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in;
   box-shadow: 4px 3px 8px -1px rgba(0, 0, 0, 1);
-  -webkit-box-shadow: 4px 3px 8px -1px rgba(0, 0, 0, 1);
-  -moz-box-shadow: 4px 3px 8px -1px rgba(0, 0, 0, 1);
   margin-bottom: 15px;
 }
 
@@ -74,9 +77,6 @@ padding: 16px 20px;
   outline-style: solid;
   outline-color: white;
   box-shadow: 4px 3px 20px -11px rgba(255, 255, 255, 1) inset;
-  -webkit-box-shadow: 4px 3px 20px -11px rgba(255, 255, 255, 1) inset;
-  -moz-box-shadow: 4px 3px 20px -11px rgba(255, 255, 255, 1) inset;
-  transition: 0.5s;
 }
 
 .logo {
@@ -86,9 +86,7 @@ padding: 16px 20px;
   top: 50%;
   transform: translateY(-50%);
   left: 10px;
-  -moz-transition: all 0.5s ease-in;
-  -o-transition: all 0.5s ease-in;
-  -webkit-transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in;
 }
 
 .scatola img.bg {
@@ -101,104 +99,137 @@ padding: 16px 20px;
   visibility: hidden;
   opacity: 0;
 }
-/* SPERIMENRALE*/
- .scatola:hover .bg{
-height: 300px;
-z-index: 1;
-opacity:0;
 
-      transition-property: height, opacity;
-      transition-duration:0.5s, 0.5s;
-      transition-delay:0s, 0.5s;
-      transition-timing-function:ease-out;
-
-}
- .scatola .bg{
-  height:54px;
-opacity:1;
-  overflow:visible;
+.scatola:hover .bg {
+  height: var(--bg-height);
+  z-index: 1;
+  opacity: 0;
 
   transition-property: height, opacity;
-  transition-duration:0s, 0.5s;
-  transition-delay:0s, 0s;
-  transition-timing-function:ease-out;
+  transition-duration: 0.5s, 0.5s;
+  transition-delay: 0s, 0.5s;
+  transition-timing-function: ease-out;
 
-    }
+}
+
+.scatola .bg {
+  opacity: 1;
+  overflow: visible;
+  transition-property: height, opacity;
+  transition-duration: 0s, 0.5s;
+  transition-delay: 0s, 0s;
+  transition-timing-function: ease-out;
+
+}
 
 .scatola:hover img.bg-2 {
   filter: invert(1);
-  -moz-transition: all 0.5s ease-in;
-  -o-transition: all 0.5s ease-in;
-  -webkit-transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in;
   z-index: 2;
   visibility: visible;
   opacity: 1;
 }
+
 .scatola:hover img.logo {
-	filter: invert(1);
-	-moz-transition: all 0.5s ease-in;
-	-o-transition: all 0.5s ease-in;
-	-webkit-transition: all 0.5s ease-in;
+  filter: invert(1);
+  transition: all 0.5s ease-in;
 }
+
 .bg,
-.bg-2{
+.bg-2 {
   pointer-events: none;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   right: 10px;
-  -moz-transition: all 0.5s ease-in;
-  -o-transition: all 0.5s ease-in;
-  -webkit-transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in;
+  width: var(--bg-height);
+}
+
+.scatola:hover .bg {
+  height: var(--bg-height);
 }
 
 @media screen and (max-width: 550px) {
-  .bg,
-  .bg-2{
-    width: 250px;
-		right:-8px;
-
+  :root {
+    --bg-height: 250px;
   }
-  .scatola:hover .bg{
- height: 250px; }
+
   h2 {
     margin-top: 7px;
     margin-bottom: 11px;
   }
+
   #contenuto {
     margin-top: 15px;
   }
-	p{
+
+  p {
     padding-right: 200px;
-}
+  }
 }
 
 @media screen and (min-width: 551px) {
-	.bg,
-  .bg-2{
-    width: 300px;
+  :root {
+    --bg-height: 300px;
   }
-	p{  padding-right: 280px;
+
+  p {
+    padding-right: 280px;
+  }
 }
+
+@media screen and (max-width: 400px) {
+  :root {
+    --bg-height: 200px;
+  }
+
+
+  p {
+    padding-right: 150px;
+  }
 }
+
+@media screen and (max-width: 400px) {
+  :root {
+    --bg-height: 150px;
+  }
+
+  p {
+    padding-right: 100px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  :root {
+    --bg-height: 75px;
+  }
+
+  p {
+    padding-right: 50px;
+  }
+}
+
+/* p {
+  padding-right: calc(var(--bg-height)/2 - 50px) !important;
+} */
 .animate-in {
-    -webkit-animation: fadeIn .5s ease-in;
-    animation: fadeIn .5s ease-in;
-    background-color: #000;
+  animation: fadeIn .5s ease-in;
+  background-color: #000;
 }
 
 .animate-out {
-    -webkit-transition: opacity .5s;
-    transition: opacity .5s;
-    opacity: 0;
+  transition: opacity .5s;
+  opacity: 0;
 }
 
-@-webkit-keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }

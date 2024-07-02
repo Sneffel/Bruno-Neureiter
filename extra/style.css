@@ -55,5 +55,5 @@ p {
 
 ul {
     list-style-position: inside;
-    list-style-type: lower-greek;
+    /* list-style-type: lower-greek; */
 }

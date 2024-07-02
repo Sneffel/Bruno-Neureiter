@@ -1,30 +1,38 @@
-  *{
+  * {
     box-sizing: border-box;
   }
-  html{
-    width: 100vw;
-    height:100vw;
-  }
-  body {
-  display: grid;
-  place-items: center;
-  height: 100vh;
-  background-color: black;
-  margin: 0rem;
-  overflow: hidden;
-}
 
-h1 {
-  font-family: 'Space Mono', monospace;
-  font-size: clamp(3rem, 10vw, 10rem);
-  color: white;
-}
-.cont{
+  h1,
+  h2,
+  h3 {
+    font-family: 'Space Mono', monospace;
+
+  }
+
+  body {
+    display: grid;
+    place-items: center;
+    /* height: 100vh; */
+    background-color: black;
+    margin: 0rem;
+    /* overflow: hidden; */
+    color: white;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5.5vw, 15rem);
+  }
+
+  .cont {
     padding: 0rem clamp(1rem, 2vw, 3rem);
-}
-a{
-  text-decoration: none
-}
-a,h1,body{
-  max-width: 100%;
-}
+  }
+
+  a {
+    text-decoration: none
+  }
+
+  a,
+  h1,
+  body {
+    max-width: 100%;
+  }

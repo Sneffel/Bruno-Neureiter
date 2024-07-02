@@ -101,3 +101,7 @@ h1{
 span.line {
     display: inline-block;
 }
+p {
+    text-wrap: pretty;
+  }
+  

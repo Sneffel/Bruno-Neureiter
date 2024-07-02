@@ -33,3 +33,7 @@ h1,
 body {
   max-width: 100%;
 }
+
+span.line {
+  display: inline-block;
+}

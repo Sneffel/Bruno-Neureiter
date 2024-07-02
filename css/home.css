@@ -5,7 +5,6 @@
   background-color: #2d2d2d;
   color: #fff;
 }
-
 body {
   display: grid;
   place-items: center;
@@ -15,13 +14,15 @@ body {
 
 h1 {
   font-size: clamp(2rem, 5.5vw, 15rem);
-  color: white;
 }
 
 h1,
 h2,
-h3 {
+h3,
+h4,
+h5 {
   font-family: 'Space Mono', monospace;
+  color: #fff
 }
 
 .cont {
@@ -37,4 +38,3 @@ h1,
 body {
   max-width: 100%;
 }
-

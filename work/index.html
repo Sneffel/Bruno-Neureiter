@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Bruno Neureiter - Work</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Rubik:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/home.css">
+</head>
+<body style="height:100svh">
+  <div class="cont">
+    <a href="../web/">
+      <h1 data-value="web">web</h1>
+    </a>
+    <a style="cursor: pointer;" onclick="decodeEmail()">
+      <h1 data-value="contact">contact</h1>
+    </a>
+    <a href="../">
+      <h1 data-value="return">return</h1>
+    </a>
+  </div>
+
+  <script src="../js/js2.js"></script>
+  <script>
+function decodeEmail() {
+    let coded = "6369616f406272756e6f6e65757265697465722e636f6d";
+    let key = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@.";
+    let email = '';
+
+    for (let i = 0; i < coded.length; i += 2) {
+        let hexPair = coded.substr(i, 2);
+        email += String.fromCharCode(parseInt(hexPair, 16));
+    }
+
+    url = 'mailto:' + email + "?subject=Ciao!";
+    console.log(url)
+    window.location.href = url;
+    
+}
+
+
+</script>
+</body>
+</html>

@@ -5,105 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Work Warehouse</title>
-    <link rel="stylesheet" href="../css/css.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #000;
-            color: #ffffff;
-            
-        }
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/web.css">
 
-        .tiles.container {
-            max-width: 1200px;
-            padding: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .tile {
-            background: #1e1e1e;
-            border: 1px solid #333;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-            overflow: hidden;
-            flex: 1 1 calc(50% - 20px);
-            display: flex;
-            flex-direction: column;
-            position: relative;
-  font-family: 'Space Mono', monospace;
-        }
-
-        .tile .image-wrapper {
-            position: relative;
-            width: 100%;
-        }
-
-        .tile img {
-            width: 100%;
-            height: auto;
-            transition: filter .5s;
-            display: block;
-        }
-
-        .tile .image-wrapper:hover img {
-            filter: brightness(.3);
-        }
-
-        .tile .content {
-            padding: 15px;
-        }
-
-        .tile h2 {
-            margin: 0 0 10px 0;
-            font-size: 1.5em;
-            color: #ffffff;
-        }
-
-        .tile p {
-            margin: 0;
-            color: #cccccc;
-        }
-
-        .open-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(255, 255, 255, 0.8);
-            color: #121212;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .image-wrapper:hover .open-btn {
-            opacity: 1;
-        }
-
-        @media (max-width: 768px) {
-            .tile {
-                flex: 1 1 100%;
-            }
-        }
-        h1{
-            font-size: clamp(2rem, 5.5vw, 15rem);
-        }
-    </style>
 </head>
 
 <body>
     <div class="container text-center mt-4">
-        <h1>Web Work Ware<wbr>house</h1>
-        <h2><span class="line">Vetrina</span> <span class="line">dei lavori</span> <span class="line">sul web</span></h2>
+        <h1 class="fw-bold">Web Work Warehouse</h1>
+        <h2><span class="line">Vetrina</span> <span class="line">dei lavori</span> <span class="line">sul web</span>
+        </h2>
     </div>
     <div class="tiles container d-flex justify-content-center">
         <div class="tile">
@@ -135,7 +48,8 @@
                 <h2>Bare Shop</h2>
                 <p>Negozio di vendita articoli online<br>Pulsante tema chiaro/scuro</p>
             </div>
-        </div>  <div class="tile">
+        </div>
+        <div class="tile">
             <div class="image-wrapper">
                 <img src="img/quiz-ss.webp" alt="Website Screenshot">
                 <a class="open-btn btn btn-dark" href="https://easycpm.altervista.org/giochi/quiz/">Apri</a>
@@ -145,7 +59,7 @@
                 <p>Numerose sezioni e opzioni<br>Modalità sfida in tempo reale</p>
             </div>
         </div>
-        
+
     </div>
 </body>
 

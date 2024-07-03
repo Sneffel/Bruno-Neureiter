@@ -14,8 +14,9 @@
 
 <body>
     <div class="container text-center mt-4">
-        <h1 class="fw-bold">Web Work Warehouse</h1>
-        <h2><span class="line">Vetrina</span> <span class="line">di alcuni</span> <span class="line">lavori sul web</span>
+        <h1 class="fw-bold overflow-hidden">Web Work Warehouse</h1>
+        <h2><span class="line">Vetrina</span> <span class="line">di alcuni miei</span> <span class="line">lavori sul
+                web</span>
         </h2>
     </div>
     <div class="tiles container d-flex justify-content-center">
@@ -51,17 +52,59 @@
         </div>
         <div class="tile">
             <div class="image-wrapper">
-                <img src="img/quiz-ss.webp" alt="Website Screenshot">
+                <img src="img/easycpm.webp" alt="Website Screenshot">
+                <a class="open-btn btn btn-dark" href="https://easycpm.altervista.org/">Apri</a>
+            </div>
+            <div class="content">
+                <h2>EasyCPM</h2>
+                <p>Sistema migliorato di prenotazione tematica, con promemoria</p>
+            </div>
+        </div>
+        <div class="tile">
+            <div class="image-wrapper">
+                <img src="img/quiz.webp" alt="Website Screenshot">
                 <a class="open-btn btn btn-dark" href="https://easycpm.altervista.org/giochi/quiz/">Apri</a>
             </div>
             <div class="content">
-                <h2>Quiz online</h2>
-                <p>Inserimento, più modalità e opzioni<br>Modalità sfida in tempo reale</p>
+                <h2>Quiz</h2>
+                <p>Più modalità di gioco e inserimento, personalizzazione<br>Modalità sfida in tempo reale</p>
             </div>
         </div>
-
+        <div class="tile">
+            <div class="image-wrapper">
+                <img src="img/shrph.webp" alt="Website Screenshot">
+                <a class="open-btn btn btn-dark" href="https://shrph.altervista.org/">Apri</a>
+            </div>
+            <div class="content">
+                <h2>Condivisione immagini</h2>
+                <p>Area privata, modifica immagini, riconoscimento AI<br>Gestionale, multilingua</p>
+            </div>
+        </div>
+    </div>
+    <div class="my-5 cont">
+        <h1 onclick="decodeEmail()" id="email" style="cursor: pointer;" data-value="contact">contact</h1>
+        <a href="../">
+            <h1 class="pt-5" data-value="return">return</h2>
+        </a>
     </div>
     <script src="../js/js2.js"></script>
+    <script>
+        function decodeEmail() {
+            let coded = "6369616f406272756e6f6e65757265697465722e636f6d";
+            let key = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@.";
+            let email = '';
+      
+            for (let i = 0; i < coded.length; i += 2) {
+                let hexPair = coded.substr(i, 2);
+                email += String.fromCharCode(parseInt(hexPair, 16));
+            }
+      
+            url = 'mailto:' + email + "?subject=Ciao!";
+            console.log(url)
+            window.location.href = url;
+            
+        }
+        </script>
 </body>
 
 </html>

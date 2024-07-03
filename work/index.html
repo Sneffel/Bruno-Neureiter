@@ -26,21 +26,21 @@
 
   <script src="../js/js2.js"></script>
   <script>
-function decodeEmail() {
-    let coded = "6369616f406272756e6f6e65757265697465722e636f6d";
-    let key = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@.";
-    let email = '';
+  function decodeEmail() {
+      let coded = "6369616f406272756e6f6e65757265697465722e636f6d";
+      let key = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@.";
+      let email = '';
 
-    for (let i = 0; i < coded.length; i += 2) {
-        let hexPair = coded.substr(i, 2);
-        email += String.fromCharCode(parseInt(hexPair, 16));
-    }
+      for (let i = 0; i < coded.length; i += 2) {
+          let hexPair = coded.substr(i, 2);
+          email += String.fromCharCode(parseInt(hexPair, 16));
+      }
 
-    url = 'mailto:' + email + "?subject=Ciao!";
-    console.log(url)
-    window.location.href = url;
-    
-}
-</script>
+      url = 'mailto:' + email + "?subject=Ciao!";
+      console.log(url)
+      window.location.href = url;
+      
+  }
+  </script>
 </body>
 </html>

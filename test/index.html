@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <style>
+        body {
+            height: 100dvh;
+            display: flex;
+            justify-content: center;
+            /* align-content: center; */
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div data-relative-input="true" id="scene">
+        <div data-depth="0.2">My first Layer!</div>
+        <div data-depth="0.6">My second Layer!</div>
+    </div>
+    <script>
+        var scene = document.getElementById('scene');
+        var parallaxInstance = new Parallax(scene);
+    </script>
+</body>
+
+</html>

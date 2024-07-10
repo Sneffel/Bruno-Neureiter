@@ -14,12 +14,13 @@
 
 <body>
     <div class="container text-center mt-4">
-        <h1 class="fw-bold overflow-hidden">Web Work Warehouse</h1>
-        <h2><span class="line">Vetrina</span> <span class="line">di alcuni miei</span> <span class="line">lavori sul
+        <h1 class="fw-bold overflow-hidden rellax" data-rellax-speed=".5">Web Work Warehouse</h1>
+        <h2 class="rellaxdown2"><span class="line">Vetrina</span> <span class="line">di alcuni miei</span> <span
+                class="line">lavori sul
                 web</span>
         </h2>
     </div>
-    <div class="tiles container d-flex justify-content-center">
+    <div id="showcase" class="tiles container d-flex justify-content-center">
         <div class="tile">
             <div class="image-wrapper">
                 <img src="img/gg.webp" alt="Website Screenshot">
@@ -82,7 +83,8 @@
         </div>
     </div>
     <div class="my-5 cont">
-        <h1 class="buttons" onclick="decodeEmail()" id="email" style="cursor: pointer;" data-value="contact">contact</h1>
+        <h1 class="buttons" onclick="decodeEmail()" id="email" style="cursor: pointer;" data-value="contact">contact
+        </h1>
         <a href="../">
             <h1 class="pt-5 buttons" data-value="return">return</h2>
         </a>
@@ -93,18 +95,32 @@
             let coded = "6369616f406272756e6f6e65757265697465722e636f6d";
             let key = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@.";
             let email = '';
-      
+
             for (let i = 0; i < coded.length; i += 2) {
                 let hexPair = coded.substr(i, 2);
                 email += String.fromCharCode(parseInt(hexPair, 16));
             }
-      
+
             url = 'mailto:' + email + "?subject=Ciao!";
             console.log(url)
             window.location.href = url;
-            
+
         }
-        </script>
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
+
+    <script>
+        //https://github.com/dixonandmoe/rellax
+        new Rellax('.rellaxdown2', {
+            // center: true,
+            speed: -2,
+
+        });
+        new Rellax('.rellax');
+    </script>
+
+    <!-- <script src="overlap.js"></script> -->
+    <!-- <script src="overlap2.js"></script> -->
 </body>
 
 </html>

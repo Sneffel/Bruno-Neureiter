@@ -1,10 +1,12 @@
 * {
     box-sizing: border-box;
-  }
+}
+
 ::selection {
     background-color: #2d2d2d;
     color: #fff;
 }
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -12,23 +14,33 @@ body {
     background-color: #000;
     color: #ffffff;
     line-height: 1.2;
-    
+
 }
-.overflow-hidden{
+
+.overflow-hidden {
     overflow: hidden !important;
 }
-h1,h2,h3,h4{
-    color:#fff;
+
+h1,
+h2,
+h3,
+h4 {
+    color: #fff;
     max-width: 100vw;
     max-width: calc(100vw - 12px * 2);
 }
-h1{
+
+h1 {
     line-height: .75;
 
 }
-h2,h3,h4{
+
+h2,
+h3,
+h4 {
     line-height: 1;
 }
+
 .tiles.container {
     max-width: 1200px;
     padding: 20px;
@@ -36,7 +48,9 @@ h2,h3,h4{
     flex-wrap: wrap;
     gap: 20px;
 }
-
+.darken {
+    filter: brightness(0.7); /* Adjust brightness level as needed */
+  }
 .tile {
     background: #1e1e1e;
     border: 1px solid #333;
@@ -47,8 +61,12 @@ h2,h3,h4{
     display: flex;
     flex-direction: column;
     position: relative;
-font-family: 'Space Mono', monospace;
+    font-family: 'Space Mono', monospace;
+    position: sticky;
+    top: 1rem;
+    transition: filter 0.3s ease;
 }
+
 
 .tile .image-wrapper {
     position: relative;
@@ -105,17 +123,20 @@ font-family: 'Space Mono', monospace;
         flex: 1 1 100%;
     }
 }
-h1{
+
+h1 {
     font-size: clamp(3rem, 5.5vw, 15rem);
     font-weight: bold;
 }
-.buttons{
-  font-size: clamp(2rem, 5.5vw, 15rem);
+
+.buttons {
+    font-size: clamp(2rem, 5.5vw, 15rem);
 }
+
 span.line {
     display: inline-block;
 }
+
 p {
     text-wrap: pretty;
-  }
-  
+}

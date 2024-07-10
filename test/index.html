@@ -5,27 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parallax</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
     <style>
-        body {
-            height: 100dvh;
-            display: flex;
-            justify-content: center;
-            /* align-content: center; */
-            align-items: center;
-        }
+
     </style>
 </head>
 
 <body>
-    <div  id="scene">
-        <div data-depth="0.2">My first Layer!</div>
-        <div data-depth="0.6">My second Layer!</div>
-    </div>
-    <script>
-        var scene = document.getElementById('scene');
-        var parallaxInstance = new Parallax(scene);
-    </script>
+<img class="rellax" src="https://picsum.photos/400/500" data-rellax-speed="-4" data-rellax-zindex="2">
+
+  <div class="rellax" data-rellax-speed="-7" data-rellax-percentage="0.5" data-rellax-zindex="5">
+    I’m super fast!! And super centered!!
+  </div>
+
+      <img class="rellax" src="https://picsum.photos/300/300" data-rellax-speed="2" data-rellax-zindex="2">
+      <div class="rellax" data-rellax-percentage="0.5">
+        I’m that default chill speed of "-2" and "centered"
+      </div>
+      <img class="rellax" src="https://picsum.photos/850/450" data-rellax-speed="7" data-rellax-zindex="2">
+
+      <div class="rellax" data-rellax-speed="-4" data-rellax-percentage="0.5">
+        I’m extra slow and smooth, and hella centered.
+      </div>
+<script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
+<script>
+  var rellax = new Rellax('.rellax', {
+    center: true,
+    
+  });
+</script>
 </body>
 
 </html>

@@ -407,7 +407,7 @@ a.yt-link{
         background-position-y: 90%;
         min-height: 400px;
     
-        background-attachment:local;
+        /* background-attachment:local; */
     
     }
     div.insta {

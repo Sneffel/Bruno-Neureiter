@@ -26,7 +26,7 @@ img {
     background-size: cover;
     background-position-x: center;
     background-position-y: 33%;
-    background-image: url('img/Thecheriemag\ -\ TG\ -\ @FrenzyLeaked\ \(1118\).jpeg');
+    background-image: url('assets/1118.webp');
     height: 600px;
     min-height: 100vh;
     min-height: 100lvh;
@@ -237,7 +237,7 @@ span.line {
 .bg2 {
     background-size: cover;
     background-position-x: center;
-    background-image: url('img/Thecheriemag\ -\ TG\ -\ @FrenzyLeaked\ \(625\).jpeg');
+    background-image: url('assets/625.webp');
     min-height: 100vh;
     min-height: 100lvh;
     background-position-y: 33%;
@@ -362,13 +362,13 @@ filter: grayscale(1);
 
 
 img.parallax {
-	height: min(50vh,250px);
+	height: min(50vh,350px);
 	object-fit: cover;
 	width: 100%;
 }
 
 .container-fluid.youtube{
-    background-image: url("img/Thecheriemag - TG - @FrenzyLeaked (545).jpeg");
+    background-image: url("assets/545.webp");
     background-size: cover;
     background-position-x: right;
     background-position-y: 90%;

@@ -1,222 +1,170 @@
 body {
     background-color: #000;
     line-height: 1;
+    color: var(--offwhite)
+}
+html,body{
+    overflow-x: hidden;
 }
 
 :root {
+    --offwhite: hsl(0, 35%, 92%);
+    
     --dark-red: hsl(345, 25%, 33%);
+    --light-red: hsl(343, 30%, 52%);
+    --light-blue: hsl(195, 18%, 55%);
+    --dark-blue: hsl(214, 14%, 23%);
+    
+
+    --gr1: linear-gradient(45deg, var(--light-blue) 0%, var(--light-blue) 27%, var(--dark-red) 100%);
+    --gr2: linear-gradient(45deg, var(--dark-blue) 0%, var(--dark-blue) 27%, var(--dark-red) 100%);
+    --gr3: linear-gradient(45deg, var(--light-blue) 0%, var(--light-blue) 27%, var(--light-red) 100%);
+    --gr4: linear-gradient(45deg, var(--dark-blue) 0%, var(--dark-blue) 27%, var(--light-blue) 100%);
+
+    --lifestyle-fs: 100px;
+    --lifestyle-fs: clamp(4rem, 15vw, 10rem)
 }
 
+
 ::selection {
-    color: white;
-    background: var(--dark-red);
+    color: var(--offwhite);
+    background: var(--dark-red)
+}
+
+.gr1 {
+    background: var(--light-blue);
+    background: var(--gr1)
+}
+
+.gr2 {
+    background: var(--dark-blue);
+    background: var(--gr2)
 }
 
 #title {
-    color: white;
-    font-size: clamp(3rem, 9vw, 22em);
+    color: var(--offwhite);
+    font-size: clamp(3rem, 14vw, 10em);
     font-weight: bolder;
-    mix-blend-mode: difference;
-    line-height: 1;
+    line-height: .6;
     padding-top: clamp(3rem, 50svh, 17rem);
 }
 
 #title+p {
-    mix-blend-mode: difference;
-
+    font-size: 2rem;
+    font-size: clamp(1.2rem, 4vw, 2.5em);
+    margin-top: clamp(2px, 4svw, 1.5rem);
 }
 
 img {
     width: 100%;
-    user-select: none !important;
+    user-select: none !important
 }
 
 .bg-title {
     background-size: cover;
     background-position-x: center;
     background-position-y: 33%;
-    background-image: url('assets/1118.webp');
+    background-image: url(assets/title-bg.webp);
     height: 600px;
     min-height: 100vh;
     min-height: 100lvh;
     overflow-y: hidden;
+    filter: contrast(1.2);
 }
 
+#hand-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: 33%;
+    background-image: url(assets/hand-overlay3.webp);
+    height: 100%;
+    
+}
 
 .girlinmotion {
-    /* max-height: 80svh; */
     height: 100%;
     object-fit: cover;
-    /* min-width: 180px; */
-    width: auto;
-
-}
-
-.glow {
-    &::after {
-        content: "";
-        position: absolute;
-        inset: -3rem;
-        z-index: -1;
-        background: radial-gradient(hsl(0 0% 100% / 0.5), transparent 70%);
-        aspect-ratio: 1;
-        /* max-height: 100%; */
-        max-width: 100vw;
-        max-width: 100dvw;
-    }
-}
-
-.max-height {
-    max-height: 100vh;
-    max-height: 100lvh;
-}
-
-
-
-@keyframes subtleMove {
-    0% {
-        transform: rotate(0deg) translate(0, 0);
-    }
-
-    10% {
-        transform: rotate(1deg) translate(2px, 2px);
-    }
-
-    20% {
-        transform: rotate(2deg) translate(4px, 4px);
-    }
-
-    30% {
-        transform: rotate(1deg) translate(3px, 3px);
-    }
-
-    40% {
-        transform: rotate(0deg) translate(1px, 1px);
-    }
-
-    50% {
-        transform: rotate(-1deg) translate(2px, 2px);
-    }
-
-    60% {
-        transform: rotate(-2deg) translate(4px, 4px);
-    }
-
-    70% {
-        transform: rotate(-1deg) translate(3px, 3px);
-    }
-
-    80% {
-        transform: rotate(0deg) translate(1px, 1px);
-    }
-
-    90% {
-        transform: rotate(1deg) translate(2px, 2px);
-    }
-
-    100% {
-        transform: rotate(0deg) translate(0, 0);
-    }
-}
-
-@keyframes randomMove {
-    0% {
-        transform: translate(0, 0);
-    }
-
-    25% {
-        transform: translate(1px, 1px);
-    }
-
-    50% {
-        transform: translate(0, 0);
-    }
-
-    75% {
-        transform: translate(-1px, -1px);
-    }
-
-    100% {
-        transform: translate(0, 0);
-    }
+    width: auto
 }
 
 .subtleMove {
-    animation: subtleMove 10s infinite ease-in-out;
+    animation: subtleMove 10s infinite ease-in-out
 }
 
 p {
     text-wrap: balance;
     text-wrap: pretty;
-    line-height: 1;
+    line-height: 1
 }
 
 span.line {
     display: inline-block;
-    width: max-content;
+    width: max-content
 }
 
-:root {
-    --lifestyle-fs: 100px;
-    --lifestyle-fs: clamp(4rem, 15vw, 10rem);
-}
 
+#fashion,
 #lifestyle,
 #modelling,
-#travelling,
-#fashion {
+#travelling {
     display: block;
     mix-blend-mode: difference;
-    filter: contrast(50%) brightness(150%);
-    animation: randomMove 0.5s infinite alternate;
+    animation: randomMove .5s infinite alternate;
     animation-duration: 4s;
-    transition: animation-duration 0.5s ease;
+    transition: animation-duration .5s ease
 }
 
 #interests:hover span {
-    animation-duration: 2s;
+    animation-duration: 2s
+}
+
+#interests {
+    background: var(--gr4);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: contrast(90%) brightness(225.2%) drop-shadow(1px 1px 4px hsla(255, 0%, 0%, 0))
 }
 
 #lifestyle {
     font-size: var(--lifestyle-fs);
-    line-height: 0.3;
-    animation-delay: 0.5s;
+    line-height: .3;
+    animation-delay: .5s
 }
 
 #modelling {
-    font-size: calc(var(--lifestyle-fs) * 0.822);
+    font-size: calc(var(--lifestyle-fs) * .822);
     line-height: 1;
-    animation-delay: 1s;
+    animation-delay: 1s
 }
 
 #travelling {
-    font-size: calc(var(--lifestyle-fs) * 0.821);
-    line-height: 0.3;
-    animation-delay: 1.5s;
+    font-size: calc(var(--lifestyle-fs) * .821);
+    line-height: .3;
+    animation-delay: 1.5s
 }
 
 #fashion {
     font-size: calc(var(--lifestyle-fs) * 1.1275);
-    line-height: 0.8;
-    animation-delay: 0s;
+    line-height: .8;
+    animation-delay: 0s
 }
-
-
 
 .min-height {
     height: min-content !important
 }
-
 
 .background-video {
     width: 100%;
     max-height: 100vh;
     max-height: 100lvh;
     overflow: hidden;
-    position: relative;
-    /* z-index: -2; */
+    position: relative
 }
-
 
 .bgVideo {
     position: fixed;
@@ -225,33 +173,33 @@ span.line {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Ensures the video covers the entire container */
-    /* z-index: -3; */
-    filter: blur(10px);
-    /* Adjust blur intensity as needed */
+    filter: blur(10px)
 }
 
 .background-video div.container img {
     transition: 1s ease-in-out;
-    opacity: .8;
+    opacity: .9;
     cursor: help;
-    filter: contrast(1.2);
+    filter: contrast(1.2)
 }
 
 .background-video div.container img:hover {
-    opacity: 1;
+    opacity: 1
 }
 
+.opacity-33 {
+    opacity: 33% !important
+}
 
 .bg2 {
     background-size: cover;
     background-position-x: center;
-    background-image: url('assets/625.webp');
+    background-image: url(assets/625.webp);
     min-height: 100vh;
     min-height: 100lvh;
     background-position-y: 33%;
     background-position-x: left;
-    background-attachment: fixed;
+    background-attachment: fixed
 }
 
 #endVid {
@@ -260,30 +208,21 @@ span.line {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover
 }
 
 .background-video.sunset {
     position: relative;
-    /* Ensure the container is positioned */
     width: 100vw;
-    /* Full viewport width */
-    overflow: hidden;
-    /* Ensure video doesn't overflow */
+    overflow: hidden
 }
 
 .instagram-media {
     width: 600px !important;
     max-height: calc(100svh - 2rem);
     max-width: calc(100vw - 10rem) !important;
-    /* position: absolute; */
-    /* top: 1rem; */
-    /* right: 1rem; */
-    aspect-ratio: 698 / 931;
-    /* order: 0;
-    flex: 0 1 auto;
-    align-self: auto; */
-    border: initial !important;
+    aspect-ratio: 698/931;
+    border: initial !important
 }
 
 div.insta,
@@ -292,25 +231,24 @@ div.youtube div.yt {
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    align-content: center;
+    align-content: center
 }
 
-
 .cursor-pointer {
-    cursor: pointer;
+    cursor: pointer
 }
 
 @keyframes movePropic {
     0% {
-        transform: rotate(0deg);
+        transform: rotate(0)
     }
 
     50% {
-        transform: rotate(180deg);
+        transform: rotate(180deg)
     }
 
     100% {
-        transform: rotate(0deg);
+        transform: rotate(0)
     }
 }
 
@@ -318,15 +256,14 @@ div.youtube div.yt {
     height: 156px;
     width: 156px;
     border-radius: 100%;
-    position: relative;
-
+    position: relative
 }
 
-img[alt="propic"] {
+img[alt=propic] {
     height: 150px;
     width: 150px;
     outline-offset: 3px;
-    outline: hsl(0, 0%, 31%) 2px solid;
+    outline: #4f4f4f 2px solid
 }
 
 .propic .bg {
@@ -334,137 +271,133 @@ img[alt="propic"] {
     width: 156px;
     animation: movePropic 5s linear infinite;
     position: absolute;
-    background: linear-gradient(45deg,
-            rgba(245, 160, 77, 1) 0%,
-            rgba(160, 15, 139, 1) 100%);
+    background: linear-gradient(45deg, rgba(245, 160, 77, 1) 0, rgba(160, 15, 139, 1) 100%)
 }
 
 .instastuff div:hover .propic .bg,
 .yt-link img {
-    animation-duration: 2s;
+    animation-duration: 2s
 }
 
+#email,
 .propic img,
 .propic+p,
-.yt-link p,
-#email {
+.yt-link p {
     transition: 1s;
-    user-select: none;
-
+    user-select: none
 }
 
 .instastuff div:hover .propic img,
 .yt-link:hover img {
     outline-offset: 10px !important;
-    filter: brightness(1.05) contrast(1.1);
-
-
+    filter: brightness(1.05) contrast(1.1)
 }
 
 .instastuff div:hover .propic+p,
 .yt-link:hover p {
     font-weight: 400;
-    letter-spacing: 1px;
+    letter-spacing: 1px
 }
 
 .yt-link img {
-    filter: grayscale(1);
+    filter: grayscale(1)
 }
 
 .yt-link:hover img {
     filter: grayscale(0);
-    outline-color: hsl(345, 25%, 33%);
-
+    outline-color: #693f49
 }
-
 
 img.parallax {
     height: min(50vh, 350px);
     object-fit: cover;
-    width: 100%;
+    width: 100%
 }
 
 .container-fluid.youtube {
-    background-image: url("assets/545.webp");
+    background-image: url(assets/545.webp);
     background-size: cover;
     background-position-x: right;
     background-position-y: 90%;
     min-height: 600px;
-    background-attachment: fixed;
-
+    background-attachment: fixed
 }
 
 div.youtube div.yt {
     justify-content: end;
+    /* gap: 3rem; */
 }
 
-a.yt-link {
-    color: #fff;
-    text-shadow: -1px -1px 4px hsla(0, 0%, 0%, 90%);
-
+a.yt-link, #vid_control {
+    color: var(--offwhite);
+    text-shadow: 1px 2px 4px hsla(0, 0%, 0%, 90%);
+    transition: 200ms cubic-bezier(0.175, 0.885, 0.32, 2.575);
 }
-
+#vid_control:hover{
+    scale: 1.1;
+}
 .instagrow {
-    flex-grow: 1;
-
+    flex-grow: 1
 }
-
+.w-90{
+    width: 90% !important;
+}
 #youtube_video {
     max-width: 100vw;
     width: 50%;
     aspect-ratio: 16/9;
     height: initial;
+    transition: .2s ease-in-out;
 }
 
 
 
-@media all and (max-width: 1300px) {
+
+@media all and (max-width:1300px) {
     #youtube_video {
-        width: 66%;
+        width: 66%
     }
 }
 
-@media all and (max-width: 580px) {
-
+@media all and (max-width:580px) {
     .container-fluid.youtube {
         background-position-x: right;
         background-position-y: 90%;
-        min-height: 400px;
-
-        /* background-attachment:local; */
-
+        min-height: 400px
     }
 
     div.insta {
         flex-direction: column;
-        justify-content: center;
-
+        justify-content: center
     }
 
     #contact-block {
-        padding: 5rem 0;
+        padding: 5rem 0
     }
-
-
 }
 
-@media all and (max-width: 860px) {
-
-
+@media all and (max-width:860px) {
     div.youtube div.yt {
-        justify-content: center;
+        justify-content: center
     }
 
     div.youtube div.yt {
-        flex-direction: column;
+        flex-direction: column
     }
 
     #youtube_video {
-        width: 100%;
+        width: 100%
     }
 
     div.background-video.end div.container {
-        flex-direction: column-reverse;
+        flex-direction: column-reverse
+    }
+}
+
+@media all and (max-width: 1238px) and (max-height: 842px),
+       all and (max-height: 600px) {
+    #hand-overlay {
+        display: none;
     }
 }
 
@@ -472,19 +405,16 @@ a.yt-link {
 #email:hover,
 .fakeemail {
     font-weight: 400;
-    letter-spacing: 1px;
-
+    letter-spacing: 1px
 }
 
 #email {
     text-decoration: none;
-    color: whitesmoke;
+    color: var(--offwhite)
 }
 
-
-/* https://stackoverflow.com/questions/45847392/pure-css-continuous-horizontal-text-scroll-without-break */
 :root {
-    --animation-duration: 60s;
+    --animation-duration: 70s
 }
 
 .loop {
@@ -493,29 +423,153 @@ a.yt-link {
     overflow: hidden;
     position: absolute;
     text-transform: uppercase;
-    transform: translateY(-25%) !important;
+    transform: translateY(-50%);
     font-size: 4rem;
     user-select: none;
+    color: var(--offwhite);
 }
 
 .loop span {
     display: inline-block;
     padding-left: 100%;
     animation: loop var(--animation-duration) linear infinite;
-    animation-delay: calc(-.5 * var(--animation-duration));
+    animation-delay: calc(-.5 * var(--animation-duration))
 }
 
 .loop2 span {
-    /* animation-delay: 2.5s; */
-    animation-delay: 0s;
+    animation-delay: 0s
 }
 
 @keyframes loop {
     0% {
-        transform: translate(0, 0);
+        transform: translate(0, 0)
     }
 
     100% {
-        transform: translate(-100%, 0);
+        transform: translate(-100%, 0)
     }
 }
+
+.max-height {
+    max-height: 100vh;
+    max-height: 100lvh
+}
+
+.w-max {
+    width: max-content !important;
+    max-width: 100%
+}
+.w-min {
+    width: min-content !important;
+    max-width: 100%
+}
+
+@keyframes subtleMove {
+    0% {
+        transform: rotate(0) translate(0, 0)
+    }
+
+    10% {
+        transform: rotate(1deg) translate(2px, 2px)
+    }
+
+    20% {
+        transform: rotate(2deg) translate(4px, 4px)
+    }
+
+    30% {
+        transform: rotate(1deg) translate(3px, 3px)
+    }
+
+    40% {
+        transform: rotate(0) translate(1px, 1px)
+    }
+
+    50% {
+        transform: rotate(-1deg) translate(2px, 2px)
+    }
+
+    60% {
+        transform: rotate(-2deg) translate(4px, 4px)
+    }
+
+    70% {
+        transform: rotate(-1deg) translate(3px, 3px)
+    }
+
+    80% {
+        transform: rotate(0) translate(1px, 1px)
+    }
+
+    90% {
+        transform: rotate(1deg) translate(2px, 2px)
+    }
+
+    100% {
+        transform: rotate(0) translate(0, 0)
+    }
+}
+
+@keyframes randomMove {
+    0% {
+        transform: translate(0, 0)
+    }
+
+    25% {
+        transform: translate(1px, 1px)
+    }
+
+    50% {
+        transform: translate(0, 0)
+    }
+
+    75% {
+        transform: translate(-1px, -1px)
+    }
+
+    100% {
+        transform: translate(0, 0)
+    }
+}
+
+
+
+@keyframes hearts {
+    0% {
+      opacity: 0;
+      transform: translate(0, 0%) rotate(45deg);
+    }
+    20% {
+      opacity: 0.8;
+      transform: translate(0, -20%) rotate(45deg);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(0, -1000%) rotate(45deg);
+    }
+  }
+  .particletext{
+    position: relative;
+  }
+  body .particletext.hearts > .particle {
+    opacity: 0;
+    position: absolute;
+    background-color: #cc2a5d;
+    animation: hearts 3s ease-in infinite;
+  }
+  body .particletext.hearts > .particle:before, body .particletext.hearts > .particle:after {
+    position: absolute;
+    content: '';
+    border-radius: 100px;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #cc2a5d;
+  }
+  body .particletext.hearts > .particle:before {
+    transform: translateX(-50%);
+  }
+  body .particletext.hearts > .particle:after {
+    transform: translateY(-50%);
+  }

@@ -8,10 +8,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Playwrite+CL:wght@100..400&family=Raleway+Dots&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Playwrite+CL:wght@100..400&display=swap"
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css?v1">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/fonts.css">
@@ -27,16 +28,20 @@
 </head>
 
 <body>
-    <div class="container-fluid text-center bg-title">
-        <h1 id="title" class="position-relative raleway-dots rellax z-2" data-rellax-speed="-5"
-            data-rellax-mobile-speed="-10">Claire Redheart</h1>
-        <p class="playwrite-cl-200 fs-3 rellax z-1" data-rellax-speed="1">Digital creator</p>
+    <div class="container-fluid bg-title">
+        <div id="hand-overlay"></div>
+        <div class="w-max m-auto px-5">
+            <h1 id="title" class="position-relative arsenal-sc-bold rellax text-center " data-rellax-speed="10">
+                Claire <span style="z-index: 4;position: relative;">Redheart</span></h1>
+            <p class="playwrite-cl-200 rellax z-1 text-end" data-rellax-speed="-1" data-rellax-mobile-speed="3">Digital
+                creator</p>
+        </div>
     </div>
 
 
 
     <div class="background-video">
-        <div class="container d-sm-flex gap-4 gap-sm-1 gap-md-4 my-0 px-0 px-sm-0 px-md-4">
+        <div class="container d-sm-flex gap-4 gap-sm-1 gap-md-4 my-0 px-0 px-sm-0 px-md-4 z-2 position-relative">
             <div class="d-flex align-items-md-center">
                 <p class="mx-4 mx-md-0 my-4 my-md-0 arsenal-sc-regular fs-2 text-center min-height w-100"
                     id="interests">
@@ -48,7 +53,8 @@
             </div>
             <img src="assets/girlinmotion.webp" alt="Girl in Motion" class="flex-fill girlinmotion">
         </div>
-        <video autoplay muted loop class="bgVideo" style="z-index: -3;">
+        <div class="gr1 h-100 w-100 opacity-33 position-absolute top-0 start-0 z-1"></div>
+        <video autoplay muted loop class="bgVideo" style="z-index: -3;filter: brightness(.7) contrast(1.2);">
             <source src="vid/CzLgxRlLkcZ.mp4" type="video/mp4">
             <!-- Add other video sources here if needed (webm, ogg) -->
             <!-- Your browser does not support the video tag. -->
@@ -164,7 +170,7 @@
         <script async src="//www.instagram.com/embed.js"></script>
     </div>
     <div class="overflow-hidden position-relative background-video">
-        <div class="gallery">
+        <div class="gallery position-relative z-2">
 
             <div class="slide slide-1">
                 <img src="assets/956.webp">
@@ -184,15 +190,17 @@
 
         </div>
         <!-- <img src="img/Thecheriemag - TG - @FrenzyLeaked (955).jpeg"> -->
+        <div class="gr1 h-100 w-100 opacity-33 position-absolute top-0 start-0 z-1"></div>
+
         <video autoplay muted loop class="bgVideo position-absolute" style="z-index: -3; height: 105%;width:105%">
             <source src="vid/C7mmnigCjQH.mp4" type="video/mp4">
         </video>
     </div>
 
 
-    <div class="container-fluid bg-black px-0 z-1 position-relative overflow-hidden">
+    <div class="container-fluid bg-black px-0 z-1 position-relative overflow-hidden" id="hollywood">
         <img src="assets/720.webp" class="parallax z-0">
-        <div class="looping z-1 position-absolute top-50 start-0 arsenal-sc-bold">
+        <div class="looping z-1 position-absolute top-50 start-0 arsenal-sc-bold z-2">
             <p class="loop">
                 <span>thedarlla • thedarlla • thedarlla • thedarlla • thedarlla • thedarlla • thedarlla • thedarlla •
                     thedarlla • thedarlla • thedarlla • thedarlla • thedarlla • thedarlla • thedarlla • thedarlla •
@@ -206,12 +214,17 @@
                     • thedarlla • thedarlla • thedarlla • thedarlla •&nbsp;</span>
             </p>
         </div>
+        <div class="gr2 h-100 w-100 opacity-33 position-absolute top-0 start-0 z-1"></div>
+
         <!-- <img src="img/Thecheriemag - TG - @FrenzyLeaked (545).jpeg" class="parallax"> -->
     </div>
 
-    <div class="container-fluid position-relative youtube d-flex align-items-center">
-        <div class="pb-5 pt-3 py-md-5 d-flex gap-5 pb-md-5 yt w-100" style="height: 100%;">
+    <div class="container-fluid position-relative youtube d-flex align-items-center overflow-hidden">
+        <div class="pb-5 pt-3 py-md-5 d-flex pb-md-5 yt w-100" style="height: 100%;">
             <iframe id="youtube_video" width="600" height="340" frameborder="0" class=""></iframe>
+            <div id="vid_control" class="mx-3">
+                <i class="bi bi-box-arrow-right cursor-pointer fs-2"></i>
+            </div>
             <div style="width: min-content" class="mx-auto">
                 <a href="https://www.youtube.com/@thedarllaa"
                     class="text-decoration-none playwrite-cl-200 rellax yt-link">
@@ -226,16 +239,17 @@
             </div>
         </div>
     </div>
-
+    <link rel="stylesheet" href="css/particles.css">
     <div class="background-video end">
         <div class="container d-flex gap-4 gap-sm-1 gap-md-4 my-0 px-0 px-sm-0 px-md-4">
             <div class="d-flex align-items-md-center">
-                <div id="contact-block" class="mx-4 mx-md-0 my-4 my-md-0 arsenal-sc-regular fs-2 text-center min-height w-100">
-                    <div style="font-size: 3rem; line-height: 1;" class="" data-rellax-speed="-5.5">
+                <div id="contact-block"
+                    class="mx-4 mx-md-0 my-4 my-md-0 arsenal-sc-regular fs-2 text-center min-height w-100">
+                    <div style="font-size: 3rem; line-height: 1;" class="particletext hearts w-min d-inline">
                         CONTACT ME:</div>
-                    <div class="z-1" data-rellax-speed="4" style="line-height: 1;">
+                    <div class="z-1" style="line-height: 1;">
                         <a id="email" href="mailto:thedarllaa@gmail.com?subject=Hi!"
-                            class="playwrite-cl-100 z-1">thedarllaa@gmail.com</a>
+                            class="playwrite-cl-100 z-1 ">thedarllaa@gmail.com</a>
                     </div>
                     <p class="fakeemail playwrite-cl-400 invisible z-0" style="transform: translateY(-100%)">
                         thedarllaa@gmail.com</p>
@@ -337,14 +351,112 @@
         $.getJSON("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(reqURL) + channelID, function (data) {
             var link = data.items[0].link;
             var id = link.substr(link.indexOf("=") + 1);
-            $("#youtube_video").attr("src", "https://youtube.com/embed/" + id + "?controls=0&showinfo=0&rel=0");
+            let controls = true;               // Show video player controls
+            let modestbranding = true;          // Minimize YouTube logo
+            let relatedVideos = false;          // Do not show related videos (really just from other random channels)
+            let hideVideoAnnotations = true;    // Hide video annotations
+            let subtitles = true;
+            let fs = true;                      // Show fullscreen button
+            let color = "white";                // Change progress bar to white
+
+            let src = "https://youtube.com/embed/" + id +
+                "?controls=" + (controls ? "1" : "0") +
+                "&modestbranding=" + (modestbranding ? "1" : "0") +
+                "&rel=" + (relatedVideos ? "1" : "0") +
+                "&iv_load_policy=" + (hideVideoAnnotations ? "1" : "3") +
+                "&fs=" + (fs ? "1" : "0") +
+                "&cc_load_policy=" + (subtitles ? "1" : "0") +
+                "&color=" + color;
+            $("#youtube_video").attr("src", src);
         });
+    </script>
+    <link rel="stylesheet" href="css/big-particles.css">
+
+    <script>
+        const container = document.querySelector('#hollywood');
+        const particleNum = 200;
+        const particleWidth = 10;
+        const particleColor = 'hsl(180, 100%, 80%)';
+
+        const style = document.createElement('style');
+        document.head.appendChild(style);
+
+        for (let i = 1; i <= particleNum; i++) {
+            const circleContainer = document.createElement('div');
+            circleContainer.classList.add('pcircle-container');
+            const circle = document.createElement('div');
+            circle.classList.add('pcircle');
+            circleContainer.appendChild(circle);
+
+            const circleSize = Math.random() * particleWidth;
+            circleContainer.style.width = `${circleSize}px`;
+            circleContainer.style.height = `${circleSize}px`;
+
+            const startPositionY = Math.random() * 10 + 100;
+            const moveDuration = 7000 + Math.random() * 4000;
+            const animationDelay = Math.random() * 11000;
+
+            const keyframesName = `move-frames-${i}`;
+            const keyframes = `
+            @keyframes ${keyframesName} {
+                from { transform: translate3d(${Math.random() * 100}vw, ${startPositionY}vh, 0); }
+                to { transform: translate3d(${Math.random() * 100}vw, ${-startPositionY - Math.random() * 30}vh, 0); }
+            }
+        `;
+            style.appendChild(document.createTextNode(keyframes));
+
+            circleContainer.style.animationName = keyframesName;
+            circleContainer.style.animationDuration = `${moveDuration}ms`;
+            circleContainer.style.animationDelay = `${animationDelay}ms`;
+
+            circle.style.animationDelay = `${Math.random() * 4000}ms`;
+            container.appendChild(circleContainer);
+        }
+    </script>
+
+    <script>
+        let icon = document.querySelector('#vid_control i');
+        let videoElement = document.querySelector('#youtube_video')
+        function toggleVideo(large) {
+            icon.classList.toggle('bi-box-arrow-left', large);
+            icon.classList.toggle('bi-box-arrow-right', !large);
+            videoElement.classList.toggle('w-90', large);
+        }
+
+
+        let large = false;
+            icon.addEventListener('click', function() {
+            large = !large;
+            toggleVideo(large)
+            console.log('Large state toggled:', large);
+        });
+
+
+    </script>
+
+    <script>
+        function hearts() {
+            $.each($(".particletext.hearts"), function () {
+                var heartcount = ($(this).width() / 50) * 5;
+                for (var i = 0; i <= heartcount; i++) {
+                    var size = ($.rnd(60, 120) / 10);
+                    $(this).append('<span class="particle" style="top:' + $.rnd(20, 80) + '%; left:' + $.rnd(0, 95) + '%;width:' + size + 'px; height:' + size + 'px;animation-delay: ' + ($.rnd(0, 30) / 10) + 's;"></span>');
+                }
+            });
+        }
+        jQuery.rnd = function (m, n) {
+            m = parseInt(m);
+            n = parseInt(n);
+            return Math.floor(Math.random() * (n - m + 1)) + m;
+        }
+        hearts()
+
     </script>
 </body>
 
 </html>
 
-<!-- 
+<!--
 TODO
 https://dixonandmoe.com/rellax/
 https://simpleparallax.com/

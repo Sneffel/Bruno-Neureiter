@@ -3,6 +3,15 @@ body {
     line-height: 1;
 }
 
+:root {
+    --dark-red: hsl(345, 25%, 33%);
+}
+
+::selection {
+    color: white;
+    background: var(--dark-red);
+}
+
 #title {
     color: white;
     font-size: clamp(3rem, 9vw, 22em);
@@ -277,7 +286,8 @@ span.line {
     border: initial !important;
 }
 
-div.insta, div.youtube div.yt {
+div.insta,
+div.youtube div.yt {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -329,32 +339,39 @@ img[alt="propic"] {
             rgba(160, 15, 139, 1) 100%);
 }
 
-.instastuff div:hover .propic .bg, .yt-link img {
+.instastuff div:hover .propic .bg,
+.yt-link img {
     animation-duration: 2s;
 }
 
 .propic img,
-.propic+p, .yt-link p, #email {
+.propic+p,
+.yt-link p,
+#email {
     transition: 1s;
     user-select: none;
 
 }
 
-.instastuff div:hover .propic img, .yt-link:hover img {
+.instastuff div:hover .propic img,
+.yt-link:hover img {
     outline-offset: 10px !important;
     filter: brightness(1.05) contrast(1.1);
 
 
 }
 
-.instastuff div:hover .propic+p, .yt-link:hover p {
+.instastuff div:hover .propic+p,
+.yt-link:hover p {
     font-weight: 400;
     letter-spacing: 1px;
 }
-.yt-link img{
-filter: grayscale(1);
+
+.yt-link img {
+    filter: grayscale(1);
 }
-.yt-link:hover img{
+
+.yt-link:hover img {
     filter: grayscale(0);
     outline-color: hsl(345, 25%, 33%);
 
@@ -362,12 +379,12 @@ filter: grayscale(1);
 
 
 img.parallax {
-	height: min(50vh,350px);
-	object-fit: cover;
-	width: 100%;
+    height: min(50vh, 350px);
+    object-fit: cover;
+    width: 100%;
 }
 
-.container-fluid.youtube{
+.container-fluid.youtube {
     background-image: url("assets/545.webp");
     background-size: cover;
     background-position-x: right;
@@ -376,67 +393,129 @@ img.parallax {
     background-attachment: fixed;
 
 }
-div.youtube div.yt{
+
+div.youtube div.yt {
     justify-content: end;
 }
-a.yt-link{
+
+a.yt-link {
     color: #fff;
     text-shadow: -1px -1px 4px hsla(0, 0%, 0%, 90%);
 
 }
-.instagrow{
+
+.instagrow {
     flex-grow: 1;
 
 }
-#youtube_video{
+
+#youtube_video {
     max-width: 100vw;
     width: 50%;
     aspect-ratio: 16/9;
     height: initial;
 }
 
+
+
 @media all and (max-width: 1300px) {
-    #youtube_video{
+    #youtube_video {
         width: 66%;
     }
 }
+
 @media all and (max-width: 580px) {
- 
-    .container-fluid.youtube{
+
+    .container-fluid.youtube {
         background-position-x: right;
         background-position-y: 90%;
         min-height: 400px;
-    
+
         /* background-attachment:local; */
-    
+
     }
+
     div.insta {
         flex-direction: column;
         justify-content: center;
 
     }
 
-}
-@media all and (max-width: 860px) {
- 
+    #contact-block {
+        padding: 5rem 0;
+    }
 
-    div.youtube div.yt{
+
+}
+
+@media all and (max-width: 860px) {
+
+
+    div.youtube div.yt {
         justify-content: center;
     }
+
     div.youtube div.yt {
         flex-direction: column;
     }
-    #youtube_video{
+
+    #youtube_video {
         width: 100%;
+    }
+
+    div.background-video.end div.container {
+        flex-direction: column-reverse;
     }
 }
 
 
-#email:hover{
+#email:hover,
+.fakeemail {
     font-weight: 400;
+    letter-spacing: 1px;
+
 }
-#email{
+
+#email {
     text-decoration: none;
     color: whitesmoke;
 }
 
+
+/* https://stackoverflow.com/questions/45847392/pure-css-continuous-horizontal-text-scroll-without-break */
+:root {
+    --animation-duration: 60s;
+}
+
+.loop {
+    margin: 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    position: absolute;
+    text-transform: uppercase;
+    transform: translateY(-25%) !important;
+    font-size: 4rem;
+    user-select: none;
+}
+
+.loop span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: loop var(--animation-duration) linear infinite;
+    animation-delay: calc(-.5 * var(--animation-duration));
+}
+
+.loop2 span {
+    /* animation-delay: 2.5s; */
+    animation-delay: 0s;
+}
+
+@keyframes loop {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-100%, 0);
+    }
+}

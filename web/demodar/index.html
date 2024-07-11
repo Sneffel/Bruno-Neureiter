@@ -31,7 +31,8 @@
     <div class="container-fluid bg-title">
         <div id="hand-overlay"></div>
         <div class="w-max m-auto px-5">
-            <h1 id="title" class="position-relative arsenal-sc-bold rellax text-center " data-rellax-speed="10">
+            <h1 id="title" class="position-relative arsenal-sc-bold rellax text-center " data-rellax-speed="10"
+                data-rellax-mobile-speed="4">
                 Claire <span style="z-index: 4;position: relative;">Redheart</span></h1>
             <p class="playwrite-cl-200 rellax z-1 text-end" data-rellax-speed="-1" data-rellax-mobile-speed="3">Digital
                 creator</p>
@@ -41,9 +42,9 @@
 
 
     <div class="background-video">
-        <div class="container d-sm-flex gap-4 gap-sm-1 gap-md-4 my-0 px-0 px-sm-0 px-md-4 z-2 position-relative">
-            <div class="d-flex align-items-md-center">
-                <p class="mx-4 mx-md-0 my-4 my-md-0 arsenal-sc-regular fs-2 text-center min-height w-100"
+        <div class="container d-flex flex-column flex-md-row gap-1 gap-md-5 my-0 px-0 px-sm-0 px-md-4 z-2 position-relative">
+            <div class="d-flex align-items-md-center interests-container">
+                <p class="mx-4 mx-md-0 my-4 my-md-0 py-4 arsenal-sc-regular fs-2 text-center min-height w-100"
                     id="interests">
                     <span id="lifestyle">lifestyle</span><br>
                     <span id="modelling">modelling</span><br>
@@ -53,9 +54,10 @@
             </div>
             <img src="assets/girlinmotion.webp" alt="Girl in Motion" class="flex-fill girlinmotion">
         </div>
-        <div class="gr1 h-100 w-100 opacity-33 position-absolute top-0 start-0 z-1"></div>
-        <video autoplay muted loop class="bgVideo" style="z-index: -3;filter: brightness(.7) contrast(1.2);">
-            <source src="vid/CzLgxRlLkcZ.mp4" type="video/mp4">
+        <div class="gr2 h-100 w-100 opacity-50 position-absolute top-0 start-0 z-1"></div>
+        <video playsinline  autoplay muted loop class="bgVideo" style="z-index: -3;filter: brightness(.7) contrast(1.2);">
+            <source src="vid/mountain_banana.webm" type="video/webm">
+            <source src="vid/mountain_banana.mp4" type="video/mp4">
             <!-- Add other video sources here if needed (webm, ogg) -->
             <!-- Your browser does not support the video tag. -->
         </video>
@@ -63,10 +65,11 @@
     </div>
 
     <div class="container-fluid bg2 position-relative insta gap-4 pt-4 pt-md-0">
-        <div class="flex-grow-0 flex-md-grow-1 instastuff">
+        <div class="flex-grow-0 flex-md-grow-1 instastuff z-1">
             <a href="https://www.instagram.com/thedarlla/" class="text-decoration-none text-white">
                 <div style="width: min-content" class="m-auto cursor-pointer">
-                    <div class="d-flex gap-2 align-items-center align-content-center flex-column ">
+                    <div
+                        class="d-flex gap-2 align-items-center align-content-center flex-column glow position-relative">
                         <div class="propic">
                             <img src="assets/propic.webp" alt="propic" class="rounded-circle position-absolute z-2">
                             <div class="bg z-1 rounded-circle"></div>
@@ -76,7 +79,8 @@
                 </div>
             </a>
         </div>
-        <blockquote class="instagram-media"
+
+        <blockquote class="instagram-media z-1"
             data-instgrm-permalink="https://www.instagram.com/p/C3qCZZICIIP/?utm_source=ig_embed&amp;utm_campaign=loading"
             data-instgrm-version="14"
             style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
@@ -168,6 +172,8 @@
             </div>
         </blockquote>
         <script async src="//www.instagram.com/embed.js"></script>
+
+        <div class="waves z-0"></div>
     </div>
     <div class="overflow-hidden position-relative background-video">
         <div class="gallery position-relative z-2">
@@ -192,8 +198,10 @@
         <!-- <img src="img/Thecheriemag - TG - @FrenzyLeaked (955).jpeg"> -->
         <div class="gr1 h-100 w-100 opacity-33 position-absolute top-0 start-0 z-1"></div>
 
-        <video autoplay muted loop class="bgVideo position-absolute" style="z-index: -3; height: 105%;width:105%">
-            <source src="vid/C7mmnigCjQH.mp4" type="video/mp4">
+        <video playsinline  autoplay muted loop class="bgVideo position-absolute" style="z-index: -3; height: 105%;width:105%">
+            <!-- <source src="vid/C7mmnigCjQH.mp4" type="video/mp4"> -->
+            <source src="vid/beach_banana.webm" type="video/webm">
+            <source src="vid/cars_sunset.mp4" type="video/mp4">
         </video>
     </div>
 
@@ -241,7 +249,7 @@
     </div>
     <link rel="stylesheet" href="css/particles.css">
     <div class="background-video end">
-        <div class="container d-flex gap-4 gap-sm-1 gap-md-4 my-0 px-0 px-sm-0 px-md-4">
+        <div class="container d-flex my-0 px-0 px-sm-0 px-md-4">
             <div class="d-flex align-items-md-center">
                 <div id="contact-block"
                     class="mx-4 mx-md-0 my-4 my-md-0 arsenal-sc-regular fs-2 text-center min-height w-100">
@@ -258,70 +266,62 @@
             </div>
             <img src="assets/782.webp" alt="Dozing Girl" class="flex-fill dozingirl">
         </div>
-        <video autoplay muted loop class="bgVideo position-absolute"
+        <video defaultMuted playsinline autoplay muted loop class="bgVideo position-absolute"
             style="z-index: -3;height: 105%;width: 105%;top:-2.5%;left:-2.5%">
-            <source src="vid/C7mmnigCjQH.mp4" type="video/mp4">
+            <!-- <source src="vid/C7mmnigCjQH.mp4" type="video/mp4"> -->
+            <source src="vid/cars_sunset.webm" type="video/webm">
+            <source src="vid/cars_sunset.mp4" type="video/mp4">
         </video>
     </div>
 
 
 
-
     <script>
-        Flickity.createMethods.push('_createPrevNextCells');
-
-        Flickity.prototype._createPrevNextCells = function () {
-            this.on('cellSelect', this.setPrevNextCells);
-        };
-
-        Flickity.prototype.setPrevNextCells = function () {
-            if (this.previousCell) {
-                classie.remove(this.previousCell.element, 'is-previous');
-            }
-            if (this.nextCell) {
-                classie.remove(this.nextCell.element, 'is-next');
-            }
-            this.previousCell = this.cells[this.selectedIndex - 1];
-            this.nextCell = this.cells[this.selectedIndex + 1];
-            // Add classes
-            if (this.previousCell) {
-                classie.add(this.previousCell.element, 'is-previous');
-            }
-            if (this.nextCell) {
-                classie.add(this.nextCell.element, 'is-next');
-            }
-        };
-
-        // Initialize Flickity carousel with options
         var flkty = $('.gallery').flickity({
             cellAlign: 'center',
             setGallerySize: false,
             wrapAround: true,
             pageDots: false,
-            freeScroll: true
+            freeScroll: true,
+            selectedAttraction: 0.01,
+    friction: 0.2
         }).data('flickity');
-
-        // Function to update Flickity based on window width
+    
         function updateFlickity() {
             var windowWidth = window.innerWidth;
-            var isMobile = windowWidth < 768; // Adjust breakpoint as needed
-
-            var cellWidth = isMobile ? windowWidth / 1 : windowWidth / 3; // Calculate cell width
-
+            var cellWidth = windowWidth < 768 ? windowWidth / 1 : windowWidth / 3;
             flkty.cells.forEach(function (cell) {
-                cell.element.style.width = cellWidth + 'px'; // Set width for each cell
+                cell.element.style.width = cellWidth + 'px';
             });
-
             flkty.reloadCells();
             flkty.reposition();
         }
-
-        // Initial call to update Flickity on page load
+    
         updateFlickity();
-
-        // Update Flickity when window is resized
         $(window).on('resize', updateFlickity);
+    
+        var isScrolling = false;
+        var scrollInterval;
+    
+        function startScrolling() {
+            if (!isScrolling) {
+                isScrolling = true;
+                scrollInterval = setInterval(function () { flkty.next(); }, 3000);
+            }
+        }
+    
+        function stopScrolling() {
+            if (isScrolling) {
+                isScrolling = false;
+                clearInterval(scrollInterval);
+            }
+        }
+    
+        $('.gallery').on('mouseenter', stopScrolling).on('mouseleave', startScrolling);
+    
+        startScrolling();
     </script>
+    
 
 
     <script>
@@ -425,7 +425,7 @@
 
 
         let large = false;
-            icon.addEventListener('click', function() {
+        icon.addEventListener('click', function () {
             large = !large;
             toggleVideo(large)
             console.log('Large state toggled:', large);
@@ -450,6 +450,19 @@
             return Math.floor(Math.random() * (n - m + 1)) + m;
         }
         hearts()
+
+    </script>
+    <script>
+        var overlay = document.querySelector('#hand-overlay');
+        var thresholdStart = 100; // Start of the threshold range
+        var thresholdEnd = 0;    // End of the threshold range
+
+        document.addEventListener("scroll", function () {
+            var scrollY = window.scrollY;
+            var opacity = (thresholdStart - scrollY) / (thresholdStart - thresholdEnd);
+            overlay.style.opacity = opacity.toString();
+        });
+
 
     </script>
 </body>

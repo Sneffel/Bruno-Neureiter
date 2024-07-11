@@ -25,6 +25,10 @@
     <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.6.2/dist/simpleParallax.min.js"
         integrity="sha256-GBIPMHSjsTxzIyJuhuk7wWz8z2oKeev8qW/c3IgOeVQ=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   
+
+    <script src="js/follow-button.js"></script>
 </head>
 
 <body>
@@ -42,7 +46,8 @@
 
 
     <div class="background-video">
-        <div class="container d-flex flex-column flex-md-row gap-1 gap-md-5 my-0 px-0 px-sm-0 px-md-4 z-2 position-relative">
+        <div
+            class="container d-flex flex-column flex-md-row gap-1 gap-md-5 my-0 px-0 px-sm-0 px-md-4 z-2 position-relative">
             <div class="d-flex align-items-md-center interests-container">
                 <p class="mx-4 mx-md-0 my-4 my-md-0 py-4 arsenal-sc-regular fs-2 text-center min-height w-100"
                     id="interests">
@@ -55,7 +60,8 @@
             <img src="assets/girlinmotion.webp" alt="Girl in Motion" class="flex-fill girlinmotion">
         </div>
         <div class="gr2 h-100 w-100 opacity-50 position-absolute top-0 start-0 z-1"></div>
-        <video playsinline  autoplay muted loop class="bgVideo" style="z-index: -3;filter: brightness(.7) contrast(1.2);">
+        <video playsinline autoplay muted loop class="bgVideo"
+            style="z-index: -3;filter: brightness(.7) contrast(1.2);">
             <source src="vid/mountain_banana.webm" type="video/webm">
             <source src="vid/mountain_banana.mp4" type="video/mp4">
             <!-- Add other video sources here if needed (webm, ogg) -->
@@ -65,8 +71,8 @@
     </div>
 
     <div class="container-fluid bg2 position-relative insta gap-4 pt-4 pt-md-0">
-        <div class="flex-grow-0 flex-md-grow-1 instastuff z-1">
-            <a href="https://www.instagram.com/thedarlla/" class="text-decoration-none text-white">
+        <div class="flex-grow-0 flex-md-grow-1 instastuff z-1 p-ig">
+            <a href="https://www.instagram.com/thedarlla/" class="text-decoration-none text-white ">
                 <div style="width: min-content" class="m-auto cursor-pointer">
                     <div
                         class="d-flex gap-2 align-items-center align-content-center flex-column glow position-relative">
@@ -198,7 +204,8 @@
         <!-- <img src="img/Thecheriemag - TG - @FrenzyLeaked (955).jpeg"> -->
         <div class="gr1 h-100 w-100 opacity-33 position-absolute top-0 start-0 z-1"></div>
 
-        <video playsinline  autoplay muted loop class="bgVideo position-absolute" style="z-index: -3; height: 105%;width:105%">
+        <video playsinline autoplay muted loop class="bgVideo position-absolute"
+            style="z-index: -3; height: 105%;width:105%">
             <!-- <source src="vid/C7mmnigCjQH.mp4" type="video/mp4"> -->
             <source src="vid/beach_banana.webm" type="video/webm">
             <source src="vid/cars_sunset.mp4" type="video/mp4">
@@ -235,7 +242,7 @@
             </div>
             <div style="width: min-content" class="mx-auto">
                 <a href="https://www.youtube.com/@thedarllaa"
-                    class="text-decoration-none playwrite-cl-200 rellax yt-link">
+                    class="text-decoration-none playwrite-cl-200 rellax yt-link p-yt">
                     <div class="d-flex gap-2 align-items-center align-content-center flex-column">
                         <div class="propic">
                             <img src="assets/propic.webp" alt="propic" class="rounded-circle position-absolute z-2">
@@ -284,44 +291,63 @@
             pageDots: false,
             freeScroll: true,
             selectedAttraction: 0.01,
-    friction: 0.2
+            friction: 0.2
         }).data('flickity');
-    
+
         function updateFlickity() {
             var windowWidth = window.innerWidth;
-            var cellWidth = windowWidth < 768 ? windowWidth / 1 : windowWidth / 3;
+            var cellWidth = windowWidth < 768 ? windowWidth : windowWidth / 3;
             flkty.cells.forEach(function (cell) {
                 cell.element.style.width = cellWidth + 'px';
             });
             flkty.reloadCells();
             flkty.reposition();
         }
-    
+
         updateFlickity();
         $(window).on('resize', updateFlickity);
-    
+
         var isScrolling = false;
         var scrollInterval;
-    
+
         function startScrolling() {
             if (!isScrolling) {
                 isScrolling = true;
                 scrollInterval = setInterval(function () { flkty.next(); }, 3000);
             }
         }
-    
+
         function stopScrolling() {
             if (isScrolling) {
                 isScrolling = false;
                 clearInterval(scrollInterval);
             }
         }
-    
+
+        function pauseScrolling() {
+            stopScrolling();
+            setTimeout(startScrolling, 4000);
+        }
+
         $('.gallery').on('mouseenter', stopScrolling).on('mouseleave', startScrolling);
-    
+        $('.gallery').on('manualScroll.flickity', pauseScrolling);
+
         startScrolling();
+
+        new simpleParallax(document.getElementsByClassName('girlinmotion'));
+        new simpleParallax(document.getElementsByClassName('dozingirl'), {
+            scale: 1.1,
+            transition: 'cubic-bezier(0,0,0,1)'
+        });
+        new simpleParallax(document.querySelectorAll('img.parallax'), {
+            orientation: 'left',
+            scale: 1.5,
+            delay: 1,
+            transition: 'cubic-bezier(0,0,0,1)'
+        });
+
     </script>
-    
+
 
 
     <script>
@@ -440,7 +466,7 @@
                 var heartcount = ($(this).width() / 50) * 5;
                 for (var i = 0; i <= heartcount; i++) {
                     var size = ($.rnd(60, 120) / 10);
-                    $(this).append('<span class="particle" style="top:' + $.rnd(20, 80) + '%; left:' + $.rnd(0, 95) + '%;width:' + size + 'px; height:' + size + 'px;animation-delay: ' + ($.rnd(0, 30) / 10) + 's;"></span>');
+                    $(this).append('<span class="particle" style="top:' + $.rnd(40, 50) + '%; left:' + $.rnd(0, 95) + '%;width:' + size + 'px; height:' + size + 'px;animation-delay: ' + ($.rnd(0, 30) / 10) + 's;"></span>');
                 }
             });
         }
@@ -452,6 +478,7 @@
         hearts()
 
     </script>
+
     <script>
         var overlay = document.querySelector('#hand-overlay');
         var thresholdStart = 100; // Start of the threshold range
@@ -463,6 +490,7 @@
             overlay.style.opacity = opacity.toString();
         });
 
+       
 
     </script>
 </body>

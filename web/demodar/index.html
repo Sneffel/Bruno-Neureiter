@@ -12,7 +12,6 @@
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css?v3">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/fonts.css">
@@ -20,8 +19,10 @@
     <link rel="stylesheet" href="css/big-particles.css">
     <link rel="stylesheet" href="css/particles.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> -->
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.1.1/flickity.pkgd.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@6.0.1/dist/react/simpleParallax.umd.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.6.2/dist/simpleParallax.min.js"
@@ -41,7 +42,8 @@
                 <h1 id="title" class="position-relative" data-content="Claire Redheart">
                     Claire <span class="line">Red<span id="heart" data-content="heart">heart</span></span></h1>
             </div>
-            <p class="playwrite-cl-200 rellax text-end sub-title" data-rellax-speed="-1" data-rellax-mobile-speed="3">
+            <p id="digital-creator" class="playwrite-cl-200 rellax text-end sub-title" data-rellax-speed="-1"
+                data-rellax-mobile-speed="3">
                 Digital
                 creator</p>
         </div>
@@ -49,9 +51,9 @@
 
 
 
-    <div class="background-video">
+    <div class="background-video full-section d-flex flex-column">
         <div
-            class="container d-flex flex-column flex-md-row gap-1 gap-md-5 my-0 px-0 px-sm-0 px-md-4 z-2 position-relative">
+            class="flex-grow-1 container d-flex flex-column flex-md-row gap-1 gap-md-5 my-0 px-0 px-sm-0 px-md-4 z-2 position-relative h-100">
             <div class="d-flex align-items-md-center interests-container">
                 <p class="mx-4 mx-md-0 my-4 my-md-0 py-4 arsenal-sc-regular fs-2 text-center min-height w-100"
                     id="interests">
@@ -91,7 +93,6 @@
                 </div>
             </a>
         </div>
-
         <blockquote class="instagram-media z-1"
             data-instgrm-permalink="https://www.instagram.com/p/C3qCZZICIIP/?utm_source=ig_embed&amp;utm_campaign=loading"
             data-instgrm-version="14"
@@ -184,9 +185,10 @@
             </div>
         </blockquote>
         <script async src="//www.instagram.com/embed.js"></script>
-
         <div class="gradient-animation z-0"></div>
     </div>
+
+
     <div class="overflow-hidden position-relative background-video">
         <div class="gallery position-relative z-2">
             <div class="slide slide-1">
@@ -207,7 +209,7 @@
         <video playsinline autoplay muted loop class="bgVideo position-absolute"
             style="z-index: -3; height: 105%;width:105%">
             <source src="vid/beach_banana.webm" type="video/webm">
-            <source src="vid/cars_sunset.mp4" type="video/mp4">
+            <source src="vid/beach_banana.mp4" type="video/mp4">
         </video>
     </div>
 
@@ -216,12 +218,14 @@
         <img src="assets/720.webp" class="parallax z-0">
         <div class="looping z-1 position-absolute top-50 start-0 arsenal-sc-bold z-2">
             <p class="loop">
-                <span>thedarlla • thedarlla • thedarlla • thedarlla • thedarlla • thedarlla • thedarlla • thedarlla •
+                <span>thedarlla • thedarlla • thedarlla • thedarlla • thedarlla • thedarlla • thedarlla • thedarlla
+                    •
                     thedarlla • thedarlla • thedarlla • thedarlla • thedarlla • thedarlla • thedarlla • thedarlla •
                     thedarlla • thedarlla •&nbsp;</span>
             </p>
             <p class="loop loop2">
-                <span>thedarlla • thedarlla • thedarlla • thedarlla • thedarlla • thedarlla • thedarlla • thedarlla •
+                <span>thedarlla • thedarlla • thedarlla • thedarlla • thedarlla • thedarlla • thedarlla • thedarlla
+                    •
                     thedarlla • thedarlla • thedarlla • thedarlla • thedarlla • thedarlla • thedarlla • thedarlla •
                     thedarlla • thedarlla •&nbsp;</span>
             </p>
@@ -229,13 +233,14 @@
         <div class="gr2 h-100 w-100 opacity-33 position-absolute top-0 start-0 z-1"></div>
     </div>
 
+
     <div class="container-fluid position-relative youtube d-flex align-items-center overflow-hidden">
         <div class="pb-5 pt-3 py-md-5 d-flex pb-md-5 yt w-100 z-1" style="height: 100%;">
             <iframe id="youtube_video" width="600" height="340" frameborder="0" class=""></iframe>
-            <div id="vid_control" class="mx-3">
+            <div id="vid_control" class="mx-3 z-2">
                 <i class="bi bi-box-arrow-right cursor-pointer fs-2"></i>
             </div>
-            <div style="width: min-content" class="mx-auto">
+            <div style="width: min-content" class="mx-auto z-1">
                 <a href="https://www.youtube.com/@thedarllaa" class="text-decoration-none playwrite-cl-200 link-pic">
                     <div class="d-flex gap-2 align-items-center align-content-center flex-column glow">
                         <div class="propic">
@@ -248,19 +253,20 @@
             </div>
         </div>
         <div class="gradient-animation z-0" style="opacity:.15;animation-duration: 5s;"></div>
-
     </div>
 
-    <div class="background-video end">
+
+    <div class="background-video end max-height">
         <div class="container d-flex my-0 px-0 px-sm-0 px-md-4 align-items-center">
             <div class="d-flex align-items-md-center">
                 <div id="contact-block"
                     class="mx-4 mx-md-0 my-4 my-md-0 arsenal-sc-regular text-center min-height w-100 auto-text-3">
-                    <div style="line-height: 1;" class="particletext hearts w-min d-inline text-uppercase auto-text-4">
+                    <div style="line-height: 1;"
+                        class="particletext hearts w-min d-inline text-uppercase auto-text-4 z-1">
                         Contact me:</div>
-                    <div class="z-1" style="line-height: 1;">
+                    <div class="z-2" style="line-height: 1;">
                         <a id="email" href="mailto:thedarllaa@gmail.com?subject=Hi!"
-                            class="playwrite-cl-100 z-1 ">thedarllaa@gmail.com</a>
+                            class="playwrite-cl-100 z-2 ">thedarllaa@gmail.com</a>
                     </div>
                     <p class="fakeemail playwrite-cl-400 invisible z-0" style="transform: translateY(-100%)">
                         thedarllaa@gmail.com</p>
@@ -275,9 +281,7 @@
             <source src="vid/cars_sunset.mp4" type="video/mp4">
         </video>
     </div>
-
-
-
+    
     <script>
         var flkty = $('.gallery').flickity({
             cellAlign: 'center',
@@ -478,19 +482,39 @@
     </script>
 
     <script>
-        var overlay = document.querySelector('#hand-overlay');
-                var thresholdStart = 100; // Start of the threshold range
-        var thresholdEnd = 0;    // End of the threshold range
+        var handOverlay = document.querySelector('#hand-overlay');
+        var digitalCreator = document.querySelector('#digital-creator');
+
+        var handStyleOpacity = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--min-hand-opacity').trim());
+        var digitalStyleOpacity = 1;
+
+        handOverlay.style.opacity = handStyleOpacity.toString();
+        digitalCreator.style.opacity = digitalStyleOpacity.toString();
+
+        var handThresholdStart = 100; // Start of the threshold range for hand-overlay
+        var handThresholdEnd = 0;     // End of the threshold range for hand-overlay
+
+        var digitalThresholdStart = 500; // Start of the threshold range for digital-creator
+        var digitalThresholdEnd = 200;     // End of the threshold range for digital-creator
 
         document.addEventListener("scroll", function () {
             var scrollY = window.scrollY;
-            var opacity = (thresholdStart - scrollY) / (thresholdStart - thresholdEnd);
-            overlay.style.opacity = opacity.toString();
+
+            // Calculate opacity for hand-overlay
+            var handOpacity = Math.max(handStyleOpacity - (handStyleOpacity * scrollY / handThresholdStart), 0);
+            handOverlay.style.opacity = handOpacity.toString();
+
+            // Calculate opacity for digital-creator
+            var digitalOpacity = Math.max(digitalStyleOpacity - (digitalStyleOpacity * scrollY / digitalThresholdStart), 0);
+            digitalCreator.style.opacity = digitalOpacity.toString();
         });
-
-
-
     </script>
+
+
+
+
+
+
 </body>
 
 </html>

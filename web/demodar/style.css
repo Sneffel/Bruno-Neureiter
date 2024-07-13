@@ -1,8 +1,10 @@
 body {
     background-color: #000;
     line-height: 1;
-    color: var(--offwhite)
+    color: var(--offwhite);
 }
+
+
 
 html,
 body {
@@ -26,11 +28,12 @@ body {
     --gr4: linear-gradient(45deg, var(--dark-blue) 0%, var(--dark-red) 27%, var(--light-red) 100%);
     --gr5: linear-gradient(45deg, var(--light-blue) 0%, var(--light-blue) 27%, var(--offwhite) 100%);
 
-    /* --lifestyle-fs: 100px; */
     --lifestyle-fs: clamp(6rem, 12vw, 12rem);
 
     --diagonal-lines: repeating-linear-gradient(-45deg, hsla(0, 0%, 0%, 100%), hsla(0, 0%, 0%, 100%) 5px, hsla(0, 0%, 100%, 0) 5px, hsla(0, 0%, 100%, 0) 25px);
+    --min-hand-opacity: 0.85;
 }
+
 
 
 ::selection {
@@ -106,6 +109,8 @@ img {
     background-image: url(assets/hand-overlay4.webp);
     height: 100%;
     /* transition: opacity .6s; */
+    opacity:var(--min-hand-opacity);
+    pointer-events: none;
 }
 
 /* 
@@ -294,6 +299,7 @@ span.line {
     object-fit: cover
 }
 
+
 .background-video.sunset {
     position: relative;
     width: 100vw;
@@ -375,7 +381,7 @@ img[alt=propic] {
 .propic+p,
 .link-pic p {
     transition: 1s;
-    user-select: none
+    /* user-select: none */
 }
 
 
@@ -613,6 +619,11 @@ div:has(p#interests),
     }
 }
 
+.full-section{
+    min-height: 100vh !important;
+    min-height: 100lvh !important;
+}
+
 .max-height {
     max-height: 100vh;
     max-height: 100lvh
@@ -627,6 +638,7 @@ div:has(p#interests),
     width: min-content !important;
     max-width: 100%
 }
+
 
 @keyframes subtleMove {
     0% {

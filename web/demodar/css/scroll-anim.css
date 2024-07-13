@@ -27,7 +27,7 @@
     }
 }
 .autoBlur{
-    animation: autoBLurAnimation linear both;
+    animation: autoBlurAnimation linear both;
     animation-timeline: view();
 }
 @keyframes autoBlurAnimation{

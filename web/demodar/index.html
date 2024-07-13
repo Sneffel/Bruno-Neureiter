@@ -76,7 +76,7 @@
         <!-- Other content can go here -->
     </div>
 
-    <div class="container-fluid bg2 position-relative insta pt-4 pt-md-0">
+    <div class="container-fluid bg2 position-relative insta pt-4 pt-md-0 z-1">
         <div class="flex-grow-0 flex-md-grow-1 instastuff z-1">
             <a href="https://www.instagram.com/thedarlla/" class="text-decoration-none text-white link-pic">
                 <div style="width: min-content" class="m-auto cursor-pointer">
@@ -186,8 +186,27 @@
         </blockquote>
         <script async src="//www.instagram.com/embed.js"></script>
         <div class="gradient-animation z-0"></div>
+        <div id="instablur" class="blur z-n1"></div>
     </div>
-
+    <script>
+        let maxBlurPx = 30;
+        let pctForFullyVisible = 90;
+        
+        document.addEventListener('scroll', () => {
+            const element = document.getElementById('instablur');
+            const rect = element.getBoundingClientRect();
+            const height = window.innerHeight;
+            const visible = Math.max(0, Math.min(rect.bottom, height) - Math.max(rect.top, 0));
+            const percentVisible = (visible / rect.height) * 100;
+            
+            const blurValue = percentVisible >= pctForFullyVisible ? 0 : (1 - (percentVisible / pctForFullyVisible)) * maxBlurPx;
+            
+            const brightness = Math.log(percentVisible + 1) / Math.log(pctForFullyVisible + 1); // Use log base 10
+            
+            element.style.backdropFilter = `blur(${blurValue}px)`;
+            element.style.filter = `brightness(${brightness})`;
+        });
+    </script>
 
     <div class="overflow-hidden position-relative background-video">
         <div class="gallery position-relative z-2">
@@ -281,7 +300,7 @@
             <source src="vid/cars_sunset.mp4" type="video/mp4">
         </video>
     </div>
-    
+
     <script>
         var flkty = $('.gallery').flickity({
             cellAlign: 'center',
@@ -511,7 +530,9 @@
     </script>
 
 
+    <script>
 
+    </script>
 
 
 

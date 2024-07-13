@@ -854,3 +854,14 @@ body .particletext.hearts>.particle:after {
         transform: rotate(0deg);
     }
 }
+
+.blur{
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(0px);
+    transition: backdrop-filter 300ms ease-in-out;
+}
+
+
+
+

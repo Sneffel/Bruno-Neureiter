@@ -72,7 +72,7 @@
         </div>
         <div class="gr2 h-100 w-100 opacity-50 position-absolute top-0 start-0 z-1"></div>
         <div class="backdrop-blur full-section position-absolute top-0 start-0 z-n1" style="backdrop-filter: blur(4px) brightness(1.2) contrast(1.2)"></div>
-        <video playsinline autoplay muted loop class="bgVideo"
+        <video playsinline autoplay muted loop class="bgVideo" id="mountain-banana"
             style="z-index: -3;filter: brightness(.7) contrast(1.2);">
             <source src="vid/mountain_banana.webm" type="video/webm">
             <source src="vid/mountain_banana.mp4" type="video/mp4">
@@ -563,6 +563,9 @@
         document.addEventListener("scroll", function () {
             var scrollY = window.scrollY;
 
+            toggleClass("#mountain-banana", "invisible",  window.scrollY === 0)
+
+
             // Calculate opacity for hand-overlay
             var handOpacity = Math.max(handStyleOpacity - (handStyleOpacity * scrollY / handThresholdStart), 0);
             handOverlay.style.opacity = handOpacity.toString();
@@ -571,6 +574,12 @@
             var digitalOpacity = Math.max(digitalStyleOpacity - (digitalStyleOpacity * scrollY / digitalThresholdStart), 0);
             digitalCreator.style.opacity = digitalOpacity.toString();
         });
+        toggleClass("#mountain-banana", "invisible", window.scrollY === 0)
+
+        function toggleClass(selector, className, condition){
+            let elementToHide = document.querySelector(selector);
+            condition ? elementToHide.classList.add(className) : elementToHide.classList.remove(className)
+        }
     </script>
 
 

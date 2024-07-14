@@ -869,5 +869,5 @@ body .particletext.hearts>.particle:after {
     position: absolute;
     inset: 0;
     backdrop-filter: blur(0px);
-    transition: backdrop-filter 300ms ease-in-out;
+    /* transition: backdrop-filter 300ms ease-in-out; */
 }

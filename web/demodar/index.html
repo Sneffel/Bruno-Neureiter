@@ -12,23 +12,28 @@
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css?v4">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/gallery.css">
-    <link rel="stylesheet" href="css/big-particles.css">
-    <link rel="stylesheet" href="css/particles.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.css">
-    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
+    <link rel="stylesheet" href="style.css?v5">
+    <link rel="stylesheet" href="css/reset.css?v5">
+    <link rel="stylesheet" href="css/fonts.css?v5">
+
+    <link rel="preload" href="css/gallery.css?v5" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/big-particles.css?v5" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="css/gallery.css">
+        <link rel="stylesheet" href="css/big-particles.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    </noscript>
+
+
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.1.1/flickity.pkgd.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@6.0.1/dist/react/simpleParallax.umd.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.6.2/dist/simpleParallax.min.js"
         integrity="sha256-GBIPMHSjsTxzIyJuhuk7wWz8z2oKeev8qW/c3IgOeVQ=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
-    <link rel="stylesheet" href="css/scroll-anim.css">
 
 
 </head>
@@ -191,18 +196,18 @@
     <script>
         let maxBlurPx = 30;
         let pctForFullyVisible = 90;
-        
+
         document.addEventListener('scroll', () => {
             const element = document.getElementById('instablur');
             const rect = element.getBoundingClientRect();
             const height = window.innerHeight;
             const visible = Math.max(0, Math.min(rect.bottom, height) - Math.max(rect.top, 0));
             const percentVisible = (visible / rect.height) * 100;
-            
+
             const blurValue = percentVisible >= pctForFullyVisible ? 0 : (1 - (percentVisible / pctForFullyVisible)) * maxBlurPx;
-            
+
             const brightness = Math.log(percentVisible + 1) / Math.log(pctForFullyVisible + 1); // Use log base 10
-            
+
             element.style.backdropFilter = `blur(${blurValue}px)`;
             element.style.filter = `brightness(${brightness})`;
         });
@@ -211,22 +216,22 @@
     <div class="overflow-hidden position-relative background-video">
         <div class="gallery position-relative z-2">
             <div class="slide slide-1">
-                <img src="assets/956.webp">
+                <img data-delay="1" data-src="assets/956.webp">
             </div>
             <div class="slide slide-2">
-                <img src="assets/736.webp">
+                <img data-delay="1.1" data-src="assets/1224.webp">
             </div>
             <div class="slide slide-3">
-                <img src="assets/554.webp">
+                <img data-delay="1.2" data-src="assets/1096.webp">
             </div>
             <div class="slide slide-4">
-                <img src="assets/1156.webp">
+                <img data-delay="1.3" data-src="assets/1156.webp">
             </div>
         </div>
         <div class="gr1 h-100 w-100 opacity-33 position-absolute top-0 start-0 z-1"></div>
 
         <video playsinline autoplay muted loop class="bgVideo position-absolute"
-            style="z-index: -3; height: 105%;width:105%">
+            style="z-index: -3; height: 105%;width:105%;top:-2.5%;left:-2.5%">
             <source src="vid/beach_banana.webm" type="video/webm">
             <source src="vid/beach_banana.mp4" type="video/mp4">
         </video>
@@ -291,7 +296,7 @@
                         thedarllaa@gmail.com</p>
                 </div>
             </div>
-            <img src="assets/782.webp" alt="Dozing Girl" class="flex-fill dozingirl">
+            <img data-src="assets/782.webp" alt="Dozing Girl" data-delay="2" class="flex-fill dozingirl">
         </div>
         <video defaultMuted playsinline autoplay muted loop class="bgVideo position-absolute"
             style="z-index: -3;height: 105%;width: 105%;top:-2.5%;left:-2.5%">
@@ -308,20 +313,38 @@
             wrapAround: true,
             pageDots: false,
             freeScroll: true,
-            selectedAttraction: 0.01,
-            friction: 0.2
+            selectedAttraction: 0.0005, // how quickly the carousel settles after a user interaction towards the selected cell.
+            friction: 0.2 // resistance to movement, affecting the smoothness and speed of transitions between slides.
         }).data('flickity');
+        // $('.gallery').on('mouseenter', stopScrolling).on('mouseleave', startScrolling);
+        $(window).on('blur', stopScrolling).on('focus', startScrolling);
+
 
         function updateFlickity() {
-            stopScrolling()
+            stopScrolling();
             var windowWidth = window.innerWidth;
-            var cellWidth = windowWidth < 768 ? windowWidth : windowWidth / 3;
+            var multiplier = 6;
+
+            var cellWidth;
+
+            if (windowWidth < 768) {
+                cellWidth = windowWidth / multiplier * 8;
+            } else if (windowWidth >= 768 && windowWidth <= 1100) {
+                cellWidth = windowWidth / multiplier * 4;
+            } else {
+                cellWidth = windowWidth / multiplier * 2;
+            }
+
+            console.log("Window width:", windowWidth);
+            console.log("Cell width:", cellWidth);
             flkty.cells.forEach(function (cell) {
                 cell.element.style.width = cellWidth + 'px';
             });
             flkty.reloadCells();
             flkty.reposition();
+            startScrolling()
         }
+
 
         updateFlickity();
         $(window).on('resize', updateFlickity);
@@ -332,7 +355,10 @@
         function startScrolling() {
             if (!isScrolling) {
                 isScrolling = true;
-                scrollInterval = setInterval(function () { flkty.next(); }, 3000);
+                scrollInterval = setInterval(function () { flkty.next(); }, 8000); // time for full gallery!
+                // console.log("Started scrolling...")
+            } else {
+                // console.log("Scrolling already started...")
             }
         }
 
@@ -341,15 +367,15 @@
                 isScrolling = false;
                 clearInterval(scrollInterval);
             }
+            // console.log("Stopped scrolling!")
         }
 
         function pauseScrolling() {
             stopScrolling();
-            setTimeout(startScrolling, 4000);
+            setTimeout(startScrolling, 2000);
         }
 
-        $('.gallery').on('mouseenter', stopScrolling).on('mouseleave', startScrolling);
-        $('.gallery').on('manualScroll.flickity', pauseScrolling);
+        // $('.gallery').on('manualScroll.flickity', pauseScrolling);
 
         startScrolling();
 
@@ -531,7 +557,17 @@
 
 
     <script>
+        function loadImagesWithDelay() {
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                const src = img.getAttribute('data-src');
+                const delaySeconds = parseFloat(img.getAttribute('data-delay'));
+                const delayMilliseconds = delaySeconds * 1000;
+                setTimeout(() => img.src = src, delayMilliseconds);
+            });
+        }
 
+        if (window.scrollY === 0) loadImagesWithDelay();
+        else document.querySelectorAll('img[data-src]').forEach(img => img.src = img.getAttribute('data-src'));
     </script>
 
 

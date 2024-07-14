@@ -306,6 +306,10 @@ span.line {
     overflow: hidden
 }
 
+div.end{
+    height: 100lvh;
+}
+
 .background-video.end div.container {
     gap: 5rem;
 }
@@ -500,6 +504,10 @@ div:has(p#interests),
     .background-video.end div.container {
         gap: 0;
     }
+
+    .gallery{
+        pointer-events: none;
+    }
 }
 
 @media all and (max-width:347px) {
@@ -528,6 +536,10 @@ div:has(p#interests),
     #vid_control {
         display: none;
     }
+
+    div.end{
+        height: initial;
+    }
 }
 
 
@@ -553,28 +565,17 @@ div:has(p#interests),
     overflow: hidden;
 }
 
-.gallery::before,
-.gallery::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to right, hsla(0, 0%, 0%, 0) 80%, hsla(0, 0%, 0%, 1) 99%, hsl(0, 0%, 0%));
-    z-index: 1;
-    pointer-events: none;
-}
 
-.gallery::after {
-    /* background: linear-gradient(to left, hsla(0, 0%, 0%, 0) 80%, hsla(0, 0%, 0%, 1) 99%, hsl(0, 0%, 0%)); */
-    transform: scaleX(-1);
-}
+
+
 
 #hollywood::before,
 #hollywood::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, transparent 60%, black 99%, black);
-    filter: contrast(1.3) brightness(1.2);
+    background: linear-gradient(to right, transparent 80%, black 100%);
+    /* filter: contrast(1.3) brightness(1.2); */
     z-index: 3;
 }
 
@@ -582,8 +583,8 @@ div:has(p#interests),
     transform: scaleX(-1);
 }
 
-.flickity-prev-next-button {
-    z-index: 2;
+.flickity-prev-next-button{
+    display: none;
 }
 
 .loop {

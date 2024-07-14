@@ -1,6 +1,13 @@
+.flickity-viewport, 
+.flickity-slider {
+    height: 100%;
+    width: 100%;
+}
+
 .gallery {
-    height: 100svh;
-    max-height: 454px;
+    height: 85vh;
+    height: 85svh;
+    /* max-height: 454px; */
     width: 100%;
     /* background: #e4ded5; */
     backdrop-filter: blur(10px);
@@ -10,7 +17,9 @@
 }
 
 .gallery .slide {
-    width: 30vw;
+    /* width: 10; */
+    height: 100%;
+    min-height: 100%;
     margin-right: 3vw;
     transform: translateX(8vw);
     transition: transform 0.9s ease-in-out;
@@ -19,8 +28,11 @@
 .gallery .slide img {
     display: block;
     width: 100%;
-    height: 50vh; /* Adjust height to make images taller */
-    object-fit: cover; /* Ensures images cover the container */
+    /* max-width: 75vw !important; */
+    height: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    /* Ensures images cover the container */
 }
 
 .gallery .slide.is-previous {
@@ -41,10 +53,12 @@
 }
 
 .gallery .slide.slide-2 {
-    margin-top: 4vh;
+    width: 75vw;
+    margin-top: -4vh;
 }
 
 .gallery .slide.slide-3 {
+    width: 65vw;
     margin-top: 6vh;
 }
 
@@ -52,13 +66,9 @@
     margin-top: 2vh;
     margin-left: -8vw;
 }
-@media all and (max-width: 500px) {
-    .flickity-prev-next-button {
-        opacity: 0.2;
-    }
-}
 
-.gallery + img{
+
+.gallery+img {
     position: absolute;
     top: 0;
     left: 0;
@@ -67,3 +77,30 @@
     object-fit: cover;
 }
 
+
+.flickity-enabled.is-draggable .flickity-viewport {
+    cursor: move;
+    cursor: -webkit-grab;
+    cursor: grab;
+}
+
+.flickity-enabled.is-draggable .flickity-viewport.is-pointer-down {
+    cursor: -webkit-grabbing;
+    cursor: grabbing;
+}
+
+.gallery::before,
+.gallery::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, hsla(0,0%,0%,0), hsla(0, 0%, 0%, 0) 80%, hsla(0, 0%, 0%, .5) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+
+.gallery::after {
+    /* background: linear-gradient(to left, hsla(0, 0%, 0%, 0) 80%, hsla(0, 0%, 0%, 1) 99%, hsl(0, 0%, 0%)); */
+    transform: scaleX(-1);
+}

@@ -312,14 +312,16 @@
     </div>
 
     <script>
+        let friction = 0.2;
+        let selectedAttraction = 0.0005; 
         var flkty = $('.gallery').flickity({
             cellAlign: 'center',
             setGallerySize: false,
             wrapAround: true,
             pageDots: false,
             freeScroll: true,
-            selectedAttraction: 0.0005, // how quickly the carousel settles after a user interaction towards the selected cell.
-            friction: 0.2 // resistance to movement, affecting the smoothness and speed of transitions between slides.
+            selectedAttraction: selectedAttraction, // how quickly the carousel settles after a user interaction towards the selected cell.
+            friction: friction // resistance to movement, affecting the smoothness and speed of transitions between slides.
         }).data('flickity');
         // $('.gallery').on('mouseenter', stopScrolling).on('mouseleave', startScrolling);
         $(window).on('blur', stopScrolling).on('focus', startScrolling);
@@ -337,12 +339,19 @@
             if (windowWidth < 768) {                                // S
                 cellWidth = windowWidth / multiplier * 8;
                 speedDivider = multiplier / 2;
+                friction = 0.2;
+                selectedAttraction = 0.0005;
             } else if (windowWidth >= 768 && windowWidth <= 1100) { // M
                 cellWidth = windowWidth / multiplier * 4;
-                speedDivider = multiplier / 4;
+                speedDivider = multiplier / 1.5;
+                friction = 0.5;
+                selectedAttraction = 0.00005;
             } else {                                                // L
                 cellWidth = windowWidth / multiplier * 2;
-                speedDivider = multiplier / 6;
+                speedDivider = multiplier / 1.5;
+                friction = 1;
+                selectedAttraction = 0.000025;
+
             }
 
             timeFullRevolution = 8000 / speedDivider
@@ -350,6 +359,7 @@
             console.log("Window width:", windowWidth);
             console.log("Cell width:", cellWidth);
             console.log("timeFullRevolution:",timeFullRevolution)
+            console.log("selectedAttraction:",selectedAttraction)
             flkty.cells.forEach(function (cell) {
                 cell.element.style.width = cellWidth + 'px';
             });

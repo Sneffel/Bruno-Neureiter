@@ -349,7 +349,7 @@ img[alt=propic] {
     height: 150px;
     width: 150px;
     outline-offset: 3px;
-    outline: #4f4f4f 2px solid
+    /* outline: #4f4f4f 2px solid; */
 }
 
 .propic .bg {
@@ -360,10 +360,10 @@ img[alt=propic] {
     background: linear-gradient(45deg, rgba(245, 160, 77, 1) 0, rgba(160, 15, 139, 1) 100%)
 }
 
-.instastuff div:hover .propic .bg,
+/* .instastuff div:hover .propic .bg,
 .link-pic img {
     animation-duration: 2s;
-}
+} */
 
 #email,
 .propic img,
@@ -611,6 +611,8 @@ div:has(div#interests),
     /* animation-delay: calc(-0.5 * var(--animation-duration)); */
     animation: loop 70s linear infinite;
     animation-delay: 35s;
+    -webkit-animation-delay: 35s; /* Add this line for Safari */
+
 }
 
 .loop2 span {

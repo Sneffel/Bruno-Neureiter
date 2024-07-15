@@ -2,6 +2,7 @@ body {
     background-color: #000;
     line-height: 1;
     color: var(--offwhite);
+    overscroll-behavior-y: none;
 }
 
 
@@ -185,62 +186,57 @@ span.line {
     background-image: var(--gr3-flipped) !important;
     -webkit-background-clip: text;
     background-clip: text !important;
-    color: transparent;
+    /* color: transparent; */
     -webkit-text-fill-color: transparent;
-    /* mix-blend-mode: difference; */
     filter: brightness(1.2) contrast(1.2);
     user-select: none;
 }
 
 
-/*Firefox */
-@-moz-document url-prefix() {
-
-    #fashion,
-    #lifestyle,
-    #modelling,
-    #travelling {
-        animation: randomMove 2s infinite alternate;
-    }
-
-    #interests:hover span {
-        animation-duration: 1.5s
-    }
-}
-
-/* Chrome and Safari  */
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-    #interests {
-        animation: randomMove 2s infinite alternate;
-    }
-}
-
-
-
-
 #lifestyle {
     font-size: var(--lifestyle-fs);
     line-height: .3;
-    animation-delay: .5s
+    animation-delay: .5s;
 }
 
 #modelling {
     font-size: calc(var(--lifestyle-fs) * .822);
     line-height: 1;
-    animation-delay: 1s
+    animation-delay: 1s;
 }
 
 #travelling {
     font-size: calc(var(--lifestyle-fs) * .821);
     line-height: .3;
-    animation-delay: 1.5s
+    animation-delay: 1.5s;
 }
 
 #fashion {
     font-size: calc(var(--lifestyle-fs) * 1.1275);
     line-height: .8;
-    animation-delay: 0s
+    animation-delay: 0s;
 }
+
+
+
+#interests #modelling.hidden {
+    opacity: 0;
+    transition: opacity 1s;
+    transition-delay: 0.25s;
+}
+
+#interests #travelling.hidden {
+    opacity: 0;
+    transition: opacity 1s;
+    transition-delay: .5s;
+}
+
+#interests #fashion.hidden {
+    opacity: 0;
+    transition: opacity 1s;
+    transition-delay: .75s;
+}
+
 
 .min-height {
     height: min-content !important
@@ -455,6 +451,8 @@ a.link-pic,
     aspect-ratio: 16/9;
     height: initial;
     transition: .2s ease-in-out;
+	box-shadow: 5px 8px 12px hsla(0, 0%, 0%, 40%);
+    border-radius: .2rem;
 }
 
 #contact-block {
@@ -462,7 +460,7 @@ a.link-pic,
     min-height: 100lvh;
 }
 
-div:has(p#interests),
+div:has(div#interests),
 .interests-container {
     min-height: 80lvh;
 }
@@ -476,7 +474,7 @@ div:has(p#interests),
 
 @media all and (max-width:768px) {
 
-    div:has(p#interests),
+    div:has(div#interests),
     .interests-container {
         align-items: center;
     }
@@ -504,10 +502,10 @@ div:has(p#interests),
     .background-video.end div.container {
         gap: 0;
     }
-
+/* 
     .gallery {
         pointer-events: none;
-    }
+    } */
 
     .gallery::before,
     .gallery::after,
@@ -870,4 +868,45 @@ body .particletext.hearts>.particle:after {
     inset: 0;
     backdrop-filter: blur(0px);
     /* transition: backdrop-filter 300ms ease-in-out; */
+}
+
+/* .hidden{
+    opacity: 0;
+    transition: opacity 1.25s;
+    
+} */
+.show{
+    opacity: 1 !important;
+    
+}
+
+
+/*Firefox */
+@-moz-document url-prefix() {
+
+    #fashion,
+    #lifestyle,
+    #modelling,
+    #travelling {
+        animation: randomMove 2s infinite alternate;
+    }
+
+    #interests:hover span {
+        animation-duration: 1.5s
+    }
+
+    #interests span.hidden{
+        opacity: 0;
+        transition: opacity 1s;
+    }
+}   
+
+/* Chrome and Safari  */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    #interests {
+        animation: randomMove 2s infinite alternate;
+
+        opacity: 0;
+        transition: opacity 2.5s;
+    }
 }

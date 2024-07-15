@@ -615,6 +615,7 @@ div:has(div#interests),
     /* animation: loop var(--animation-duration) linear infinite; */
     /* animation-delay: calc(-0.5 * var(--animation-duration)); */
     animation: loop 70s linear infinite;
+    -webkit-animation: loop 70s linear infinite;
     animation-delay: 35s;
     -webkit-animation-delay: 35s; /* Add this line for Safari */
 

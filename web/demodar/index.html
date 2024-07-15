@@ -12,17 +12,23 @@
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css?v6">
-    <link rel="stylesheet" href="css/reset.css?v6">
-    <link rel="stylesheet" href="css/fonts.css?v6">
+    <link rel="stylesheet" href="style.css?v7">
+    <link rel="stylesheet" href="css/reset.css?v7">
+    <link rel="stylesheet" href="css/fonts.css?v7">
 
-    <link rel="preload" href="css/gallery.css?v6" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="css/big-particles.css?v6" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/gallery.css?v7" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <!-- <link rel="stylesheet" href="css/gallery.css?v7"> -->
+
+
+    <link rel="preload" href="css/big-particles.css?v7" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
         as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
     <noscript>
-        <link rel="stylesheet" href="css/gallery.css?v6">
-        <link rel="stylesheet" href="css/big-particles.css?v6">
+        <link rel="stylesheet" href="css/gallery.css?v7">
+        <link rel="stylesheet" href="css/big-particles.css?v7">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     </noscript>
 
@@ -30,7 +36,17 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.1.1/flickity.pkgd.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.1.1/flickity.pkgd.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.2.1/flickity.pkgd.min.js" integrity="sha512-ClHPgb2rWcKsX38BVioxnnZPsSo5jxbwEfWRiasP09wPdwDm+DGJqyZ+C+gPDJbOiEthTZFYVDO1o4QNVwlsFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.pkgd.min.js"
+        integrity="sha512-+m9auGg9ZwnDc37W8RSsLhzKBLVOYsf5BKzSpYrYhQQk6hItXOhBFKHuHbMCpoABCUO6l4HVK+dFwxMIME3E7Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <!-- <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css"> -->
+    <!-- <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script> -->
+
+
     <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.6.2/dist/simpleParallax.min.js"
         integrity="sha256-GBIPMHSjsTxzIyJuhuk7wWz8z2oKeev8qW/c3IgOeVQ=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
@@ -60,24 +76,37 @@
         <div
             class="flex-grow-1 container d-flex flex-column flex-md-row gap-1 gap-md-5 my-0 px-0 px-sm-0 px-md-4 z-2 position-relative h-100">
             <div class="d-flex align-items-md-center interests-container">
-                <p class="mx-4 mx-md-0 my-4 my-md-0 py-4 arsenal-sc-regular fs-2 text-center min-height w-100"
+                <div class="mx-4 mx-md-0 my-4 my-md-0 py-4 arsenal-sc-regular fs-2 text-center min-height w-100 hidden"
                     id="interests">
-                    <span id="lifestyle">lifestyle</span><br>
-                    <span id="modelling">modelling</span><br>
-                    <span id="travelling">travelling</span><br>
-                    <span id="fashion">fashion</span>
-                </p>
+                    <span class="hidden" id="lifestyle">lifestyle</span>
+                    <span class="hidden" id="modelling">modelling</span>
+                    <span class="hidden" id="travelling">travelling</span>
+                    <span class="hidden" id="fashion">fashion</span>
+                </div>
             </div>
             <img src="assets/girlinmotion.webp" alt="Girl in Motion" class="flex-fill girlinmotion">
         </div>
         <div class="gr2 h-100 w-100 opacity-50 position-absolute top-0 start-0 z-1"></div>
-        <div class="backdrop-blur full-section position-absolute top-0 start-0 z-n1" style="backdrop-filter: blur(4px) brightness(1.2) contrast(1.2)"></div>
+        <div class="backdrop-blur full-section position-absolute top-0 start-0 z-n1"
+            style="backdrop-filter: blur(4px) brightness(1.2) contrast(1.2)"></div>
         <video playsinline autoplay muted loop class="bgVideo" id="mountain-banana"
             style="z-index: -3;filter: brightness(.7) contrast(1.2);">
             <source src="vid/mountain_banana.webm" type="video/webm">
             <source src="vid/mountain_banana.mp4" type="video/mp4">
         </video>
     </div>
+    <script>
+        let observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                } else {
+                   // entry.target.classList.remove('show');
+                }
+            });
+        });
+        document.querySelectorAll('.hidden').forEach((el) => observer.observe(el));
+    </script>
 
     <div class="container-fluid bg2 position-relative insta pt-4 pt-md-0 z-1">
         <div class="flex-grow-0 flex-md-grow-1 instastuff z-1">
@@ -213,19 +242,20 @@
     <div class="overflow-hidden position-relative background-video">
         <div class="gallery position-relative z-2">
             <div class="slide slide-1">
-                <img data-delay="1" data-src="assets/956.webp">
+                <!-- data-flickity-lazyload="full.jpg" -->
+                <img data-delay="1" src="assets/956.webp">
                 <div style="--bg-url:url('../assets/scratches/1.webp')" class="scratch-overlay"></div>
             </div>
             <div class="slide slide-2">
-                <img data-delay="1.1" data-src="assets/1224.webp">
+                <img data-delay="1.1" src="assets/1224.webp">
                 <div style="--bg-url:url('../assets/scratches/2.webp')" class="scratch-overlay"></div>
             </div>
             <div class="slide slide-3">
-                <img data-delay="1.2" data-src="assets/1096.webp">
+                <img data-delay="1.2" src="assets/1096.webp">
                 <div style="--bg-url:url('../assets/scratches/3.webp')" class="scratch-overlay"></div>
             </div>
             <div class="slide slide-4">
-                <img data-delay="1.3" data-src="assets/1156.webp">
+                <img data-delay="1.3" src="assets/1156.webp">
                 <div style="--bg-url:url('../assets/scratches/4.webp')" class="scratch-overlay"></div>
             </div>
         </div>
@@ -259,8 +289,8 @@
     </div>
 
 
-    <div class="container-fluid position-relative youtube d-flex align-items-center overflow-hidden">
-        <div class="pb-5 pt-3 py-md-5 d-flex pb-md-5 yt w-100 z-1" style="height: 100%;">
+    <div class="container-fluid position-relative youtube d-flex align-items-center overflow-hidden px-0">
+        <div class="pb-5 pt-3 py-md-5 d-flex pb-md-5 yt w-100 z-1 h-100 px-3">
             <iframe id="youtube_video" width="600" height="340" frameborder="0" class=""></iframe>
             <div id="vid_control" class="mx-3 z-2">
                 <i class="bi bi-box-arrow-right cursor-pointer fs-2"></i>
@@ -308,100 +338,88 @@
     </div>
 
     <script>
-        let friction = 0.2;
-        let selectedAttraction = 0.0005; 
-        var flkty = $('.gallery').flickity({
-            cellAlign: 'center',
-            setGallerySize: false,
-            wrapAround: true,
-            pageDots: false,
-            freeScroll: true,
-            selectedAttraction: selectedAttraction, // how quickly the carousel settles after a user interaction towards the selected cell.
-            friction: friction // resistance to movement, affecting the smoothness and speed of transitions between slides.
-        }).data('flickity');
-        // $('.gallery').on('mouseenter', stopScrolling).on('mouseleave', startScrolling);
-        $(window).on('blur', stopScrolling).on('focus', startScrolling);
-
-        let speedDivider = 1;
-        let timeFullRevolution;
-
-        function updateFlickity() {
-            stopScrolling();
-            var windowWidth = window.innerWidth;
-            var multiplier = 6;
-
-            var cellWidth;
-
-            if (windowWidth < 768) {                                // S
-                cellWidth = windowWidth / multiplier * 8;
-                speedDivider = multiplier / 2;
-                friction = 0.2;
-                selectedAttraction = 0.0005;
-            } else if (windowWidth >= 768 && windowWidth <= 1100) { // M
-                cellWidth = windowWidth / multiplier * 4;
-                speedDivider = multiplier / 1.5;
-                friction = 0.5;
-                selectedAttraction = 0.00005;
-            } else {                                                // L
-                cellWidth = windowWidth / multiplier * 2;
-                speedDivider = multiplier / 1.5;
-                friction = 1;
-                selectedAttraction = 0.000025;
-
-            }
-
-            timeFullRevolution = 8000 / speedDivider
-
-            // console.log("Window width:", windowWidth);
-            // console.log("Cell width:", cellWidth);
-            // console.log("timeFullRevolution:",timeFullRevolution)
-            // console.log("selectedAttraction:",selectedAttraction)
-            flkty.cells.forEach(function (cell) {
-                cell.element.style.width = cellWidth + 'px';
+        function loadImagesWithDelay() {
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                const src = img.getAttribute('data-src');
+                const delaySeconds = parseFloat(img.getAttribute('data-delay'));
+                const delayMilliseconds = delaySeconds * 1000;
+                setTimeout(() => img.src = src, delayMilliseconds);
             });
-            flkty.reloadCells();
-            flkty.reposition();
-            startScrolling()
         }
 
+        if (window.scrollY === 0) loadImagesWithDelay();
+        else document.querySelectorAll('img[data-src]').forEach(img => img.src = img.getAttribute('data-src'));
+    </script>
 
-        updateFlickity();
-        $(window).on('resize', updateFlickity);
 
-        var isScrolling = false;
-        var scrollInterval;
 
-        function startScrolling() {
-            if (isScrolling) stopScrolling()
-            if (!isScrolling) {
-                isScrolling = true;
-                scrollInterval = setInterval(function () { flkty.next(); }, timeFullRevolution);
-                // console.log("Started scrolling...")
+    <script>
+
+
+        let carousel = document.querySelector('.gallery'),
+            args = {
+                cellAlign: 'center',
+                setGallerySize: false, // Sets the height of the carousel to the height of the tallest cell. Enabled by default setGallerySize: true.
+                wrapAround: true,
+                autoplay: 500,
+                dragThreshold: 10,
+                pageDots: false,
+                // percentPosition: false, /// Sets positioning in percent values, rather than pixel values. If your cells do not have percent widths, we recommended percentPosition: false.
+                pauseAutoPlayOnHover: false,
+                lazyLoad: 2,
+                freeScroll: true,
+                prevNextButtons: false,
+                cellSelector: '.slide',
+                selectedAttraction: 0.0005, // how quickly the carousel settles after a user interaction towards the selected cell.
+                friction: 0.001, // resistance to movement, affecting the smoothness and speed of transitions between slides.
+                freeScrollFriction: 0.3,
+                imagesLoaded: true
+            };
+
+        let requestId;
+
+        let flkty = new Flickity(carousel, args);
+
+
+        // setTimeout(function() {
+        //     flkty.next();
+        //     // flkty.playPlayer()
+        // }, 3000);
+
+
+
+        flkty.x = 0; // Set initial position to be 0
+
+        play();
+
+        function play() {
+            flkty.x = flkty.x - 1.5;
+            flkty.settle(flkty.x);
+            requestId = window.requestAnimationFrame(play);
+        }
+
+        function pause() {
+            if (requestId) {
+                window.cancelAnimationFrame(requestId)
+                requestId = undefined;
             }
         }
 
-        function stopScrolling() {
-            if (isScrolling) {
-                isScrolling = false;
-                clearInterval(scrollInterval);
-            }
-            // console.log("Stopped scrolling!")
-        }
+        flkty.addEventListener('focusin', pause, false);
+        flkty.addEventListener('focusout', pause, false);
+        flkty.addEventListener('mousein', pause, false);
+        flkty.addEventListener('mouseout', play, false);
 
-        function pauseScrolling() {
-            stopScrolling();
-            setTimeout(startScrolling, 2000);
-        }
 
-        // $('.gallery').on('manualScroll.flickity', pauseScrolling);
 
-        startScrolling();
+
+
 
     </script>
     <script>
 
-        new simpleParallax(document.getElementsByClassName('girlinmotion'));
-        new simpleParallax(document.getElementsByClassName('dozingirl'), {
+        new simpleParallax(document.querySelector('.girlinmotion'));
+        new simpleParallax(document.querySelector('.dozingirl'), {
             scale: 1.1,
             transition: 'cubic-bezier(0,0,0,1)'
         });
@@ -413,24 +431,6 @@
         });
 
     </script>
-
-
-
-    <script>
-        new simpleParallax(document.getElementsByClassName('girlinmotion'));
-        new simpleParallax(document.getElementsByClassName('dozingirl'), {
-            scale: 1.1,
-            transition: 'cubic-bezier(0,0,0,1)'
-
-        });
-        new simpleParallax(document.querySelectorAll('img.parallax'), {
-            orientation: 'left',
-            scale: 1.5,
-            delay: 1,
-            transition: 'cubic-bezier(0,0,0,1)'
-        });
-    </script>
-
 
     <script>
         new Rellax('.rellax');
@@ -563,7 +563,7 @@
         document.addEventListener("scroll", function () {
             var scrollY = window.scrollY;
 
-            toggleClass("#mountain-banana", "invisible",  window.scrollY === 0)
+            toggleClass("#mountain-banana", "invisible", window.scrollY === 0)
 
 
             // Calculate opacity for hand-overlay
@@ -576,26 +576,13 @@
         });
         toggleClass("#mountain-banana", "invisible", window.scrollY === 0)
 
-        function toggleClass(selector, className, condition){
+        function toggleClass(selector, className, condition) {
             let elementToHide = document.querySelector(selector);
             condition ? elementToHide.classList.add(className) : elementToHide.classList.remove(className)
         }
     </script>
 
 
-    <script>
-        function loadImagesWithDelay() {
-            document.querySelectorAll('img[data-src]').forEach(img => {
-                const src = img.getAttribute('data-src');
-                const delaySeconds = parseFloat(img.getAttribute('data-delay'));
-                const delayMilliseconds = delaySeconds * 1000;
-                setTimeout(() => img.src = src, delayMilliseconds);
-            });
-        }
-
-        if (window.scrollY === 0) loadImagesWithDelay();
-        else document.querySelectorAll('img[data-src]').forEach(img => img.src = img.getAttribute('data-src'));
-    </script>
 
 
 

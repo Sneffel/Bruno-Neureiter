@@ -82,7 +82,7 @@
 
 }
 
-@media all and (width <= 1000px) {
+@media all and (max-width: 1000px) {
     .gallery .slide img {
         filter: brightness(1.2);
     }
@@ -92,10 +92,9 @@
     }
 }
 
-@media all and (width <= 440px) {
+@media all and (max-width: 440px) {
     .gallery .slide {
         width: 100vw;
-
     }
 }
 

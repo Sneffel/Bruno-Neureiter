@@ -126,29 +126,30 @@ img {
     281 x 468
     429px x 727px
 */
-@media all and (493px <=width <=791px) and (782px <=height <=795px),
-all and (430px <=width <=1238px) and (421px <=height <=782px),
-all and (402px <=width <=430px) and (741px <=height <=754px),
-all and (381px <=width <=519px) and (429px <=height <=740px),
-all and (273px <=width <=380px) and (518px <=height <=799px),
-all and (257px <=width <=270px) and (518px <=height <=726px),
-all and (257px <=width <=429px) and (375px <=height <=518px),
-all and (233px <=width <=423px) and (429px <=height <=727px),
-all and (width < 234px) {
+@media all and (min-width: 493px) and (max-width: 791px) and (min-height: 782px) and (max-height: 795px),
+all and (min-width: 430px) and (max-width: 1238px) and (min-height: 421px) and (max-height: 782px),
+all and (min-width: 402px) and (max-width: 430px) and (min-height: 741px) and (max-height: 754px),
+all and (min-width: 381px) and (max-width: 519px) and (min-height: 429px) and (max-height: 740px),
+all and (min-width: 273px) and (max-width: 380px) and (min-height: 518px) and (max-height: 799px),
+all and (min-width: 257px) and (max-width: 270px) and (min-height: 518px) and (max-height: 726px),
+all and (min-width: 257px) and (max-width: 429px) and (min-height: 375px) and (max-height: 518px),
+all and (min-width: 233px) and (max-width: 423px) and (min-height: 429px) and (max-height: 727px),
+all and (max-width: 233px) {
     #hand-overlay {
         display: none;
     }
 }
 
-@media all and (299px <=width <=303px) and (447px <=height <=451px) {
+@media all and (min-width: 299px) and (max-width: 303px) and (min-height: 447px) and (max-height: 451px) {
     #hand-overlay {
         display: block;
     }
 
     #heart {
-        color: var(--light-red)
+        color: var(--light-red);
     }
 }
+
 
 
 .girlinmotion {
@@ -351,11 +352,12 @@ img[alt=propic] {
     outline-offset: 3px;
     outline: #4f4f4f 2px solid;
 }
-@supports not (text-align-last: auto) {
+/* https://caniuse.com/?compare=chrome+100,firefox+100,ios_saf+16.0,ios_saf+17.0&compareCats=CSS */
+@supports (div:dir(ltr)) {
     img[alt=propic] {
         outline: initial !important;
     }
-}   
+}
 
 .propic .bg {
     height: 156px;
@@ -617,7 +619,8 @@ div:has(div#interests),
     animation: loop 70s linear infinite;
     -webkit-animation: loop 70s linear infinite;
     animation-delay: 35s;
-    -webkit-animation-delay: 35s; /* Add this line for Safari */
+    -webkit-animation-delay: 35s;
+    /* Add this line for Safari */
 
 }
 

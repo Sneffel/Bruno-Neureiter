@@ -236,6 +236,7 @@
 
             element.style.backdropFilter = `blur(${blurValue}px)`;
             element.style.filter = `brightness(${brightness})`;
+            
         });
     </script>
 
@@ -563,9 +564,6 @@
         document.addEventListener("scroll", function () {
             var scrollY = window.scrollY;
 
-            toggleClass("#mountain-banana", "invisible", window.scrollY === 0)
-
-
             // Calculate opacity for hand-overlay
             var handOpacity = Math.max(handStyleOpacity - (handStyleOpacity * scrollY / handThresholdStart), 0);
             handOverlay.style.opacity = handOpacity.toString();
@@ -574,12 +572,6 @@
             var digitalOpacity = Math.max(digitalStyleOpacity - (digitalStyleOpacity * scrollY / digitalThresholdStart), 0);
             digitalCreator.style.opacity = digitalOpacity.toString();
         });
-        toggleClass("#mountain-banana", "invisible", window.scrollY === 0)
-
-        function toggleClass(selector, className, condition) {
-            let elementToHide = document.querySelector(selector);
-            condition ? elementToHide.classList.add(className) : elementToHide.classList.remove(className)
-        }
     </script>
 
 

@@ -451,7 +451,7 @@ a.link-pic,
     aspect-ratio: 16/9;
     height: initial;
     transition: .2s ease-in-out;
-	box-shadow: 5px 8px 12px hsla(0, 0%, 0%, 40%);
+	box-shadow: 5px 8px 12px hsla(0, 0%, 0%, 30%);
     border-radius: .2rem;
 }
 

@@ -34,6 +34,7 @@
     filter: drop-shadow(15px 15px 10px hsla(0, 0%, 0%, 0.3210));
     width: 33vw;
     max-width: calc(100vh * 2 / 3);
+    max-width: calc(100lvh * 2 / 3);
 }
 
 .gallery .slide .scratch-overlay {

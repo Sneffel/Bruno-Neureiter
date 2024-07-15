@@ -413,8 +413,13 @@ img.parallax {
     background-attachment: fixed;
     background-size: cover;
     width: 100vw;
+}
 
-    
+@supports (-webkit-touch-callout: none) {
+    .container-fluid.youtube {
+        background-attachment: initial !important;
+
+    }
 }
 
 div.youtube div.yt {
@@ -447,7 +452,7 @@ a.link-pic,
     aspect-ratio: 16/9;
     height: initial;
     transition: .2s ease-in-out;
-	box-shadow: 5px 8px 12px hsla(0, 0%, 0%, 30%);
+    box-shadow: 5px 8px 12px hsla(0, 0%, 0%, 30%);
     border-radius: .2rem;
 }
 
@@ -498,7 +503,8 @@ div:has(div#interests),
     .background-video.end div.container {
         gap: 0;
     }
-/* 
+
+    /* 
     .gallery {
         pointer-events: none;
     } */
@@ -613,6 +619,7 @@ div:has(div#interests),
     0% {
         transform: translate3d(0, 0, 0);
     }
+
     100% {
         transform: translate3d(-100%, 0, 0);
     }
@@ -622,6 +629,7 @@ div:has(div#interests),
     0% {
         -webkit-transform: translate3d(0, 0, 0);
     }
+
     100% {
         -webkit-transform: translate3d(-100%, 0, 0);
     }
@@ -886,13 +894,13 @@ body .particletext.hearts>.particle:after {
         transition: opacity 1s;
         transition-delay: 0.25s;
     }
-    
+
     #interests #travelling.hidden {
         opacity: 0;
         transition: opacity 1s;
         transition-delay: .5s;
     }
-    
+
     #interests #fashion.hidden {
         opacity: 0;
         transition: opacity 1s;
@@ -910,26 +918,29 @@ body .particletext.hearts>.particle:after {
         animation-duration: 1.5s
     }
 
-    #interests span.hidden{
+    #interests span.hidden {
         opacity: 0;
         transition: opacity 1s;
     }
-    #interests span.show{
+
+    #interests span.show {
         opacity: 1 !important;
     }
-}   
+}
 
 /* Chrome and Safari  */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-    #interests span.hidden{
+    #interests span.hidden {
         opacity: 1;
     }
+
     #interests {
         animation: randomMove 2s infinite alternate;
         opacity: 0;
         transition: opacity 2.5s;
     }
-    #interests.show{
+
+    #interests.show {
         opacity: 1 !important;
     }
 }

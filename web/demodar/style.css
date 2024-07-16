@@ -514,16 +514,17 @@ div:has(div#interests),
         gap: 0;
     }
 
-    /* 
-    .gallery {
-        pointer-events: none;
-    } */
-
     .gallery::before,
     .gallery::after,
     #hollywood::before,
     #hollywood::after {
         opacity: .3;
+    }
+
+    .girlinmotion{
+        width: 100vw;
+        height: 66.6svh;
+        max-height: max(66.6svh, calc(100svh * 3 / 2));
     }
 
 }
@@ -680,6 +681,7 @@ div:has(div#interests),
 .full-section {
     min-height: 100vh !important;
     min-height: 100lvh !important;
+    height: 100%;
     width: 100%;
 }
 

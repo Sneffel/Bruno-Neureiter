@@ -352,8 +352,11 @@ img[alt=propic] {
     outline-offset: 3px;
     outline: #4f4f4f 2px solid;
 }
+
 /* https://caniuse.com/?compare=chrome+100,firefox+100,ios_saf+16.0,ios_saf+17.0&compareCats=CSS */
-@supports (div:dir(ltr)) {
+@supports (div:dir(ltr)) 
+or (-webkit-touch-callout: none)  /* SAD! */
+{
     img[alt=propic] {
         outline: initial !important;
     }
@@ -616,12 +619,11 @@ div:has(div#interests),
     padding-left: 100%;
     animation: loop var(--animation-duration) linear infinite;
     animation-delay: calc(-0.5 * var(--animation-duration));
-    -webkit-animation-delay: calc(-0.5 * var(--animation-duration));
-    animation-delay: calc(-0.5 * var(--animation-duration));
 }
 
 .loop2 span {
     animation-delay: 0s;
+    animation-delay: calc(-0.5 * var(--animation-duration));
 }
 
 @keyframes loop {
@@ -634,13 +636,44 @@ div:has(div#interests),
     }
 }
 
-@-webkit-keyframes loop {
-    0% {
-        -webkit-transform: translate3d(0, 0, 0);
+
+@media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) { 
+    /* Should be webkit except Chrome but does Chrome too  */
+    .loop span {
+        animation: move-left-right var(--animation-duration) linear infinite;
+        /* animation: infinite; */
+        padding-left: 0;
+        position: relative;
+
+    }
+    .loop2 span {
+        display: none;
+    }
+}
+
+@supports (-webkit-touch-callout: none) {
+    /* CSS specific to iOS devices */
+    .loop span {
+        animation: move-left-right var(--animation-duration) linear infinite;
+        /* animation: infinite; */
+        padding-left: 0;
+        position: relative;
+
+    }
+    .loop2 span {
+        display: none;
+    }
+}
+
+@keyframes move-left-right {
+
+    0%,
+    100% {
+        right: 0;
     }
 
-    100% {
-        -webkit-transform: translate3d(-100%, 0, 0);
+    50% {
+        right: calc(100% - 100vw);
     }
 }
 

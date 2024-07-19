@@ -556,14 +556,20 @@ div:has(div#interests),
     }
 }
 
+.align-items-dynamic{
+    align-items: start;
+}
 
 @media all and (max-width:860px) {
+    .align-items-dynamic{
+        align-items: center;
+    }
+
     div.youtube div.yt {
         justify-content: center;
         flex-direction: column;
         gap: 2.5rem;
     }
-
 
     #youtube_video {
         width: 100%

@@ -587,6 +587,9 @@ div:has(div#interests),
     div.end {
         height: initial;
     }
+    #contact-block{
+        height: 100lvh;
+    }
 }
 
 

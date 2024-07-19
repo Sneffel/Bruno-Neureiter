@@ -473,6 +473,7 @@ a.link-pic,
     align-content: center;
     min-height: 100lvh;
     height: 100%;
+    flex-wrap: wrap;
 }
 
 div:has(div#interests),

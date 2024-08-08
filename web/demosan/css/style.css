@@ -120,32 +120,7 @@ p {
     grid-template-columns: 1fr;
 }
 
-@media (min-width: 768px) {
-    .container {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-    }
 
-    .container .box:nth-child(odd) .text {
-        left: var(--lateral-margin);
-    }
-
-    .container .box:nth-child(even) .text {
-        right: var(--lateral-margin);
-        text-align: end;
-    }
-    section.mic .b-img img {
-        filter: brightness(1);
-    }
-    .bedroom img.render {
-        filter: brightness(1);
-    }
-    #contacts .content {
-        width: 50lvw !important;
-        margin: auto;
-    }
-    
-}
 
 .box {
     background-color: lightgray;
@@ -316,7 +291,8 @@ section.mic h2 {
 }
 
 .bedroom .content div button {
-    width: 100%;
+    width: 12rem;
+    max-width: calc(100vw - var(--lateral-margin) * 2);
     height: 50%;
     border: none;
     border-radius: 1rem;
@@ -345,14 +321,14 @@ section.mic h2 {
 }
 
 .bedroom img.render {
-	position: absolute;
-	right: 0;
-	bottom: -1rem;
-	/* width: 50%; */
-	/* height: calc(100% - var(--lateral-margin) / 2); */
-	height: 100%;
-	object-fit: cover;
-	object-position: right;
+    position: absolute;
+    right: 0;
+    bottom: -1rem;
+    /* width: 50%; */
+    /* height: calc(100% - var(--lateral-margin) / 2); */
+    height: 100%;
+    object-fit: cover;
+    object-position: right;
     filter: brightness(.9);
 }
 
@@ -367,7 +343,7 @@ section.mic h2 {
 }
 
 i.close {
-    position: fixed;
+    position: absolute;
     right: var(--lateral-margin);
     top: var(--lateral-margin);
     padding: 2rem;
@@ -378,18 +354,19 @@ i.close::before {
 }
 
 #contacts {
-    padding: var(--lateral-margin);
+    padding-top: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    padding: 5rem var(--lateral-margin) 10rem;
+    padding-left: 1rem;
     overflow-y: auto;
 }
 
 #contacts .content {
-	width: 50vw;
-	width: 100%;
-	/* width: clamp(max-content, 50lvw, 100lvw); */
-	/* min-width: max-content; */
-	max-width: 100vw;
-	/* max-width: 100lvw; */
-	/* margin: auto; */
+    width: 50vw;
+    width: 100%;
+    max-width: 100vw;
+    padding-bottom: env(safe-area-inset-bottom);
 }
 
 
@@ -523,6 +500,40 @@ i:hover {
 
 i::before {
     font-size: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    .container .box:nth-child(odd) .text {
+        left: var(--lateral-margin);
+    }
+
+    .container .box:nth-child(even) .text {
+        right: var(--lateral-margin);
+        text-align: end;
+    }
+
+    section.mic .b-img img {
+        filter: brightness(1);
+    }
+
+    .bedroom img.render {
+        filter: brightness(1);
+    }
+
+    #contacts .content {
+        width: 50lvw;
+        margin: auto;
+    }
+
+    .bedroom .content div button {
+        width: 100%;
+    }
+
 }
 
 @keyframes shake {

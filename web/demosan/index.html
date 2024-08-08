@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vittorio Del Santo</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/scroll-anim.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jomhuria&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.6.2/dist/simpleParallax.min.js"
+        integrity="sha256-GBIPMHSjsTxzIyJuhuk7wWz8z2oKeev8qW/c3IgOeVQ=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <div id="contacts" class="overlay">
+    </div>
+
+    <section class="hero">
+        <h1 class="title text">Vittorio Del Santo</h1>
+        <h2 class="autoShow text">Accendi il cantante che è in te</h2>
+        <img src="img/hero-image.webp" class="parallax">
+    </section>
+
+    <section class="container">
+        <div class="box">
+            <div class="text">
+                <h2>Tutta Italia</h2>
+                <h4>Lezioni online, studio a Pisa</h4>
+            </div>
+            <div class="wrap">
+                <img src="img/female-redhead.webp" alt="redhead" class="render" style="height:75%;left:10%">
+            </div>
+            <img src="img/meet.webp" alt="meet" class="bg">
+        </div>
+        <div class="box">
+            <div class="text">
+                <h2>Numero chiuso</h2>
+                <h4>30 studenti all'anno</h4>
+            </div>
+            <div class="wrap">
+                <img src="img/bluedude.webp" alt="bluedude" class="render" style="left:20.8%;top:24.2%;height:110%">
+            </div>
+            <img src="img/travel.webp" alt="travel" class="bg">
+        </div>
+        <div class="box">
+            <div class="text">
+                <h2>Esperienza nel campo</h2>
+                <h4>12 anni di insegnamento</h4>
+            </div>
+            <div class="wrap">
+                <img src="img/hippy-short.webp" alt="hippy" class="render" style="height:101%;right:2%">
+            </div>
+            <img src="img/singer-mic.webp" alt="singer" class="bg">
+        </div>
+        <div class="box">
+            <div class="text">
+                <h2 class="">Lezioni su misura</h2>
+                <h4 class="">Tutti sempre soddifatti</h4>
+            </div>
+            <div class="wrap">
+                <img src="img/black-soul.webp" alt="soul" class="render" style="top:-1%;height:102%">
+            </div>
+            <img src="img/writing.webp" alt="writing" class="bg">
+        </div>
+    </section>
+
+    <section class="mic">
+        <h2 class="autoShow">Cosa aspetti<br>
+            <span class="inline">a far uscire</span> <span class="inline">la tua voce?</span>
+        </h2>
+        <div class="b-img"><img src="img/mic-old.webp" alt="Old mic" class="b-parallax"></div>
+    </section>
+
+    <section class="bedroom">
+        <div class="content">
+            <div></div>
+            <div>
+                <h2 class="autoShow">Dalla cameretta<br>al palco</h2>
+            </div>
+            <div>
+                <button id="contact-me" class="autoShow">Contattami</button>
+            </div>
+        </div>
+        <div class="bg-container">
+            <img src="img/studio.webp" alt="studio">
+        </div>
+        <img class="render" src="img/blue-mic.webp" alt="Blue dude">
+    </section>
+
+    <section class="info">
+        <div class="container">
+            <h2>Vittorio Del Santo</h2>
+            <div class="subtitle">
+                <p>Insegnante di canto</p>
+                <hr>
+            </div>
+            <p>Vittorio affianca l’attività di cantante a quella dell’insegnante dal 2012, sempre con grandi
+                soddisfazioni. Insegna con passione. La più grande soddisfazione è quella di tirare fuori lo strumento
+                che stava già dentro e farlo brillare.</p>
+            <div class="icons">
+                <i class="bi-twitter"></i>
+                <i class="bi-whatsapp"></i>
+                <i class="bi-messenger"></i>
+                <i class="bi-instagram"></i>
+            </div>
+        </div>
+        <div class="bg-container">
+            <img src="img/blue-stage.webp" alt="Blue stage">
+        </div>
+
+
+    </section>
+
+    <script>
+        new simpleParallax(document.querySelectorAll('.parallax'), {
+            scale: 1.1,
+            transition: 'cubic-bezier(0,0,0,1)',
+            delay: 1.3
+        });
+        new simpleParallax(document.querySelectorAll('.b-parallax'), {
+            scale: 1.3,
+            transition: 'cubic-bezier(0,0,0,1)',
+            delay: 1.2
+        });
+        new simpleParallax(document.querySelectorAll('.h-parallax'), {
+            orientation: 'left',
+            scale: 1.5,
+            delay: 1.3,
+            transition: 'cubic-bezier(0,0,0,1)'
+        });
+
+        function toggleOverlay(show) {
+            document.querySelector('#contacts').style.display = show ? 'block' : 'none';
+            document.querySelector('html').style.overflow = show ? 'hidden' : '';
+        }
+
+        document.querySelector('#contact-me').addEventListener('click', () => {
+            toggleOverlay(true);
+            if (document.querySelector('#contacts .content')) return
+            fetch('contact.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('contacts').innerHTML = data;
+                })
+                .catch(error => console.error('Error:', error));
+
+        });
+
+
+        window.addEventListener('load', function () {
+            let hrWidth = document.querySelector('.info .container .subtitle hr').offsetWidth;
+            document.querySelector('.icons').style.width = `${hrWidth}px`;
+
+            let icons = document.querySelectorAll('.icons i');
+            let lastIconIndex = -1;
+
+            let getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+            function startShaking() {
+                let randomIndex;
+                while ((randomIndex = getRandomInt(0, icons.length - 1)) === lastIconIndex);
+
+                lastIconIndex = randomIndex;
+                const icon = icons[randomIndex];
+                icon.style.animation = 'shake 0.5s ease-out';
+
+                icon.addEventListener('animationend', () => {
+                    icon.style.animation = '';
+                }, { once: true });
+
+                setTimeout(startShaking, getRandomInt(2000, 4000));
+            }
+
+            startShaking();
+
+
+        });
+
+    </script>
+</body>
+
+</html>

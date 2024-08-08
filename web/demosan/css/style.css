@@ -305,7 +305,7 @@ section.mic h2 {
     background-color: hsla(0, 0%, 73%, .21);
     backdrop-filter: blur(.8rem);
     filter: drop-shadow(0px 4px 4px hsla(0, 0%, 0%, 0.25));
-    outline: .01rem solid var(--offwhite);
+    /* outline: .01rem solid var(--offwhite); */
 }
 
 .bedroom .content div button:hover {
@@ -532,6 +532,10 @@ i::before {
 
     .bedroom .content div button {
         width: 100%;
+    }
+
+    .bedroom .content div button {
+        outline: .01rem solid var(--offwhite);
     }
 
 }

@@ -9,18 +9,19 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" href="../css/web.css">
+    <link rel="stylesheet" href="../css/reset.css">
 
 </head>
 
 <body>
-    <div class="container text-center mt-4">
-        <h1 class="fw-bold overflow-hidden rellax" data-rellax-speed=".5">Web Work Warehouse</h1>
-        <h2 class="rellaxdown2"><span class="line">Vetrina</span> <span class="line">di alcuni miei</span> <span
-                class="line">lavori sul
-                web</span>
+    <div class="container text-center mt-4 heading">
+        <h1 class="fw-bold overflow-hidden rellax">Bruno Neureiter
+        </h1>
+        <h2 class="rellaxdown matrix mb-4">
+            &lt;/webmaster&gt;
         </h2>
     </div>
-    <div id="showcase" class="tiles container d-flex justify-content-center">
+    <div id="showcase" class="tiles container">
         <div class="tile">
             <div class="image-wrapper">
                 <img src="img/gg.webp" alt="Website Screenshot">
@@ -28,19 +29,30 @@
             </div>
             <div class="content">
                 <h2>Guido Giordana</h2>
-                <p>Pagina personale di presentazione<br>Verticale, con curricolo</p>
+                <p>Pagina di presentazione</p>
             </div>
         </div>
         <div class="tile">
             <div class="image-wrapper">
-                <img src="img/old_index.webp" alt="Website Screenshot">
-                <a class="open-btn btn btn-dark" href="../index_old.html">Apri</a>
+                <img src="img/delsanto.webp" alt="Website Screenshot">
+                <a class="open-btn btn btn-dark" href="demosan/">Apri</a>
             </div>
             <div class="content">
-                <h2>Pagina artista con link</h2>
-                <p>Semplice con collegamenti<br>Animazioni avanzate</p>
+                <h2>Vitorio Del Santo</h2>
+                <p>Insegnante con lezioni online</p>
             </div>
         </div>
+        <div class="tile">
+            <div class="image-wrapper">
+                <img src="img/darlla.webp" alt="Website Screenshot">
+                <a class="open-btn btn btn-dark" href="demodar/">Apri</a>
+            </div>
+            <div class="content">
+                <h2>Claire Redheart</h2>
+                <p>Modella con foto e social</p>
+            </div>
+        </div>
+
         <div class="tile">
             <div class="image-wrapper">
                 <img src="img/bareshoes.webp" alt="Website Screenshot">
@@ -48,10 +60,12 @@
             </div>
             <div class="content">
                 <h2>Bare Shop</h2>
-                <p>Vendita articoli online<br>Tema chiaro/scuro</p>
+                <p>Vendita articoli online</p>
             </div>
         </div>
-        <div class="tile">
+
+
+        <!-- <div class="tile">
             <div class="image-wrapper">
                 <img src="img/easycpm.webp" alt="Website Screenshot">
                 <a class="open-btn btn btn-dark" href="https://easycpm.altervista.org/">Apri</a>
@@ -60,29 +74,46 @@
                 <h2>EasyCPM</h2>
                 <p>Sistema parallelo di prenotazione tematica<br>Promemoria e email automatiche</p>
             </div>
-        </div>
-        <!-- <div class="tile">
+        </div> -->
+
+        <div class="tile more">
             <div class="image-wrapper">
                 <img src="img/quiz.webp" alt="Website Screenshot">
                 <a class="open-btn btn btn-dark" href="https://easycpm.altervista.org/giochi/quiz/">Apri</a>
             </div>
             <div class="content">
                 <h2>Quiz</h2>
-                <p>Più modalità di gioco e inserimento, personalizzazione<br>Modalità sfida in tempo reale</p>
+                <p>Personalizzazione e sfida multigiocatore</p>
             </div>
         </div>
-        <div class="tile">
+        <div class="tile more">
             <div class="image-wrapper">
-                <img src="img/shrph.webp" alt="Website Screenshot">
-                <a class="open-btn btn btn-dark" href="https://shrph.altervista.org/">Apri</a>
+                <img src="img/empty.webp" alt="Website Screenshot">
+                <a class="open-btn btn btn-dark">Apri</a>
             </div>
             <div class="content">
-                <h2>Condivisione immagini</h2>
-                <p>Area privata, modifica immagini, riconoscimento AI<br>Gestionale, multilingua</p>
+                <h2>Il tuo sito</h2>
+                <p>Spazio vuoto per il tuo prossimo sito!</p>
             </div>
-        </div> -->
+        </div>
+
     </div>
-    <div class="my-5 cont">
+
+    <div id="carica" onclick="showMore()">
+        <h3>Altro&hellip;</h3>
+    </div>
+
+    <div class="cont mb-5 mt-4 aboutme">
+        <p>Mi occupo di tutto ciò che riguarda la creazione di un sito web, dalla grafica allo sviluppo, fino alla
+            gestione del server e delle email personalizzate. Scrivo ogni sito da zero in HTML, CSS e JavaScript,
+            prestando grande attenzione alla velocità e alle prestazioni.</p>
+        <p>Per me, la sicurezza è fondamentale. Implemento sistemi di crittografia personalizzati per proteggere i dati
+            sensibili, come le email. Mi piace lavorare a stretto contatto con i clienti, offrendo un supporto diretto e
+            continuo.</p>
+        <p>Tra i progetti recenti, sono particolarmente fiero del sito realizzato per il mio insegnante, che ha ricevuto
+            feedback molto positivi. Ogni progetto è unico, e mi assicuro che ogni dettaglio sia curato al massimo.</p>
+    </div>
+    <div class="cont pb-5">
         <h1 class="buttons" onclick="decodeEmail()" id="email" style="cursor: pointer;" data-value="contact">contact
         </h1>
         <a href="../">
@@ -107,20 +138,26 @@
 
         }
     </script>
-    <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
+
 
     <script>
-        //https://github.com/dixonandmoe/rellax
-        new Rellax('.rellaxdown2', {
-            // center: true,
-            speed: -2,
+        function showMore() {
 
-        });
-        new Rellax('.rellax');
+            document.querySelectorAll('.more').forEach(el => {
+                el.style.maxHeight = "999rem";
+                el.style.border = "1px solid #333";
+            });
+            document.querySelector('#carica').style.height = "0";
+            document.querySelector('#carica').style.overflow = "hidden";
+            document.querySelector('#carica').style.padding = "0";
+            document.querySelector('#carica').style.outline = "0rem solid white";
+            document.querySelector('#carica').style.color = "#0000";
+
+
+        }
+
     </script>
 
-    <!-- <script src="overlap.js"></script> -->
-    <!-- <script src="overlap2.js"></script> -->
 </body>
 
 </html>

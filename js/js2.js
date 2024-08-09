@@ -30,9 +30,9 @@ function startAnimation(h1) {
 }
 
 // Apply animation to all h1 elements initially and on hover
-const h1Tags = document.querySelectorAll("h1");
+const elements = document.querySelectorAll('h1, .matrix');
 
-h1Tags.forEach(h1 => {
+elements.forEach(h1 => {
   h1.dataset.value = h1.innerText; // Store original text in dataset
 
   h1.onmouseover = () => {
@@ -46,6 +46,6 @@ h1Tags.forEach(h1 => {
 });
 
 // Trigger animation on page load for all h1 elements
-  h1Tags.forEach(h1 => {
+  elements.forEach(h1 => {
     startAnimation(h1);
   });

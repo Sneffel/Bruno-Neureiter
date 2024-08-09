@@ -2,19 +2,32 @@
     box-sizing: border-box;
 }
 
+:root {
+    --tile-h: auto;
+}
+
 ::selection {
     background-color: #2d2d2d;
     color: #fff;
 }
 
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #000;
     color: #ffffff;
     line-height: 1.2;
-
+    font-family: 'Space Mono', monospace;
+    perspective: 10rem;
+    transform-style: preserve-3d;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .overflow-hidden {
@@ -41,16 +54,20 @@ h4 {
     line-height: 1;
 }
 
-.tiles.container {
+#showcase {
     max-width: 1200px;
-    padding: 20px;
+    margin: 1rem 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 1rem;
+    justify-content: center;
 }
+
 .darken {
-    filter: brightness(0.7); /* Adjust brightness level as needed */
-  }
+    filter: brightness(0.7);
+    /* Adjust brightness level as needed */
+}
+
 .tile {
     background: #1e1e1e;
     border: 1px solid #333;
@@ -62,30 +79,37 @@ h4 {
     flex-direction: column;
     position: relative;
     font-family: 'Space Mono', monospace;
-    position: sticky;
+    /* position: sticky; */
     top: 1rem;
-    transition: filter 0.3s ease;
+    transition: filter 0.3s ease, border 0s;
+    height: var(--tile-h);
 }
 
 
 .tile .image-wrapper {
     position: relative;
     width: 100%;
+    z-index: 0;
+    position: relative;
+    overflow: hidden;
 }
 
 .tile img {
     width: 100%;
     height: auto;
-    transition: filter .5s;
+    transition: filter .5s, transform .5s;
     display: block;
 }
 
 .tile .image-wrapper:hover img {
-    filter: brightness(.3);
+    filter: brightness(.5) blur(5px);
+    transform: scale(1.05);
 }
 
 .tile .content {
     padding: 15px;
+    z-index: 1;
+    position: relative;
 }
 
 .tile h2 {
@@ -104,16 +128,21 @@ h4 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.8);
-    color: #121212;
+    background-color: hsl(0, 0%, 91%);
+    backdrop-filter: blur(20px);
+    color: hsl(0, 0%, 0%);
     border: none;
-    padding: 10px 20px;
+    padding: .7rem 1.4rem;
     font-size: 16px;
     cursor: pointer;
     opacity: 0;
-    transition: opacity 0.3s;
+    outline: 2px solid hsl(0, 0%, 91%);
+    transition: opacity 0.3s, color .5s, background-color .5s, outline 500ms;
 }
-
+.open-btn:hover{
+    background-color: hsla(0, 0%, 12%, 0.205);
+    outline: 2px solid white;
+}
 .image-wrapper:hover .open-btn {
     opacity: 1;
 }
@@ -139,4 +168,78 @@ span.line {
 
 p {
     text-wrap: pretty;
+}
+
+.tile.more {
+    transition: all 3s ease, border 0s;
+    border: 0px solid #333;
+    max-height: 0;
+}
+
+#carica h3 {
+    color: inherit;
+}
+
+#carica {
+    width: min-content;
+    border-radius: 1rem;
+    /* outline: .2rem solid #0000; */
+    padding: 1.3rem 2rem .8rem;
+    cursor: pointer;
+    user-select: none;
+    transition: all 2s, outline .5s, background-color .2s, color .2s;
+    margin: 0rem auto 4rem;
+    overflow: hidden;
+    z-index: -1;
+}
+
+#carica:hover {
+    background-color: hsla(0, 0%, 20%, 0.3);
+}
+
+#carica:active {
+    background-color: hsla(0, 0%, 40%, 0.3);
+    color: hsla(0, 0%, 93%, 0.928);
+    /* outline: .3rem solid hsla(0, 0%, 93%, 0.928); */
+}
+
+#carica {
+    transform: translateZ(-.5rem);
+    transform-style: inherit;
+}
+
+.aboutme {
+    transform: translateZ(1rem);
+    transform-style: inherit;
+    z-index: -2;
+    width: 100%;
+}
+
+.aboutme p {
+    margin-inline: auto;
+}
+
+.aboutme:before {
+    background: repeat;
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 8px 1px rgba(0, 0, 0, .7);
+    background-image: url("../web/img/leaf-pattern.webp");
+    transform: translateZ(-3rem) scale(1.25);
+    height: calc(100% + 2rem);
+    filter: brightness(.9) contrast(1.05);
+}
+
+.heading {
+    transform: translateZ(-3rem) translateY(-4rem);
+    transform-style: inherit;
+}
+
+.tiles {
+    transform: translateZ(.1rem);
+    transform-style: inherit;
 }

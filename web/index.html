@@ -14,12 +14,22 @@
 </head>
 
 <body>
-    <div class="container text-center mt-4 heading">
-        <h1 class="fw-bold overflow-hidden rellax">Bruno Neureiter
-        </h1>
-        <h2 class="rellaxdown matrix mb-4">
-            &lt;/webmaster&gt;
-        </h2>
+    <!-- <div class="triangle-1 rellax" data-rellax-speed="6"></div> -->
+    <div style="--index:0" class="rhomboid rellax" data-rellax-speed="7"></div>
+    <div style="--index:1" class="rhomboid rellax" data-rellax-speed="7"></div>
+    <div style="--index:2" class="rhomboid rellax" data-rellax-speed="7"></div>
+    <div style="--index:3" class="rhomboid rellax" data-rellax-speed="7"></div>
+    <div style="--index:4" class="rhomboid rellax" data-rellax-speed="7"></div>
+    <div style="--index:5" class="rhomboid rellax" data-rellax-speed="7"></div>
+
+    <div class="container text-center mt-4 ">
+        <div class="heading">
+            <h1 class="fw-bold rellax">Bruno Neureiter
+            </h1>
+            <h2 id="webmaster" class="mb-4 rellax" data-rellax-speed="0">
+                &lt;/webmaster&gt;
+            </h2>
+        </div>
     </div>
     <div id="showcase" class="tiles container">
         <div class="tile">
@@ -96,24 +106,31 @@
                 <p>Spazio vuoto per il tuo prossimo sito!</p>
             </div>
         </div>
-
+        <div id="carica" onclick="showMore()">
+            <h3>Altro&hellip;</h3>
+        </div>
     </div>
 
-    <div id="carica" onclick="showMore()">
-        <h3>Altro&hellip;</h3>
-    </div>
 
-    <div class="cont aboutme">
-        <p>Mi occupo di tutto ciò che riguarda la creazione di un sito web, dalla grafica allo sviluppo, fino alla
-            gestione del server e delle email personalizzate. Scrivo ogni sito da zero in HTML, CSS e JavaScript,
-            prestando grande attenzione alla velocità e alle prestazioni.</p>
-        <p>Per me, la sicurezza è fondamentale. Implemento sistemi di crittografia personalizzati per proteggere i dati
-            sensibili, come le email. Mi piace lavorare a stretto contatto con i clienti, offrendo un supporto diretto e
-            continuo.</p>
-        <p>Tra i progetti recenti, sono particolarmente fiero del sito realizzato per il mio insegnante, che ha ricevuto
-            feedback molto positivi. Ogni progetto è unico, e mi assicuro che ogni dettaglio sia curato al massimo.</p>
+
+    <div class="before-aboutme"></div>
+    <div class="aboutme">
+        <div class="text container">
+            <p>Faccio tutto io. Lo sviluppo, la grafica, il sito. La parte del server, le email
+                personalizzate.
+            </p>
+            <p>Scrivo ogni sito da zero. Unico e inconfondibile, proprio come te.
+            </p>
+            <p>Dimmi cosa vuoi, lo posso fare.<br>
+                Piccole modifiche nel tempo? No problem. </p>
+            <p>
+                Cookie? Non servono, sono fastidiosi.</p>
+            <p>Aggiungo valore alla tua professione.
+            </p>
+        </div>
     </div>
-    <footer class="cont pb-5 mt-5 pt-5">
+    <div class="after-aboutme"></div>
+    <footer>
         <h1 class="buttons" onclick="decodeEmail()" id="email" style="cursor: pointer;" data-value="contact">contact
         </h1>
         <a href="../">
@@ -139,6 +156,7 @@
         }
     </script>
 
+    <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
 
     <script>
         function showMore() {
@@ -155,6 +173,46 @@
 
 
         }
+        new Rellax('.rellax', {
+            wrapper: 'body'
+        });
+
+
+
+
+
+        const element = document.getElementById('webmaster');
+        const originalText = element.textContent;
+        const changes = [
+            '<w/ebmaster>', '<we/bmaster>', '<web/master>', '<webm/aster>', '<webma/ster>', '<webmas/ter>', '<webmast/er>', '<webmaste/r>',
+            '<webmaster/>', '<webmaste/r>', '<webmast/er>', '<webmas/ter>', '<webma/ster>', '<webm/aster>', '<web/master>', '<we/bmaster>', '<w/ebmaster>', originalText
+        ];
+        let stage = 0, intervalId = null, movingForward = true, stopRequested = false;
+
+        element.addEventListener('mouseover', () => {
+            stopRequested = false;
+            if (intervalId === null) {
+                movingForward = true;
+                stopRequested = false;
+                intervalId = setInterval(() => {
+                    element.textContent = changes[stage];
+                    stage = (stage + 1) % changes.length;
+                    if (stage === 0) {
+                        movingForward = !movingForward;
+                    }
+                    if (stopRequested && stage === 0) {
+                        clearInterval(intervalId);
+                        intervalId = null; // Reset intervalId
+                        element.textContent = originalText;
+                    }
+                }, 100);
+            }
+        });
+
+        element.addEventListener('mouseout', () => {
+            stopRequested = true;
+        });
+
 
     </script>
 

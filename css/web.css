@@ -4,6 +4,8 @@
 
 :root {
     --tile-h: auto;
+    --offwhite: hsl(0, 35%, 92%);
+    --about-extra-space: clamp(2rem, 25vw, 20rem);
 }
 
 ::selection {
@@ -17,6 +19,7 @@ html {
 }
 
 body {
+    position: relative;
     margin: 0;
     padding: 0;
     background-color: #000;
@@ -24,7 +27,6 @@ body {
     line-height: 1.2;
     font-family: 'Space Mono', monospace;
     perspective: 100px;
-
     transform-style: preserve-3d;
     height: 100%;
     overflow-y: scroll;
@@ -56,8 +58,7 @@ h4 {
 }
 
 #showcase {
-    max-width: 1200px;
-    margin: 1rem 0;
+    /* max-width: 1200px; */
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -100,6 +101,8 @@ h4 {
     height: auto;
     transition: filter .5s, transform .5s;
     display: block;
+    min-height: 10rem;
+    object-fit: cover;
 }
 
 .tile .image-wrapper:hover img {
@@ -140,10 +143,12 @@ h4 {
     outline: 2px solid hsl(0, 0%, 91%);
     transition: opacity 0.3s, color .5s, background-color .5s, outline 500ms;
 }
-.open-btn:hover{
+
+.open-btn:hover {
     background-color: hsla(0, 0%, 12%, 0.205);
     outline: 2px solid white;
 }
+
 .image-wrapper:hover .open-btn {
     opacity: 1;
 }
@@ -189,9 +194,11 @@ p {
     cursor: pointer;
     user-select: none;
     transition: all 2s, outline .5s, background-color .2s, color .2s;
-    margin: 0rem auto 4rem;
+    margin: 0 auto;
     overflow: hidden;
-    z-index: -1;
+    --perspective: 0;
+    transform: translateZ(var(--perspective)) translateY(calc(-4 * var(--perspective) - 1rem)) scale(.5);
+    transform-style: inherit;
 }
 
 #carica:hover {
@@ -204,20 +211,110 @@ p {
     /* outline: .3rem solid hsla(0, 0%, 93%, 0.928); */
 }
 
-#carica {
-    --vh-perspective: -4vh;
-    transform: translateZ(var(--vh-perspective))  translateY(calc(-4 * var(--vh-perspective) - 1rem)) scale(1.5);
+.before-aboutme {
+    transform: translateZ(-1rem) scale(1.25);
     transform-style: inherit;
-    z-index: -2;
-    margin-bottom: 5vh;
+    padding-top: 5rem;
+    height: 10px;
+    width: 100%;
+    background-color: transparent;
+    pointer-events: none;
+    position: relative;
+    z-index: -1;
+}
+
+.before-aboutme::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 50%;
+    /* height: var(--about-extra-space); */
+    left: 0;
+    top: calc(var(--about-extra-space) / -2);
+    transform: skewY(-3deg);
+    transform-origin: right;
+    background-color: #000;
+}
+
+.before-aboutme::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 50%;
+    /* height: var(--about-extra-space); */
+    left: 50%;
+    top: calc(var(--about-extra-space) / -2);
+    transform: skewY(3deg);
+    transform-origin: left;
+    background-color: #000;
+}
+
+.after-aboutme {
+    position: relative;
+    width: 100%;
+    background-color: transparent;
+    pointer-events: none;
+    z-index: 0;
+    height: var(--about-extra-space);
+}
+
+.after-aboutme::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 50%;
+    height: var(--about-extra-space);
+    left: 50%;
+    top: calc(var(--about-extra-space) / 2);
+    transform: skewY(-3deg);
+    transform-origin: left;
+    background-color: #000;
+}
+
+.after-aboutme::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 50%;
+    height: var(--about-extra-space);
+    left: 0;
+    top: calc(var(--about-extra-space) / 2);
+    transform: skewY(3deg);
+    transform-origin: right;
+    background-color: #000;
 }
 
 .aboutme {
-    transform: translateZ(.3vh);
+    transform: translateZ(.15rem);
     transform-style: inherit;
+
     z-index: -2;
     width: 100%;
-    margin: 10vh auto 5vh;
+    margin: 0 auto 2.5rem;
+    position: relative;
+}
+
+.aboutme:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeat;
+    box-shadow: 0 0 8px 1px rgba(0, 0, 0, .7);
+    background-image: url("../web/img/leaf-pattern.webp");
+    transform: translateZ(-1rem) scale(1.25);
+    height: calc(100% + var(--about-extra-space));
+    filter: brightness(.9) contrast(1.05);
+    transition: filter .8s ease;
+    z-index: -2;
+}
+.aboutme:hover:before{
+    filter: brightness(.7) contrast(1.05);
+
+}
+
+.aboutme .text {
+    margin-top: calc(var(--about-extra-space) / 1.15);
+    padding-inline: .5rem;
 }
 
 .aboutme p {
@@ -226,28 +323,40 @@ p {
     padding-inline: 1rem;
 }
 
-.aboutme:before {
-    background: repeat;
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    box-shadow: 0 0 8px 1px rgba(0, 0, 0, .7);
-    background-image: url("../web/img/leaf-pattern.webp");
-    transform: translateZ(-2vh) scale(1.25);
-    height: calc(100% + 2rem);
-    filter: brightness(.9) contrast(1.05);
-}
-.heading {
-    --vh-perspective: -4vh;
-    transform: translateZ(var(--vh-perspective)) translateY(calc(2 * var(--vh-perspective) - 1rem));
-    transform-style: inherit;
+footer{
+    position: relative;
+    z-index: 2;
+    padding: 2rem 0 10vw;
 }
 
-.tiles {
-    --vh-perspective: .5vh;
-    transform: translateZ(var(--vh-perspective)) translateY(calc(2 * var(--vh-perspective) - 1rem));
-    transform-style: inherit;
+.rhomboid {
+    --width: 50svw;
+    width: var(--width);
+    height: 20svh;
+    position: absolute;
+    right: calc(var(--width) * var(--index) - 100vw);
+    top: 0;
+    background-color: var(--offwhite);
+    opacity: 1;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    rotate: y 90deg;
+    will-change: scroll-position;
+}
+
+.heading {
+    /* backdrop-filter: blur(20px); */
+    width: auto;
+    padding: .5rem 1.25rem;
+    border-radius: 1rem;
+    filter: drop-shadow(0px 2px 2px hsla(0, 0%, 0%, 0.33));
+
+}
+
+
+@media (max-width: 768px) {
+    .rhomboid {
+        --width: calc(50svw * 0.75);
+        height: calc(20svh * 0.75);
+    }
+
 }

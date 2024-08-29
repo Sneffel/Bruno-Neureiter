@@ -1,0 +1,70 @@
+<section id="contactstuff">
+    <h1>Scrivimi!</h1>
+    <div>
+        <label onclick="decodeEmail()" id="email" style="cursor:pointer">
+            <input type="checkbox"> <span>per email</span>
+        </label>
+    </div>
+    <div>
+        <label onclick="whatsapp()" id="whatsapp" style="cursor:pointer">
+            <input type="checkbox"> <span>su whatsapp</span>
+        </label>
+    </div>
+</section>
+
+<script>
+    function decodeEmail() {
+        let coded = "aagdaagjaagbaagpaaeaaagcaahcaahfaagoaagpaagoaagfaahfaahcaagfaagjaaheaagfaahcaacoaagdaagpaagn";
+
+        let email = decodeCustom(coded);
+
+        url = 'mailto:' + email + "?subject=Ciao!";
+        window.location.href = url;
+
+    }
+    function whatsapp() {
+        let encodedNumber = "aaddaadjaaddaadeaadaaadbaadcaaddaadjaadiaadfaadb";
+        let decodedNumber = decodeCustom(encodedNumber);
+        let text = "Ciao!";
+        let url = "https://wa.me/" + decodedNumber + "?text=" + encodeURIComponent(text).replace(/!/g, '%21');
+
+        window.location.href = url;
+    }
+
+
+
+
+    const customCharset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
+    const hexToCharMap = (hex) => {
+        return hex.split('').map(char => customCharset[parseInt(char, 16)]).join('');
+    };
+    const charToHexMap = (char) => {
+        return customCharset.indexOf(char).toString(16).toUpperCase();
+    };
+
+    function encodeCustom(str) {
+        let encoded = '';
+        for (let i = 0; i < str.length; i++) {
+            let hex = str.charCodeAt(i).toString(16);
+            while (hex.length < 4) hex = '0' + hex;
+            encoded += hexToCharMap(hex);
+        }
+        return encoded;
+    }
+
+    function decodeCustom(encoded) {
+        let decoded = '';
+        for (let i = 0; i < encoded.length; i += 4) {
+            let hex = encoded.substring(i, i + 4).split('').map(charToHexMap).join('');
+            decoded += String.fromCharCode(parseInt(hex, 16));
+        }
+        return decoded;
+    }
+
+
+
+// veloPietoso(1);
+
+// veloPietoso(0);
+
+</script>

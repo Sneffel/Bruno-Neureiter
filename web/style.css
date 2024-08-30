@@ -752,14 +752,15 @@ footer .contact-button>div {
     width: 1rem;
     position: relative;
     z-index: 2;
-    opacity: .66;
+    color: var(--clr-4);
+
     transform: translateY(0%);
-    transition: opacity 1.5s ease, transform 1s;
+    transition: opacity 1.5s ease, transform 1s, color 1s;
 }
 
 .contact-button:hover .before,
 .contact-button:hover .after {
-    opacity: .8;
+    color: var(--clr-3);
     animation: up-down .5s linear infinite alternate;
     transform: translateY(-12.5%);
 }
@@ -825,7 +826,6 @@ html::before {
 
 .cursor-pointer {
     cursor: pointer;
-    font-size: var(h1);
 }
 .w-max{
     width: max-content;
@@ -847,26 +847,43 @@ html::before {
 }
 
 div.close {
-    top: -2rem;
-    right: -2rem;
-    /* opacity: .8; */
     color: rgba(var(--offwhite), 0.8);
     transition: color ease .1s;
-    padding: 1.5rem;
 }
 
 div.close:hover {
     color: rgba(var(--offwhite), 0.9);
-    /* opacity: .9; */
 }
 
 div.close:active {
     color: rgba(var(--offwhite), 1);
-    /* opacity: 1; */
+}
+
+div.close{
+    font-size: 1.5rem;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    margin-top: 3rem;
+    transition: opacity ease 2s;
+}
+div.close > i{
+    grid-area: 1 / 1;
 }
 
 .☺{
-    font-size: 1.5rem;
-    margin-top: 1rem;
     color: bisque;
+    background-color: #000;
+    animation: hideJoker 5s ease-in-out infinite alternate;
+}
+@keyframes hideJoker{
+    0%, 50%{
+        color:hsla(0, 0%, 0%, 0);
+        background-color: #0000;
+    }
+
+    60%, 100%{
+        color:hsla(33, 100%, 88%, 100%);
+        background-color: #000;
+    }
 }

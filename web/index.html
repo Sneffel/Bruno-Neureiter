@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/home.css?v1">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v1">
     <link rel="stylesheet" href="../css/reset.css?v1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
@@ -213,6 +213,9 @@
     <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
 
     <script>
+
+        let scrollPosition;
+
         function showMore() {
 
             document.querySelectorAll('.more').forEach(el => {
@@ -296,6 +299,7 @@
             let contactstuff = document.querySelector('#contactstuff');
             let body = document.querySelector('body');
             let contactButton = document.querySelector('footer button');
+
             if (!showContacts && !!contactstuff) {
                 veloPietoso(1);
                 await sleep(500);
@@ -310,11 +314,22 @@
                 });
 
                 document.querySelector('footer .contact-button').classList.remove('hidden');
+
+                try {
+                    body.scrollTo(0, scrollPosition);
+                    // console.log(scrollPosition)
+                } catch (error) {
+                    console.error(error);
+                }
+
+
                 veloPietoso(0);
 
                 return;
             }
             if (showContacts) {
+                scrollPosition = body.scrollTop;
+                // console.log(scrollPosition)
                 document.querySelectorAll('footer .after, footer .before, .contact-button').forEach(function (element) {
                     element.classList.add('converged');
                 });
@@ -333,7 +348,7 @@
                     })
                     .then(remainingTime => new Promise(resolve => setTimeout(resolve, remainingTime > 0 ? remainingTime : 0)))
                     .then(async () => {
-                        window.scrollTo(0, 0);
+                        // window.scrollTo(0, 0);
 
                         body.style.overflow = "hidden";
                         body.style.height = "auto";
@@ -344,18 +359,30 @@
                         veloPietoso(0);
 
                         let hiddenContactstuff = document.querySelectorAll('#contactstuff .hidden');
-                        for (const element of hiddenContactstuff) {
+                        for (let i = 0; i < hiddenContactstuff.length; i++) {
+                            const element = hiddenContactstuff[i];
+                            // console.log(element);
                             element.style.opacity = 1;
                             element.style.pointerEvents = "all";
-                            await sleep(200);
+
+                            const nextElement = hiddenContactstuff[i + 1];
+
+                            if (nextElement && nextElement.classList.contains("close")) {
+                                await sleep(2000);
+                                continue;
+                            }
+
+                            await sleep(500);
                         }
+
+
                     });
             }
         }
 
         function veloPietoso(opacityValue) {
             opacityValue ? '1' : '0'
-            console.log("Velo:", opacityValue)
+            // console.log("Velo:", opacityValue)
             document.documentElement.style.setProperty('--before-opacity', opacityValue);
         }
 

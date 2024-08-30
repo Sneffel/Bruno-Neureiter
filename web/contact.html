@@ -1,7 +1,7 @@
 <section id="contactstuff">
     <div class="container w-min position-relative">
         <h1 class="mb-5 hidden">Ciao!</h1>
-        <h2 class="mb-3 hidden">Scrivimi</h2>
+        <h2 class="mb-3 hidden text-end w-100">Scrivimi</h2>
         <div class="button-wrap">
 
             <div role="button" class="hidden row mb-2 py-2 rounded" onclick="decodeEmail(this)" id="email"
@@ -9,7 +9,7 @@
                 <i class="col-auto d-flex justify-content-center align-items-center bi bi-envelope-heart"></i>
                 <span class="col text-end">per email </span>
             </div>
-            <div role="button" class="hidden row mb-2 py-2 rounded" onclick="whatsapp(this)" id="whatsapp"
+            <div role="button" class="hidden row py-2 rounded" onclick="whatsapp(this)" id="whatsapp"
                 style="cursor:pointer">
                 <i class="col-auto d-flex justify-content-center align-items-center bi bi-whatsapp"></i>
                 <span class="col text-end">su whatsapp </span>
@@ -17,10 +17,10 @@
         </div>
 
 
-        <div class="hidden close cursor-pointer position-absolute" onclick="toggleContact(false)">
+        <div class="hidden place-items close cursor-pointer position-relative" onclick="toggleContact(false)">
             <i class="bi bi-x-circle-fill"></i>
+            <i class="☺ bi bi-emoji-smile-upside-down-fill"></i>
         </div>
 
-        <i class="hidden ☺ bi bi-emoji-smile-upside-down-fill"></i>
     </div>
 </section>

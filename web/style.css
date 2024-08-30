@@ -9,23 +9,23 @@
     --offwhite-50: hsla(0, 37%, 92%, 0.50);
     --offwhite-25: hsla(0, 37%, 92%, 0.25);
     --offwhite-75: hsla(0, 37%, 92%, 0.75);
-    --offwhite: hsl(0, 37%, 92%);
+    --offwhite: hsl(0, 40%, 94%);
     --broken-light: hsl(0, 0%, 68.6%);
+    --broken-lighter: hsl(0, 0%, 50%);
 
     --about-extra-space: clamp(2rem, 25vw, 20rem);
 
     --me-w: min(100vw, 800px);
     --me-h: calc(var(--me-w) * 0.752);
 
-    --shadow: drop-shadow(0px 2px 2px hsla(0, 0%, 0%, 0.33));
-    --vertical-heading-margin: 5rem;
+    --shadow: drop-shadow(0px 2px 2px hsla(0, 0%, 0%, 0.5));
     --contact-inner-radius: 1rem;
     --contact-button-inset: -0.5rem;
 }
 
 ::selection {
     background-color: #2d2d2d;
-    color: #fff;
+    color: var(--offwhite);
 }
 
 html {
@@ -38,7 +38,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #000;
-    color: #ffffff;
+    color: var(--offwhite);
     line-height: 1.2;
     font-family: 'Space Mono', monospace;
     perspective: 100px;
@@ -57,7 +57,7 @@ h1,
 h2,
 h3,
 h4 {
-    color: #fff;
+    color: var(--offwhite);
     max-width: 100vw;
     max-width: calc(100vw - 12px * 2);
 }
@@ -67,6 +67,7 @@ h1 {
     font-size: var(--h1);
     font-weight: bold;
 }
+
 
 h2,
 h3,
@@ -174,6 +175,7 @@ h4 {
     .tile {
         flex: 1 1 100%;
     }
+
 }
 
 .buttons {
@@ -347,12 +349,12 @@ p {
     position: absolute;
     right: calc(var(--width) * var(--index) - 100vw);
     top: 0;
-    background-color: var(--offwhite);
-    opacity: 1;
+    background-color: var(--broken-lighter);
+    opacity: .7;
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     rotate: y 90deg;
     will-change: scroll-position;
-    animation: brokenLight 15s infinite;
+    /* animation: brokenLight 15s infinite; */
 }
 
 .heading {
@@ -378,7 +380,7 @@ p {
         display: flex;
         flex-direction: column-reverse;
         gap: .15rem;
-        margin: var(--vertical-heading-margin) 0;
+        margin-block: 3rem;
     }
 
     .heading h1,
@@ -533,9 +535,16 @@ p {
 }
 
 @supports not (animation-timeline: view(20% 0%)) {
-    .pic img {
-        filter: saturate(0%) contrast(1.5);
+    .pic>img:nth-child(2) {
+        display: none;
     }
+
+    .pic>img:nth-child(3) {
+        -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.5, rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0)));
+        mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 66%);
+    }
+
+
 }
 
 
@@ -811,6 +820,20 @@ input[type="checkbox"] {
     align-items: center;
 }
 
+@media (500px < width <= 1412px) {
+    #contactstuff .container {
+        width: 50%;
+    }
+
+}
+
+@media (300px < width <=500px) {
+    #contactstuff .container {
+        width: 100%;
+        margin-inline: 2rem;
+    }
+}
+
 html::before {
     content: "";
     z-index: 99;
@@ -828,15 +851,22 @@ html::before {
 .cursor-pointer {
     cursor: pointer;
 }
-.w-max{
+
+.w-max {
     width: max-content;
 }
+
 .w-min {
     width: min-content;
 }
 
 #contactstuff div[role="button"] {
     background-color: var(--offwhite-25);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 1rem;
+    padding-left: .5rem;
 }
 
 #contactstuff div[role="button"]:hover {
@@ -860,7 +890,7 @@ div.close:active {
     color: rgba(var(--offwhite), 1);
 }
 
-div.close{
+div.close {
     font-size: 1.5rem;
     width: 100%;
     display: grid;
@@ -868,23 +898,28 @@ div.close{
     margin-top: 3rem;
     transition: opacity ease 2s;
 }
-div.close > i{
+
+div.close>i {
     grid-area: 1 / 1;
 }
 
-.☺{
+.☺ {
     color: bisque;
     background-color: #000;
     animation: hideJoker 5s ease-in-out infinite alternate;
 }
-@keyframes hideJoker{
-    0%, 50%{
-        color:hsla(0, 0%, 0%, 0);
+
+@keyframes hideJoker {
+
+    0%,
+    50% {
+        color: hsla(0, 0%, 0%, 0);
         background-color: #0000;
     }
 
-    60%, 100%{
-        color:hsla(33, 100%, 88%, 100%);
+    60%,
+    100% {
+        color: hsla(33, 100%, 88%, 100%);
         background-color: #000;
     }
 }

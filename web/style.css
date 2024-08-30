@@ -6,8 +6,12 @@
     --h1: clamp(3.5rem, 5.5vw, 15rem);
 
     --tile-h: auto;
+    --offwhite-50: hsla(0, 37%, 92%, 0.50);
+    --offwhite-25: hsla(0, 37%, 92%, 0.25);
+    --offwhite-75: hsla(0, 37%, 92%, 0.75);
     --offwhite: hsl(0, 37%, 92%);
     --broken-light: hsl(0, 0%, 68.6%);
+
     --about-extra-space: clamp(2rem, 25vw, 20rem);
 
     --me-w: min(100vw, 800px);
@@ -15,6 +19,8 @@
 
     --shadow: drop-shadow(0px 2px 2px hsla(0, 0%, 0%, 0.33));
     --vertical-heading-margin: 5rem;
+    --contact-inner-radius: 1rem;
+    --contact-button-inset: -0.5rem;
 }
 
 ::selection {
@@ -625,9 +631,10 @@ footer {
 
 .contact-button::before,
 .contact-button::after {
+
     content: "";
     position: absolute;
-    inset: -0.5rem;
+    inset: var(--contact-button-inset);
     z-index: -1;
     background: conic-gradient(from var(--gradient-angle),
             var(--clr-3),
@@ -635,7 +642,7 @@ footer {
             var(--clr-5),
             var(--clr-4),
             var(--clr-3));
-    border-radius: inherit;
+    border-radius: var(--contact-inner-radius);
     animation: rotation 3s linear infinite;
 }
 
@@ -658,7 +665,7 @@ footer {
 footer .contact-button {
     padding: 1rem 1.75rem 1.25rem;
     border: none;
-    border-radius: 1rem;
+    border-radius: calc(var(--contact-button-inset) + var(--contact-inner-radius));
     /* backdrop-filter: blur(3px); */
     background-color: hsla(0, 0%, 0%, 0.76);
     color: var(--offwhite);
@@ -708,6 +715,14 @@ footer .contact-button>div {
 
 
 
+
+
+.contact-button .before i,
+.contact-button .after i {
+    position: absolute;
+    font-size: 3rem;
+}
+
 @media (max-width: 500px) {
     footer .contact-button {
         justify-content: space-evenly;
@@ -719,15 +734,14 @@ footer .contact-button>div {
     .contact-button .before {
         margin: 0;
         display: block;
+
+    }
+
+    .contact-button .before i,
+    .contact-button .after i {
+        font-size: 1.6rem;
     }
 }
-
-.contact-button .before i,
-.contact-button .after i {
-    position: absolute;
-    font-size: 3rem;
-}
-
 
 .contact-button .before,
 .contact-button .after {
@@ -761,27 +775,41 @@ footer .contact-button>div {
 }
 
 .hidden {
+    transition: .5s;
     opacity: 0;
     pointer-events: none;
 }
 
-input[type="checkbox"]{
+input[type="checkbox"] {
     accent-color: var(--clr-4);
 }
 
 
-#contactstuff{
+#contactstuff {
     position: fixed;
     top: 0;
     left: 0;
-    height: 100%;
+    height: 100lvh;
     width: 100%;
-    
+
     background-color: #000;
     z-index: 10;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-html::before{
+#contactstuff .container {
+    position: relative;
+    top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+html::before {
     content: "";
     z-index: 99;
     position: absolute;
@@ -790,7 +818,55 @@ html::before{
     height: 100%;
     width: 100%;
     opacity: 0;
-    transition:.5s;
+    transition: .5s;
     pointer-events: none;
     opacity: var(--before-opacity, 0);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+    font-size: var(h1);
+}
+.w-max{
+    width: max-content;
+}
+.w-min {
+    width: min-content;
+}
+
+#contactstuff div[role="button"] {
+    background-color: var(--offwhite-25);
+}
+
+#contactstuff div[role="button"]:hover {
+    background-color: var(--offwhite-50);
+}
+
+#contactstuff div[role="button"]:active {
+    background-color: var(--broken-light);
+}
+
+div.close {
+    top: -2rem;
+    right: -2rem;
+    /* opacity: .8; */
+    color: rgba(var(--offwhite), 0.8);
+    transition: color ease .1s;
+    padding: 1.5rem;
+}
+
+div.close:hover {
+    color: rgba(var(--offwhite), 0.9);
+    /* opacity: .9; */
+}
+
+div.close:active {
+    color: rgba(var(--offwhite), 1);
+    /* opacity: 1; */
+}
+
+.☺{
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    color: bisque;
 }

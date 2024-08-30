@@ -728,6 +728,7 @@ footer .contact-button>div {
         justify-content: space-evenly;
         gap: 2rem;
         letter-spacing: normal;
+        padding: 1.25rem 1.75rem 1.5rem;
     }
 
     .contact-button .after,

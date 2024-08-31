@@ -1084,16 +1084,21 @@ button[type="submit"] {
     background-color: hsla(0, 0%, 13%, 0.606);
 
     color: white;
-    transition: background-color 50ms;
+    transition: background-color 50ms, background-position .5s;
+    background-position: 50% 0%;
 }
 
 button[type="submit"]:hover {
-    background-color: var(--clr-4);
+    background-color: #001220;
     color: white;
+    background-image: url('img/layered-waves.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 80%;
 }
 
 button[type="submit"]:active {
-    background-color: var(--clr-5);
+    background-color: var(--clr-2);
     color: white;
 }
 

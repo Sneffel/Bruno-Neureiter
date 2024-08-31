@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/home.css?v1">
-    <link rel="stylesheet" href="style.css?v4">
+    <link rel="stylesheet" href="style.css?v5">
     <link rel="stylesheet" href="../css/reset.css?v1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
@@ -16,20 +16,16 @@
 
 <body>
     <div id="blackpanel"></div>
-    <!-- <div class="triangle-1 rellax" data-rellax-speed="6"></div> -->
-    <div style="--index:0" class="rhomboid rellax" data-rellax-speed="7"></div>
-    <div style="--index:1" class="rhomboid rellax" data-rellax-speed="7"></div>
-    <div style="--index:2" class="rhomboid rellax" data-rellax-speed="7"></div>
-    <div style="--index:3" class="rhomboid rellax" data-rellax-speed="7"></div>
-    <div style="--index:4" class="rhomboid rellax" data-rellax-speed="7"></div>
-    <div style="--index:5" class="rhomboid rellax" data-rellax-speed="7"></div>
+    <div id="megablob"></div>
+    <!-- <div class="full-gradient"></div> -->
+
 
     <div class="container text-center mt-4 ">
         <div class="heading">
-            <h1 class="fw-bold rellax">
+            <h1 class="fw-bold">
                 Bruno Neureiter
             </h1>
-            <h2 id="webmaster" class="rellax" data-rellax-speed="0">
+            <h2 id="webmaster">
                 &lt;/webmaster&gt;
             </h2>
         </div>
@@ -213,10 +209,8 @@
 
 
 
-    <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
-
     <script>
-
+        let contactFormActive = false;
         let scrollPosition;
 
         function showMore() {
@@ -233,9 +227,6 @@
 
 
         }
-        new Rellax('.rellax', {
-            wrapper: 'body'
-        });
 
 
 
@@ -288,10 +279,7 @@
 
 
         document.querySelector('footer button').addEventListener('click', function () {
-
             toggleContact()
-
-
         });
 
         async function sleep(ms) {
@@ -302,6 +290,20 @@
             let contactstuff = document.querySelector('#contactstuff');
             let body = document.querySelector('body');
             let contactButton = document.querySelector('footer button');
+            let form = document.querySelector('#contact-form');
+
+            if (contactFormActive) {
+                form.style.opacity = 0;
+                form.style.pointerEvents = 'none';
+                // document.querySelector('#message').style.backgroundColor = '';
+                document.querySelectorAll('#contactstuff div[role="button"]').forEach(function (element) {
+                    element.style.pointerEvents = "all";
+                });
+
+                contactFormActive = false;
+                return;
+            }
+
 
             if (!showContacts && !!contactstuff) {
                 veloPietoso(1);
@@ -364,6 +366,8 @@
                         let hiddenContactstuff = document.querySelectorAll('#contactstuff .hidden');
                         for (let i = 0; i < hiddenContactstuff.length; i++) {
                             const element = hiddenContactstuff[i];
+
+                            if (element.id === 'contact-form') continue;
                             // console.log(element);
                             element.style.opacity = 1;
                             element.style.pointerEvents = "all";
@@ -398,6 +402,7 @@
 
 
     <script>
+        let formLoadTime;
         function decodeEmail(element) {
             element.style.backgroundColor = "var(--clr-4)";
 
@@ -420,6 +425,71 @@
             window.location.href = url;
         }
 
+        function message(element) {
+            formLoadTime = new Date().getTime();
+            contactFormActive = true;
+
+            document.querySelectorAll('#contactstuff div[role="button"]').forEach(function (element) {
+                    element.style.pointerEvents = "none";
+                });
+
+
+            let form = document.querySelector('#contact-form');
+            form.style.opacity = 1;
+            form.style.pointerEvents = 'all';
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            if (document.querySelector('#honeypot').value) return; // Honeypot check
+            let currentTime = new Date().getTime();
+            if ((currentTime - formLoadTime) < 3000) return; // Check if form was filled out quickly
+
+            let name = document.querySelector('#nome').value.trim();
+            let email = document.querySelector('#email').value.trim();
+            let message = document.querySelector('#testo').value.trim();
+
+            if (name.length < 2 || !email.includes('@') || message.length < 4) return;
+
+            console.log('Name:', name);
+            console.log('Email:', email);
+            console.log('Message:', message, message.length);
+            sendingMessage();
+            sendMessage(name, email, message);
+        }
+
+        function sendingMessage(sending) {
+            let form = document.querySelector('#contact-form');
+
+            if (sending) {
+                form.innerHTML = 'Sto inviando la mail...';
+
+
+                return;
+            }
+
+            // sent!
+            form.innerHTML = 'Inviato!';
+            form.classList.add('layered-waves')
+
+
+        }
+        function sendMessage(name, email, message) {
+            sendingMessage(true);
+
+            emailjs.send("service_dxbkqcf", "template_180j7a5", {
+                from_name: name,
+                message: message,
+                reply_to: email,
+            })
+                .then(() => {
+                    console.log('Sent!');
+                    sendingMessage(false);
+                }, (err) => {
+                    console.error("Error:", JSON.stringify(err));
+                    sendingMessage(false);
+                });
+        }
 
 
 
@@ -450,15 +520,13 @@
             return decoded;
         }
 
-
-
-        // veloPietoso(1);
-
-        // veloPietoso(0);
-
     </script>
     <script src="../js/js2.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
+    <script type="text/javascript">
+        emailjs.init('GsCLbtpRlIwD7Bej-')
+    </script>
 </body>
 
 </html>

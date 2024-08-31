@@ -12,6 +12,16 @@
     --offwhite: hsl(0, 40%, 94%);
     --broken-light: hsl(0, 0%, 68.6%);
     --broken-lighter: hsl(0, 0%, 50%);
+    --dark-purple: hsl(287, 15%, 23%);
+
+    --clr-1: hsl(20, 80%, 10%);
+    --clr-2: hsl(343, 77%, 12%);
+    --clr-3: hsl(28, 70%, 18%);
+    --clr-4: hsl(18, 52%, 37%);
+    --clr-5: hsl(29, 19%, 41%);
+
+    --blob-bg: var(--clr-1);
+    --blob-fill: var(--clr-2);
 
     --about-extra-space: clamp(2rem, 25vw, 20rem);
 
@@ -20,7 +30,7 @@
 
     --shadow: drop-shadow(0px 2px 2px hsla(0, 0%, 0%, 0.5));
     --contact-inner-radius: 1rem;
-    --contact-button-inset: -0.5rem;
+    --contact-button-inset: -0.4rem;
 }
 
 ::selection {
@@ -47,6 +57,20 @@ body {
     overflow-y: scroll;
     overflow-x: hidden;
     display: block;
+
+}
+
+#megablob {
+    position: absolute;
+    z-index: -2;
+    width: 100lvw;
+    height: 100lvh;
+    inset: 0;
+    background-image: url('img/blob-bg.svg');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    /* transform: translateZ(-3rem); */
 }
 
 .overflow-hidden {
@@ -66,8 +90,16 @@ h1 {
     line-height: .75;
     font-size: var(--h1);
     font-weight: bold;
+    letter-spacing: -.2rem;
 }
 
+h2 {
+    letter-spacing: -.066rem;
+}
+
+.titoletto {
+    letter-spacing: -.08rem;
+}
 
 h2,
 h3,
@@ -82,6 +114,70 @@ h4 {
     gap: 1rem;
     justify-content: center;
 }
+
+
+.full-gradient {
+    position: absolute;
+    width: 100%;
+    height: 100lvh;
+    background: var(--clr-2);
+    z-index: -5;
+    overflow: hidden;
+    opacity: .45;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+.full-gradient::before,
+.full-gradient::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -5;
+    transition: opacity 4s linear;
+}
+
+.full-gradient::before {
+    background: radial-gradient(at right bottom, var(--clr-3), var(--clr-4));
+    opacity: 1;
+    z-index: -1;
+    animation: fadeInOut 12s linear infinite;
+}
+
+.full-gradient::after {
+    background: radial-gradient(at right bottom, var(--clr-3), var(--clr-2));
+    opacity: 0;
+    z-index: -2;
+    animation: fadeInOut 12s linear infinite;
+    animation-delay: 6s;
+}
+
+@keyframes fadeInOut {
+
+    0%,
+    50%,
+    100% {
+        opacity: 1;
+    }
+
+    25%,
+    75% {
+        opacity: 0;
+    }
+}
+
+
+
+
+@media (width < 768px) and (orientation: portrait) {
+    .full-gradient {
+
+        height: 200lvh;
+    }
+}
+
 
 .darken {
     filter: brightness(0.7);
@@ -175,7 +271,6 @@ h4 {
     .tile {
         flex: 1 1 100%;
     }
-
 }
 
 .buttons {
@@ -337,6 +432,7 @@ p {
     margin-inline: auto;
     font-size: clamp(1rem, 5vw, 1.5rem);
     padding-inline: 1rem;
+    letter-spacing: -.05rem;
 }
 
 
@@ -350,7 +446,7 @@ p {
     right: calc(var(--width) * var(--index) - 100vw);
     top: 0;
     background-color: var(--broken-lighter);
-    opacity: .7;
+    opacity: .2;
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     rotate: y 90deg;
     will-change: scroll-position;
@@ -474,7 +570,6 @@ p {
 
 .titoletto {
     filter: var(--shadow);
-    letter-spacing: -0.05rem;
 }
 
 .pic {
@@ -539,10 +634,29 @@ p {
         display: none;
     }
 
-    .pic>img:nth-child(3) {
-        -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.5, rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0)));
-        mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 66%);
+    @property --mask-position {
+        syntax: '<percentage>';
+        inherits: false;
+        initial-value: 00%;
     }
+
+    .pic>img:nth-child(3) {
+        -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) var(--mask-position), rgba(0, 0, 0, 0));
+        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) var(--mask-position), rgba(0, 0, 0, 0));
+        animation: maskAnimate 5s infinite alternate linear;
+        filter: grayscale(.8) contrast(1.4) brightness(.87);
+    }
+
+    @keyframes maskAnimate {
+        0% {
+            --mask-position: 10%;
+        }
+
+        100% {
+            --mask-position: 40%;
+        }
+    }
+
 
 
 }
@@ -629,15 +743,6 @@ footer {
     inherits: false;
 }
 
-
-:root {
-    --clr-1: hsl(20, 80%, 10%);
-    --clr-2: hsl(343, 77%, 12%);
-    --clr-3: hsl(28, 70%, 18%);
-    --clr-4: hsl(18, 52%, 37%);
-    --clr-5: hsl(29, 19%, 41%);
-}
-
 .contact-button::before,
 .contact-button::after {
 
@@ -690,6 +795,14 @@ footer .contact-button {
     transition: letter-spacing 1s ease, width 1.5s ease,
         background-color .33s ease, transform .25s ease-in-out, padding-bottom .5s, opacity .8s;
 
+
+}
+
+@media (width >=1100px) {
+    footer .contact-button {
+        padding: .15rem 1.25rem .25rem;
+        font-size: 3rem;
+    }
 }
 
 footer .contact-button:hover {
@@ -733,11 +846,14 @@ footer .contact-button>div {
 }
 
 @media (max-width: 500px) {
+
+
     footer .contact-button {
         justify-content: space-evenly;
         gap: 2rem;
         letter-spacing: normal;
         padding: 1.25rem 1.75rem 1.5rem;
+        --contact-button-inset: -0.3rem;
     }
 
     .contact-button .after,
@@ -751,6 +867,7 @@ footer .contact-button>div {
     .contact-button .after i {
         font-size: 1.6rem;
     }
+
 }
 
 .contact-button .before,
@@ -809,6 +926,12 @@ input[type="checkbox"] {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    background-image: url('img/blob-bg.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+
 }
 
 #contactstuff .container {
@@ -820,7 +943,7 @@ input[type="checkbox"] {
     align-items: center;
 }
 
-@media (500px < width <= 1412px) {
+@media (500px < width <=1412px) {
     #contactstuff .container {
         width: 50%;
     }
@@ -880,6 +1003,12 @@ html::before {
 div.close {
     color: rgba(var(--offwhite), 0.8);
     transition: color ease .1s;
+    font-size: 1.5rem;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    margin-top: 2.5rem;
+    transition: opacity ease 2s;
 }
 
 div.close:hover {
@@ -890,36 +1019,118 @@ div.close:active {
     color: rgba(var(--offwhite), 1);
 }
 
-div.close {
-    font-size: 1.5rem;
-    width: 100%;
-    display: grid;
-    place-items: center;
-    margin-top: 3rem;
-    transition: opacity ease 2s;
-}
-
 div.close>i {
     grid-area: 1 / 1;
 }
 
 .☺ {
     color: bisque;
-    background-color: #000;
-    animation: hideJoker 5s ease-in-out infinite alternate;
+    /* background-color: #000; */
+    animation: hidesmile🙂 5s ease-in-out infinite alternate;
 }
 
-@keyframes hideJoker {
+.x {
+    animation: hidex 5s ease-in-out infinite alternate;
+
+}
+
+@keyframes hidex {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    60%,
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes hidesmile🙂 {
 
     0%,
     50% {
         color: hsla(0, 0%, 0%, 0);
-        background-color: #0000;
+        /* background-color: #0000;  */
     }
 
     60%,
     100% {
         color: hsla(33, 100%, 88%, 100%);
-        background-color: #000;
+        /* background-color: #000;   */
     }
+}
+
+#contact-form {
+    z-index: 1;
+    padding: 2rem;
+    background-color: var(--offwhite-25);
+    backdrop-filter: blur(10px);
+    border-radius: var(--contact-inner-radius);
+}
+
+.form-control {
+    border: none;
+    background-color: hsla(0, 0%, 13%, 0.6);
+    transition: background-color .2s;
+}
+
+.form-control:focus {
+    background-color: hsla(0, 0%, 13%, 0.7);
+}
+
+button[type="submit"] {
+    background-color: hsla(0, 0%, 13%, 0.606);
+
+    color: white;
+    transition: background-color 50ms;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--clr-4);
+    color: white;
+}
+
+button[type="submit"]:active {
+    background-color: var(--clr-5);
+    color: white;
+}
+
+
+.grow-wrap {
+    display: grid;
+}
+
+.grow-wrap::after {
+    content: attr(data-replicated-value) " ";
+    white-space: pre-wrap;
+    visibility: hidden;
+    /* pointer-events: none; */
+}
+
+.grow-wrap>textarea {
+    resize: none;
+}
+
+.grow-wrap>textarea,
+.grow-wrap::after {
+    /* Identical styling required!! */
+    max-height: 10rem;
+    min-height: calc(1.5em + (.75rem + 2px));
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 24px;
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.layered-waves {
+    background-image: url('img/layered-waves.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+[role="button"],.buttons,.contact-button, button{
+    user-select: none;
 }

@@ -22,7 +22,8 @@
 
     <div class="container text-center mt-4 ">
         <div class="heading">
-            <h1 class="fw-bold">
+            <h3 style="color: var(--offwhite-75);letter-spacing: -.05rem;">Vetrine digitali professionali</h3>
+            <h1 class="fw-bold mt-2 mb-3">
                 Bruno Neureiter
             </h1>
             <h2 id="webmaster">
@@ -36,7 +37,7 @@
     <div id="showcase" class="tiles container">
         <div class="tile">
             <div class="image-wrapper">
-                <img src="img/gg.webp" alt="Website Screenshot">
+                <img src="img/guido.webp" alt="Website Screenshot">
                 <a class="open-btn btn btn-dark" href="https://guidogiordana.net">Apri</a>
             </div>
             <div class="content">
@@ -46,7 +47,7 @@
         </div>
         <div class="tile">
             <div class="image-wrapper">
-                <img src="img/delsanto.webp" alt="Website Screenshot">
+                <img src="img/vitto.webp" alt="Website Screenshot">
                 <a class="open-btn btn btn-dark" href="demosan/">Apri</a>
             </div>
             <div class="content">
@@ -67,7 +68,7 @@
 
         <div class="tile">
             <div class="image-wrapper">
-                <img src="img/bareshoes.webp" alt="Website Screenshot">
+                <img src="img/bareshop.webp" alt="Website Screenshot">
                 <a class="open-btn btn btn-dark" href="https://bareshoes.shop/">Apri</a>
             </div>
             <div class="content">
@@ -232,21 +233,21 @@
 
 
 
-        const element = document.getElementById('webmaster');
-        const originalText = element.textContent;
-        const changes = [
+        let webmaster = document.getElementById('webmaster');
+        let originalText = webmaster.textContent;
+        let changes = [
             '<w/ebmaster>', '<we/bmaster>', '<web/master>', '<webm/aster>', '<webma/ster>', '<webmas/ter>', '<webmast/er>', '<webmaste/r>',
             '<webmaster/>', '<webmaste/r>', '<webmast/er>', '<webmas/ter>', '<webma/ster>', '<webm/aster>', '<web/master>', '<we/bmaster>', '<w/ebmaster>', originalText
         ];
         let stage = 0, intervalId = null, movingForward = true, stopRequested = false;
 
-        element.addEventListener('mouseover', () => {
+        webmaster.addEventListener('mouseover', () => {
             stopRequested = false;
             if (intervalId === null) {
                 movingForward = true;
                 stopRequested = false;
                 intervalId = setInterval(() => {
-                    element.textContent = changes[stage];
+                    webmaster.textContent = changes[stage];
                     stage = (stage + 1) % changes.length;
                     if (stage === 0) {
                         movingForward = !movingForward;
@@ -254,13 +255,13 @@
                     if (stopRequested && stage === 0) {
                         clearInterval(intervalId);
                         intervalId = null; // Reset intervalId
-                        element.textContent = originalText;
+                        webmaster.textContent = originalText;
                     }
                 }, 100);
             }
         });
 
-        element.addEventListener('mouseout', () => {
+        webmaster.addEventListener('mouseout', () => {
             stopRequested = true;
         });
 
@@ -322,7 +323,6 @@
 
                 try {
                     body.scrollTo(0, scrollPosition);
-                    // console.log(scrollPosition)
                 } catch (error) {
                     console.error(error);
                 }
@@ -334,7 +334,6 @@
             }
             if (showContacts) {
                 scrollPosition = body.scrollTop;
-                // console.log(scrollPosition)
                 document.querySelectorAll('footer .after, footer .before, .contact-button').forEach(function (element) {
                     element.classList.add('converged');
                 });
@@ -353,7 +352,6 @@
                     })
                     .then(remainingTime => new Promise(resolve => setTimeout(resolve, remainingTime > 0 ? remainingTime : 0)))
                     .then(async () => {
-                        // window.scrollTo(0, 0);
 
                         body.style.overflow = "hidden";
                         body.style.height = "auto";
@@ -368,7 +366,6 @@
                             const element = hiddenContactstuff[i];
 
                             if (element.id === 'contact-form') continue;
-                            // console.log(element);
                             element.style.opacity = 1;
                             element.style.pointerEvents = "all";
 
@@ -389,7 +386,6 @@
 
         function veloPietoso(opacityValue) {
             opacityValue ? '1' : '0'
-            // console.log("Velo:", opacityValue)
             document.documentElement.style.setProperty('--before-opacity', opacityValue);
         }
 
@@ -403,9 +399,16 @@
 
     <script>
         let formLoadTime;
-        function decodeEmail(element) {
-            element.style.backgroundColor = "var(--clr-4)";
 
+        function toggleBackgroundColor(element) {
+            const buttons = document.querySelectorAll('div[role=button]');
+            buttons.forEach(button => button.style.backgroundColor = '');
+            element.style.backgroundColor = 'var(--clr-4)';
+        }
+
+        function decodeEmail(element) {
+            toggleBackgroundColor(element);
+            // console.log(element);
             let coded = "aagdaagjaagbaagpaaeaaagcaahcaahfaagoaagpaagoaagfaahfaahcaagfaagjaaheaagfaahcaacoaagdaagpaagn";
             let email = decodeCustom(coded);
 
@@ -414,7 +417,7 @@
 
         }
         function whatsapp(element) {
-            element.style.backgroundColor = "var(--clr-4)";
+            toggleBackgroundColor(element);
 
             let encodedNumber = "aaddaadjaaddaadeaadaaadbaadcaaddaadjaadiaadfaadb";
             let decodedNumber = decodeCustom(encodedNumber);
@@ -426,12 +429,13 @@
         }
 
         function message(element) {
+            toggleBackgroundColor(element);
             formLoadTime = new Date().getTime();
             contactFormActive = true;
 
             document.querySelectorAll('#contactstuff div[role="button"]').forEach(function (element) {
-                    element.style.pointerEvents = "none";
-                });
+                element.style.pointerEvents = "none";
+            });
 
 
             let form = document.querySelector('#contact-form');

@@ -20,9 +20,6 @@
     --clr-4: hsl(18, 52%, 37%);
     --clr-5: hsl(29, 19%, 41%);
 
-    --blob-bg: var(--clr-1);
-    --blob-fill: var(--clr-2);
-
     --about-extra-space: clamp(2rem, 25vw, 20rem);
 
     --me-w: min(100vw, 800px);

@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/home.css?v1">
-    <link rel="stylesheet" href="style.css?v5">
+    <link rel="stylesheet" href="style.css?v6">
     <link rel="stylesheet" href="../css/reset.css?v1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
@@ -133,17 +133,19 @@
     <div class="before-aboutme"></div>
     <section class="aboutme">
         <div class="text container">
-            <p>Aggiungo valore alla tua professione.
-            </p>
-            <p>Faccio tutto. Sviluppo la grafica, il sito.<br>Il server, le mail
-                personalizzate.
-            </p>
-            <p>Scrivo ogni sito da zero.<br>Unico e inconfondibile, proprio come te.
-            </p>
-            <p>Dimmi tutto quello che vuoi, lo posso fare.<br>
-                Piccole modifiche nel tempo? No problem. </p>
-            <p>
-                Cookie? No grazie.</p>
+
+            <p>Aggiungo valore alla tua professione</p>
+
+            <p>Mi occupo personalmente di tutto: sviluppo della grafica, del sito,
+                Il server, le mail personalizzate</p>
+
+            <p>Scrivo ogni sito da zero. Solo intelligenza naturale.
+                Unico e inconfondibile, proprio come te</p>
+
+            <p>Comunicami tutto quello che chiedi, te lo posso realizzare.
+                Piccole modifiche nel tempo? No problem</p>
+
+            <p>Cookie? No grazie</p>
 
         </div>
     </section>
@@ -154,6 +156,7 @@
         <img src="img/me/2.webp" alt="io" style="--index:1">
         <img src="img/me/1.webp" alt="io" style="--index:2">
         <div class="overlay"></div>
+        <div class="big">... !</div>
     </div>
 
     <footer class="magicpattern">
@@ -302,6 +305,7 @@
         }
 
         async function toggleContact(showContacts = true) {
+            toggleBackgroundColor()
             let contactstuff = document.querySelector('#contactstuff');
             let body = document.querySelector('body');
             let contactButton = document.querySelector('footer button');
@@ -414,10 +418,10 @@
     <script>
         let formLoadTime;
 
-        function toggleBackgroundColor(element) {
-            const buttons = document.querySelectorAll('div[role=button]');
+        function toggleBackgroundColor(element = null) {
+            let buttons = document.querySelectorAll('div[role=button]');
             buttons.forEach(button => button.style.backgroundColor = '');
-            element.style.backgroundColor = 'var(--clr-4)';
+            if(element) element.style.backgroundColor = 'var(--clr-5)';
         }
 
         function decodeEmail(element) {

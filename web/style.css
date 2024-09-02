@@ -1125,6 +1125,7 @@ button[type="submit"] {
     color: white;
     transition: background-color 50ms, background-position .5s;
     background-position: 50% 0%;
+    background-size: 105%;
 }
 
 button[type="submit"]:hover {
@@ -1132,7 +1133,6 @@ button[type="submit"]:hover {
     color: white;
     background-image: url('img/layered-waves.svg');
     background-repeat: no-repeat;
-    background-size: cover;
     background-position: 50% 80%;
 }
 

@@ -20,6 +20,9 @@
     --clr-4: hsl(0, 52%, 50%);
     --clr-5: hsl(0, 19%, 60%);
 
+    --green-1: hsl(123, 52%, 70%);
+    --green-2: hsl(123, 39%, 42%);
+
     --about-extra-space: clamp(2rem, 25vw, 20rem);
 
     --me-w: min(100vw, 800px);
@@ -27,7 +30,7 @@
 
     --shadow: drop-shadow(0px 2px 2px hsla(0, 0%, 0%, 0.5));
     --contact-inner-radius: 1rem;
-    --contact-button-inset: -0.4rem;
+    --contact-button-inset: -0.1rem;
 }
 
 ::selection {
@@ -42,11 +45,13 @@ input::selection {
 }
 
 html {
-    height: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
+    overflow-x: hidden;
 }
 
 body {
+    display: grid;
+    height: 100%;
     position: relative;
     margin: 0;
     padding: 0;
@@ -54,16 +59,16 @@ body {
     color: var(--offwhite);
     line-height: 1.2;
     font-family: 'Space Mono', monospace;
-    perspective: 100px;
+    /* perspective: 100px;
     transform-style: preserve-3d;
     height: 100%;
     overflow-y: scroll;
-    overflow-x: hidden;
-    display: block;
+    display: block; */
+    overflow-x: inherit;
 
 }
 
-#megablob {
+.megablob {
     position: absolute;
     z-index: -2;
     width: 100lvw;
@@ -74,6 +79,14 @@ body {
     background-position: 50% 50%;
     background-size: cover;
     /* transform: translateZ(-3rem); */
+}
+
+@media (orientation: landscape) and (max-height: 832px),
+(min-width: 1140px) {
+    .megablob {
+        background-size: contain;
+        scale: 140%;
+    }
 }
 
 .overflow-hidden {
@@ -90,6 +103,7 @@ h4 {
 }
 
 h1 {
+    /* margin: 0rem clamp(1rem, 2vw, 3rem); */
     line-height: .75;
     font-size: var(--h1);
     font-weight: bold;
@@ -418,7 +432,7 @@ p {
     filter: brightness(.9) contrast(1.05);
     transition: filter .8s ease;
     z-index: -2;
-    margin-top: calc(-1 * var(--about-extra-space));
+    /* margin-top: calc(-1 * var(--about-extra-space)); */
 }
 
 .aboutme:hover:before {
@@ -457,6 +471,7 @@ p {
 }
 
 .heading {
+    margin-block: 3rem;
     width: auto;
     padding: .5rem 1.25rem;
     border-radius: 1rem;
@@ -479,7 +494,6 @@ p {
         display: flex;
         flex-direction: column-reverse;
         gap: .15rem;
-        margin-block: 3rem;
     }
 
     .heading h1,
@@ -576,11 +590,10 @@ p {
 }
 
 .pic {
-    margin-top: calc(var(--about-extra-space) * -1 + 10vw);
+    margin-top: calc(var(--about-extra-space) * -1 + 8vw);
     z-index: 1;
     position: relative;
     height: var(--me-h);
-    transform: translateZ(-1rem) scale(1.25);
     width: 100%;
     max-height: 66svh;
 
@@ -730,7 +743,7 @@ footer {
 } */
 
 
-.magicpattern {
+footer.magicpattern {
     display: flex;
     min-height: 45rem;
     align-items: center;
@@ -739,6 +752,9 @@ footer {
     position: relative;
     transform: translateZ(.01rem);
     overflow: hidden;
+
+    width: 100%;
+    margin-top:-2rem;
 }
 
 .magicpattern svg {
@@ -794,11 +810,11 @@ footer {
     inset: var(--contact-button-inset);
     z-index: -1;
     background: conic-gradient(from var(--gradient-angle),
-            var(--clr-3),
+            var(--green-1),
             var(--clr-4),
             var(--clr-5),
             var(--clr-4),
-            var(--clr-3));
+            var(--green-1));
     border-radius: var(--contact-inner-radius);
     animation: rotation 3s linear infinite;
 }
@@ -824,7 +840,7 @@ footer .contact-button {
     border: none;
     border-radius: calc(var(--contact-button-inset) + var(--contact-inner-radius));
     /* backdrop-filter: blur(3px); */
-    background-color: hsla(0, 0%, 0%, 0.76);
+    background-color: hsla(0, 0%, 0%, 0.85);
     color: var(--offwhite);
     display: flex;
     flex-direction: row;
@@ -836,7 +852,7 @@ footer .contact-button {
     width: 100%;
     transition: letter-spacing 1s ease, width 1.5s ease,
         background-color .33s ease, transform .25s ease-in-out, padding-bottom .5s, opacity .8s;
-        letter-spacing: .1rem;
+    letter-spacing: -.05rem;
 }
 
 @media (width >=1100px) {
@@ -847,7 +863,7 @@ footer .contact-button {
 }
 
 footer .contact-button:hover {
-    background-color: hsla(0, 0%, 0%, 0.6);
+    background-color: hsla(0, 0%, 0%, 0.7);
     letter-spacing: .0rem;
 }
 
@@ -892,7 +908,7 @@ footer .contact-button>div {
         gap: 2rem;
         letter-spacing: normal;
         padding: 1.25rem 1.75rem 1.5rem;
-        --contact-button-inset: -0.3rem;
+        --contact-button-inset: -0.15rem;
     }
 
     .contact-button .after,
@@ -996,7 +1012,7 @@ input[type="checkbox"] {
     }
 }
 
-html::before {
+body::before {
     content: "";
     z-index: 99;
     position: absolute;
@@ -1180,4 +1196,61 @@ button[type="submit"]:active {
 .contact-button,
 button {
     user-select: none;
+}
+
+
+
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in forwards;
+    animation-delay: calc(var(--delay, 0) * 1s);
+}
+
+
+@keyframes slideInR {
+    from {
+        transform: translateX(min(50vw, 25rem));
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.slideR {
+    opacity: 0;
+    animation: slideInR 1s ease-out forwards;
+    animation-delay: calc(var(--delay, 0) * 1s);
+}
+
+@keyframes slideInL {
+    from {
+        transform: translateX(max(-50vw, -25rem));
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.slideL {
+    opacity: 0;
+    animation: slideInL 1s ease-out forwards;
+    animation-delay: calc(var(--delay, 0) * 1s);
 }

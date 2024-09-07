@@ -7,10 +7,12 @@
     <title>Web Work Warehouse</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/home.css?v1">
-    <link rel="stylesheet" href="style.css?v6">
+    <!-- <link rel="stylesheet" href="../css/home.css?v1"> -->
+    <link rel="preload" as="image" href="img/blob-bg.svg?v1" fetchpriority="high">
+    <link rel="stylesheet" href="style.css?v8">
     <link rel="stylesheet" href="../css/reset.css?v1">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all'">
+
 
     <meta name="description" content="Webmaster, sviluppo siti web e grafica">
     <meta property="og:description" content="Webmaster, sviluppo siti web e grafica">
@@ -26,30 +28,35 @@
     <meta name="twitter:title" content="Bruno Neureiter - Webmaster - Web Work Warehouse">
     <meta name="twitter:image" content="https://brunoneureiter.com/web/img/page-ss.webp">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer
+        onload="scrollTriggers()"></script>
+
 </head>
 
 <body>
-    <div id="blackpanel"></div>
-    <div id="megablob"></div>
+    <div class="megablob" class="fade-in"></div>
+    <!-- <div class="megablob new" class="fade-in"></div> -->
     <!-- <div class="full-gradient"></div> -->
 
 
-    <div class="container text-center mt-4 ">
+    <header class="container text-center">
         <div class="heading">
-            <h3 style="color: var(--offwhite-75);letter-spacing: -.05rem;">Vetrine digitali professionali</h3>
-            <h1 class="fw-bold mt-2 mb-3">
+            <h3 style="color: var(--offwhite-75);letter-spacing:-.05rem;--delay:1.5" class="fade-in">Vetrine digitali
+            </h3>
+            <h1 class="fw-bold mt-2 mb-3 fade-in" style="--delay:.2">
                 Bruno Neureiter
             </h1>
-            <h2 id="webmaster">
+            <h2 id="webmaster" class="fade-in" style="--delay:.5">
                 &lt;/webmaster&gt;
             </h2>
         </div>
-    </div>
+    </header>
     <div class="container text-center mt-3">
-        <h2 class="titoletto mb-0">I miei lavori</h2>
+        <h2 class="titoletto mb-0 fade-in" style="--delay:2.5">I miei lavori</h2>
     </div>
     <div id="showcase" class="tiles container">
-        <div class="tile">
+        <div class="tile slideL" style="--delay:3.2">
             <div class="image-wrapper">
                 <img src="img/guido.webp" alt="Website Screenshot">
                 <a class="open-btn btn btn-dark" href="https://guidogiordana.net">Apri</a>
@@ -59,7 +66,7 @@
                 <p>Pagina di presentazione</p>
             </div>
         </div>
-        <div class="tile">
+        <div class="tile slideR" style="--delay:3.2">
             <div class="image-wrapper">
                 <img src="img/vitto.webp" alt="Website Screenshot">
                 <a class="open-btn btn btn-dark" href="demosan/">Apri</a>
@@ -69,7 +76,7 @@
                 <p>Insegnante con lezioni online</p>
             </div>
         </div>
-        <div class="tile">
+        <div class="tile slideL" style="--delay:3.2">
             <div class="image-wrapper">
                 <img src="img/darlla.webp" alt="Website Screenshot">
                 <a class="open-btn btn btn-dark" href="demodar/">Apri</a>
@@ -80,7 +87,7 @@
             </div>
         </div>
 
-        <div class="tile">
+        <div class="tile slideR" style="--delay:3.2">
             <div class="image-wrapper">
                 <img src="img/bareshop.webp" alt="Website Screenshot">
                 <a class="open-btn btn btn-dark" href="https://bareshoes.shop/">Apri</a>
@@ -123,7 +130,7 @@
                 <p>Spazio vuoto per il tuo prossimo sito!</p>
             </div>
         </div>
-        <div id="carica" onclick="showMore()">
+        <div id="carica" onclick="showMore()" class="fade-in" style="--delay:2.5">
             <h3>Altro&hellip;</h3>
         </div>
     </div>
@@ -142,7 +149,7 @@
             <p>Scrivo ogni sito da zero. Solo intelligenza naturale.
                 Unico e inconfondibile, proprio come te</p>
 
-            <p>Dimmi cosa ti serve, te lo posso realizzare.  
+            <p>Dimmi cosa ti serve, te lo posso realizzare.
                 Piccole modifiche nel tempo? No problem</p>
 
             <p>Cookie? No grazie</p>
@@ -229,7 +236,7 @@
 
     <script>
         let contactFormActive = false;
-        let scrollPosition;
+        // let scrollPosition;
 
         function showMore() {
 
@@ -304,12 +311,89 @@
             return new Promise(resolve => setTimeout(resolve, ms));
         }
 
+        function veloPietoso(opacityValue) {
+            document.documentElement.style.setProperty('--before-opacity', opacityValue);
+        }
+
         async function toggleContact(showContacts = true) {
+
             toggleBackgroundColor()
             let contactstuff = document.querySelector('#contactstuff');
             let body = document.querySelector('body');
             let contactButton = document.querySelector('footer button');
             let form = document.querySelector('#contact-form');
+
+
+            function unConvergeBtn() {
+                document.querySelector('footer .contact-button').classList.remove('hidden');
+                contactButton.classList.remove('converged');
+
+                document.querySelectorAll('footer .after, footer .before, .contact-button').forEach(function (element) {
+                    element.classList.remove('converged');
+                });
+            }
+
+
+
+
+            if (!showContacts && !!contactstuff && !contactFormActive) {
+                veloPietoso(1);
+                await sleep(500);
+
+                contactstuff.remove();
+                document.documentElement.style.removeProperty('overflow');
+
+
+
+                veloPietoso(0);
+
+                return;
+            }
+
+            if (showContacts) {
+                document.querySelectorAll('footer .after, footer .before, .contact-button').forEach(function (element) {
+                    element.classList.add('converged');
+                });
+                document.querySelector('footer .contact-button').classList.add('hidden');
+
+                veloPietoso(1);
+
+                let startTime = Date.now();
+
+                const response = await fetch('contact.html');
+                const data = await response.text();
+
+                const fetchTime = Date.now() - startTime;
+                const remainingTime = Math.max(500 - fetchTime, 0);
+                await new Promise(resolve => setTimeout(resolve, remainingTime));
+
+                document.documentElement.style.overflow = 'hidden';
+                document.body.insertAdjacentHTML('beforeend', data);
+
+                const contactstuff = document.querySelector('#contactstuff');
+                contactstuff.style.pointerEvents = 'all';
+
+                veloPietoso(0);
+                unConvergeBtn()
+
+                const hiddenContactstuff = document.querySelectorAll('#contactstuff .hidden');
+                for (let i = 0; i < hiddenContactstuff.length; i++) {
+                    const element = hiddenContactstuff[i];
+
+                    if (element.id === 'contact-form') continue;
+                    element.style.opacity = 1;
+                    element.style.pointerEvents = "all";
+
+                    const nextElement = hiddenContactstuff[i + 1];
+
+                    if (nextElement && nextElement.classList.contains("close")) {
+                        await sleep(2000);
+                        continue;
+                    }
+
+                    await sleep(500);
+                }
+            }
 
             if (contactFormActive) {
                 form.style.opacity = 0;
@@ -322,90 +406,8 @@
                 contactFormActive = false;
                 return;
             }
-
-
-            if (!showContacts && !!contactstuff) {
-                veloPietoso(1);
-                await sleep(500);
-
-                contactstuff.remove();
-                body.style.removeProperty('overflow');
-                body.style.height = "100%";
-                contactButton.classList.remove('converged');
-
-                document.querySelectorAll('footer .after, footer .before, .contact-button').forEach(function (element) {
-                    element.classList.remove('converged');
-                });
-
-                document.querySelector('footer .contact-button').classList.remove('hidden');
-
-                try {
-                    body.scrollTo(0, scrollPosition);
-                } catch (error) {
-                    console.error(error);
-                }
-
-
-                veloPietoso(0);
-
-                return;
-            }
-            if (showContacts) {
-                scrollPosition = body.scrollTop;
-                document.querySelectorAll('footer .after, footer .before, .contact-button').forEach(function (element) {
-                    element.classList.add('converged');
-                });
-                document.querySelector('footer .contact-button').classList.add('hidden');
-
-                veloPietoso(1);
-
-                let startTime = Date.now();
-
-                fetch('contact.html')
-                    .then(response => response.text())
-                    .then(data => {
-                        document.body.insertAdjacentHTML('beforeend', data);
-                        const fetchTime = Date.now() - startTime;
-                        return 500 - fetchTime;
-                    })
-                    .then(remainingTime => new Promise(resolve => setTimeout(resolve, remainingTime > 0 ? remainingTime : 0)))
-                    .then(async () => {
-
-                        body.style.overflow = "hidden";
-                        body.style.height = "auto";
-                        body.scrollTo(0, 0);
-                        contactstuff = document.querySelector('#contactstuff');
-                        contactstuff.style.pointerEvents = 'all';
-
-                        veloPietoso(0);
-
-                        let hiddenContactstuff = document.querySelectorAll('#contactstuff .hidden');
-                        for (let i = 0; i < hiddenContactstuff.length; i++) {
-                            const element = hiddenContactstuff[i];
-
-                            if (element.id === 'contact-form') continue;
-                            element.style.opacity = 1;
-                            element.style.pointerEvents = "all";
-
-                            const nextElement = hiddenContactstuff[i + 1];
-
-                            if (nextElement && nextElement.classList.contains("close")) {
-                                await sleep(2000);
-                                continue;
-                            }
-
-                            await sleep(500);
-                        }
-
-
-                    });
-            }
         }
 
-        function veloPietoso(opacityValue) {
-            opacityValue ? '1' : '0'
-            document.documentElement.style.setProperty('--before-opacity', opacityValue);
-        }
 
 
 
@@ -416,12 +418,117 @@
 
 
     <script>
+        function scrollTriggers() {
+            gsap.registerPlugin(ScrollTrigger);
+
+
+            document.querySelectorAll('.aboutme .text p:nth-child(even)').forEach(img => {
+                img.style.transform = "translateX(100vw)";
+            });
+            document.querySelectorAll('.aboutme .text p:nth-child(odd)').forEach(img => {
+                img.style.transform = "translateX(-100vw)";
+            });
+
+
+
+            gsap.to(".aboutme .text p", {
+                x: 0,
+                duration: 1,
+                stagger: 0.2, // Adjust the stagger time as needed
+                scrollTrigger: {
+                    markers: false,
+                    trigger: ".aboutme .text",
+                    scroller: "body",
+                    start: "top bottom",
+                    toggleActions: "play none none reverse"
+                }
+            });
+
+
+
+            document.querySelectorAll('.pic img').forEach(img => {
+                img.style.transform = "translateX(100vw)";
+            });
+
+
+
+            gsap.to(".pic img", {
+                x: 0,
+                duration: 1,
+                scrollTrigger: {
+                    markers: false,
+                    trigger: ".after-aboutme",
+                    scroller: "body",
+                    start: "top 80%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+
+
+            document.querySelectorAll('.pic .big').forEach(img => {
+                img.style.position = "relative";
+                img.style.left = "-100vw";
+            });
+
+            gsap.to(".pic .big", {
+                left: 0,
+                duration: 1,
+                scrollTrigger: {
+                    markers: false,
+                    trigger: ".after-aboutme",
+                    scroller: "body",
+                    start: "top 75%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+
+
+
+
+
+            gsap.set(".contact-button", { top: "50vh" });
+
+            // Apply GSAP animation
+            gsap.fromTo(".contact-button",
+                { top: "100vh" },
+                {
+                    top: "0",
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: ".magicpattern",
+                        start: "top bottom",
+                        scroller: "body",
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+        }
+
+    </script>
+
+
+    <script>
+        window.addEventListener('load', () => {
+            const carica = document.querySelector('#carica');
+            const rect = carica.getBoundingClientRect();
+
+            if (window.scrollY === 0) return; // Skip if the page is at the top
+
+            // Check if at least one pixel of #carica is visible or if scrolled past it
+            if (rect.top < window.innerHeight && rect.bottom > 0 || window.scrollY > rect.bottom) {
+                document.querySelectorAll('.tile, #carica').forEach(el => gsap.set(el, { '--delay': '0' }));
+                console.log("Carica is visible or page is scrolled past it");
+            }
+        });
+
+
+
         let formLoadTime;
 
         function toggleBackgroundColor(element = null) {
             let buttons = document.querySelectorAll('div[role=button]');
             buttons.forEach(button => button.style.backgroundColor = '');
-            if(element) element.style.backgroundColor = 'var(--clr-5)';
+            if (element) element.style.backgroundColor = 'var(--clr-5)';
         }
 
         function decodeEmail(element) {
@@ -447,7 +554,7 @@
         }
 
         function message(element) {
-            toggleBackgroundColor(element);
+            toggleBackgroundColor();
             formLoadTime = new Date().getTime();
             contactFormActive = true;
 
@@ -543,10 +650,9 @@
         }
 
     </script>
-    <script src="../js/js2.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-    <script type="text/javascript">
+    <script defer src="../js/js2.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
         emailjs.init('GsCLbtpRlIwD7Bej-')
     </script>
 </body>

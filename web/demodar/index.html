@@ -315,8 +315,7 @@
     <div class="background-video end">
         <div class="container d-flex my-0 px-0 px-sm-0 px-md-4 ">
             <div id="contact-block" class="d-flex max-height">
-                <div 
-                    class="mx-4 mx-md-0 my-4 my-md-0 arsenal-sc-regular text-center w-100 auto-text-3 ">
+                <div class="mx-4 mx-md-0 my-4 my-md-0 arsenal-sc-regular text-center w-100 auto-text-3 ">
                     <div style="line-height: 1;"
                         class="particletext hearts w-min d-inline text-uppercase auto-text-4 z-1">
                         Contact me:</div>
@@ -383,16 +382,7 @@
         let requestId;
 
         let flkty = new Flickity(carousel, args);
-
-
-        // setTimeout(function() {
-        //     flkty.next();
-        //     // flkty.playPlayer()
-        // }, 3000);
-
-
-
-        flkty.x = 0; // Set initial position to be 0
+        flkty.x = 0;
 
         play();
 
@@ -448,13 +438,13 @@
         $.getJSON("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(reqURL) + channelID, function (data) {
             var link = data.items[0].link;
             var id = link.substr(link.indexOf("=") + 1);
-            let controls = true;               // Show video player controls
+            let controls = true;
             let modestbranding = true;          // Minimize YouTube logo
-            let relatedVideos = false;          // Do not show related videos (really just from other random channels)
-            let hideVideoAnnotations = true;    // Hide video annotations
+            let relatedVideos = false;          // from other random channels
+            let hideVideoAnnotations = true;
             let subtitles = true;
-            let fs = true;                      // Show fullscreen button
-            let color = "white";                // Change progress bar to white
+            let fs = true;
+            let color = "white";
 
             let src = "https://youtube.com/embed/" + id +
                 "?controls=" + (controls ? "1" : "0") +
@@ -559,20 +549,18 @@
         handOverlay.style.opacity = handStyleOpacity.toString();
         digitalCreator.style.opacity = digitalStyleOpacity.toString();
 
-        var handThresholdStart = 100; // Start of the threshold range for hand-overlay
-        var handThresholdEnd = 0;     // End of the threshold range for hand-overlay
+        var handThresholdStart = 100;
+        var handThresholdEnd = 0;
 
-        var digitalThresholdStart = 500; // Start of the threshold range for digital-creator
-        var digitalThresholdEnd = 200;     // End of the threshold range for digital-creator
+        var digitalThresholdStart = 500;
+        var digitalThresholdEnd = 200;
 
         document.addEventListener("scroll", function () {
             var scrollY = window.scrollY;
 
-            // Calculate opacity for hand-overlay
             var handOpacity = Math.max(handStyleOpacity - (handStyleOpacity * scrollY / handThresholdStart), 0);
             handOverlay.style.opacity = handOpacity.toString();
 
-            // Calculate opacity for digital-creator
             var digitalOpacity = Math.max(digitalStyleOpacity - (digitalStyleOpacity * scrollY / digitalThresholdStart), 0);
             digitalCreator.style.opacity = digitalOpacity.toString();
         });
@@ -587,7 +575,6 @@
 </html>
 
 <!--
-TODO
-https://dixonandmoe.com/rellax/
-https://simpleparallax.com/
- -->
+    https://dixonandmoe.com/rellax/
+    https://simpleparallax.com/
+-->

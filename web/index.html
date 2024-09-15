@@ -221,12 +221,12 @@
         waves.forEach((wave, index) => {
             let duration = Math.max(2 + index * 2, 4)
             gsap.to(wave, {
-                x: -200, // Adjust this value to control the distance of the wave movement
+                x: -200, // movement
                 duration: duration,
                 repeat: -1,
                 yoyo: true,
                 ease: "sine.inOut",
-                delay: index * 0.5 // Stagger the start of each wave
+                delay: index * 0.5 // delay
             });
         });
     </script>
@@ -236,7 +236,6 @@
 
     <script>
         let contactFormActive = false;
-        // let scrollPosition;
 
         function showMore() {
 
@@ -278,7 +277,7 @@
                     }
                     if (stopRequested && stage === 0) {
                         clearInterval(intervalId);
-                        intervalId = null; // Reset intervalId
+                        intervalId = null;
                         webmaster.textContent = originalText;
                     }
                 }, 100);
@@ -398,7 +397,6 @@
             if (contactFormActive) {
                 form.style.opacity = 0;
                 form.style.pointerEvents = 'none';
-                // document.querySelector('#message').style.backgroundColor = '';
                 document.querySelectorAll('#contactstuff div[role="button"]').forEach(function (element) {
                     element.style.pointerEvents = "all";
                 });
@@ -426,7 +424,7 @@
                 scrollTrigger: {
                     trigger: ".pic",
                     start: "100% 100%",
-                    end: "100% 72.5%", // Changed to make space smaller
+                    end: "100% 72.5%",
                     scrub: true,
                     markers: false
                 }
@@ -473,7 +471,7 @@
             gsap.to(".aboutme .text p", {
                 x: 0,
                 duration: 1,
-                stagger: 0.2, // Adjust the stagger time as needed
+                stagger: 0.2,
                 scrollTrigger: {
                     markers: false,
                     trigger: ".aboutme .text",
@@ -507,7 +505,7 @@
                 right: "-2.5%",
                 scrollTrigger: {
                     trigger: ".pic",
-                    start: "top 60%", // Adjusted to start after the first animation
+                    start: "top 60%",
                     end: "bottom top",
                     scrub: true
                 }
@@ -538,7 +536,6 @@
 
             gsap.set(".contact-button", { top: "50vh" });
 
-            // Apply GSAP animation
             gsap.fromTo(".contact-button",
                 { top: "100vh" },
                 {
@@ -564,10 +561,9 @@
 
             if (window.scrollY === 0) return; // Skip if the page is at the top
 
-            // Check if at least one pixel of #carica is visible or if scrolled past it
             if (rect.top < window.innerHeight && rect.bottom > 0 || window.scrollY > rect.bottom) {
                 document.querySelectorAll('.tile, #carica').forEach(el => gsap.set(el, { '--delay': '0' }));
-                console.log("Carica is visible or page is scrolled past it");
+                // console.log("Carica is visible or page is scrolled past it");
             }
         });
 
@@ -583,7 +579,6 @@
 
         function decodeEmail(element) {
             toggleBackgroundColor(element);
-            // console.log(element);
             let coded = "aagdaagjaagbaagpaaeaaagcaahcaahfaagoaagpaagoaagfaahfaahcaagfaagjaaheaagfaahcaacoaagdaagpaagn";
             let email = decodeCustom(coded);
 
@@ -620,9 +615,9 @@
 
         function handleSubmit(event) {
             event.preventDefault();
-            if (document.querySelector('#honeypot').value) return; // Honeypot check
+            if (document.querySelector('#honeypot').value) return;
             let currentTime = new Date().getTime();
-            if ((currentTime - formLoadTime) < 3000) return; // Check if form was filled out quickly
+            if ((currentTime - formLoadTime) < 3000) return;
 
             let name = document.querySelector('#nome').value.trim();
             let email = document.querySelector('#email').value.trim();

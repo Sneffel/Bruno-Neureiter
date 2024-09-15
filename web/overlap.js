@@ -1,10 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     const tiles = document.querySelectorAll('.tile');
 
-    // Initial check on page load
     updateVisibility();
 
-    // Listen for scroll events and window resize events
     window.addEventListener('scroll', updateVisibility);
     window.addEventListener('resize', updateVisibility);
 
@@ -23,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
         const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
 
-        // Check if any part of the element is outside the viewport
         return (
             rect.bottom <= 0 ||
             rect.top >= viewportHeight ||

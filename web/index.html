@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="preload" as="image" href="img/blob-bg.svg?v1" fetchpriority="high">
-    <link rel="stylesheet" href="style.css?v12">
+    <link rel="stylesheet" href="style.css?v13">
     <link rel="stylesheet" href="../css/reset.css?v1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
         media="print" onload="this.media='all'">
@@ -32,24 +32,28 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer
         onload="scrollTriggers()"></script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&display=swap" rel="stylesheet">
+
 </head>
 
-<body>
+<body class="commissioner-regular">
     <div class="megablob" class="fade-in"></div>
 
     <header class="container text-center">
         <div class="heading">
-            <h3 style="color: var(--offwhite-75);letter-spacing:-.05rem;--delay:1.5" class="fade-in">Vetrine digitali
+            <h3 style="color: var(--offwhite-90);letter-spacing:-.05rem;--delay:1.5" class="fade-in commissioner-italic-title">Vetrine digitali
             </h3>
-            <h1 class="fw-bold mt-2 mb-3 fade-in" style="--delay:.2">
+            <h1 class="commissioner-title fw-bold mt-2 mb-3 fade-in" style="--delay:.2">
                 Bruno Neureiter
             </h1>
-            <h2 id="webmaster" class="fade-in" style="--delay:.5">
+            <h2 id="webmaster" class="fade-in commissioner-small-title" style="--delay:.5">
                 &lt;/webmaster&gt;
             </h2>
         </div>
     </header>
-    <div class="container text-center mt-3">
+    <div class="container mt-3">
         <h2 class="titoletto mb-0 fade-in" style="--delay:2.5">I miei lavori</h2>
     </div>
     <div id="showcase" class="tiles container">
@@ -115,15 +119,15 @@
                 <p>Spazio vuoto per il tuo prossimo sito!</p>
             </div>
         </div>
-        <div id="carica" onclick="showMore()" class="fade-in" style="--delay:2.5">
+        <!-- <div id="carica" onclick="showMore()" class="fade-in" style="--delay:2.5">
             <h3>Altro&hellip;</h3>
-        </div>
+        </div> -->
     </div>
 
 
 
     <div class="before-aboutme"></div>
-    <section class="aboutme">
+    <!-- <section class="aboutme">
         <div class="text container">
 
             <p>Aggiungo valore alla tua professione</p>
@@ -140,7 +144,73 @@
             <p>Cookie? No grazie</p>
 
         </div>
-    </section>
+    </section> -->
+
+    <div class="gallery container">
+        <div class="left">
+            <div class="desktopContent">
+                <div class="desktopContentSection">
+                    <!-- <h2>Valore</h2> -->
+                    <p>Aggiungo valore alla tua professione</p>
+                </div>
+                <div class="desktopContentSection">
+                    <!-- <h2>Completo</h2> -->
+                    <p>Mi occupo personalmente di tutto: sviluppo della grafica, del sito, il server, le mail
+                        personalizzate</p>
+                </div>
+                <div class="desktopContentSection">
+                    <!-- <h2>Arte</h2> -->
+                    <p>Scrivo ogni sito da zero, solo <span style="letter-spacing:.3px">intelligenza</span> naturale</p><p>Unico e <span style="letter-spacing:.3px">inconfondibile</span>, proprio come te</p>
+                </div>
+                <div class="desktopContentSection">
+                    <!-- <h2>Flessibile</h2> -->
+                    <p>Dimmi cosa ti serve, te lo posso realizzare</p>
+                    <p>Piccole modifiche nel tempo? No problem</p>
+                </div>
+                <div class="desktopContentSection">
+                    <!-- <h2>Semplice</h2> -->
+                    <p>Cookie? No grazie</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="right">
+            <!-- mobile content -->
+            <div class="mobileContent">
+                <div class="mobilePhoto professional"></div>
+                <h2>Professional</h2>
+                <p>Aggiungo valore alla tua professione</p>
+
+                <div class="mobilePhoto complete"></div>
+                <h2>Complete</h2>
+                <p>Mi occupo personalmente di tutto: sviluppo della grafica, del sito, il server, le mail personalizzate
+                </p>
+
+                <div class="mobilePhoto unique"></div>
+                <h2>Unique</h2>
+                <p>Scrivo ogni sito da zero. Solo intelligenza naturale. Unico e inconfondibile, proprio come te</p>
+
+                <div class="mobilePhoto flexible"></div>
+                <h2>Flexible</h2>
+                <p>Dimmi cosa ti serve, te lo posso realizzare. Piccole modifiche nel tempo? No problem</p>
+
+                <div class="mobilePhoto privacy"></div>
+                <h2>Privacy</h2>
+                <p>Cookie? No grazie</p>
+            </div>
+
+            <!-- desktop content -->
+            <div class="desktopPhotos">
+                <div class="desktopPhoto professional"></div>
+                <div class="desktopPhoto complete"></div>
+                <div class="desktopPhoto unique"></div>
+                <div class="desktopPhoto flexible"></div>
+                <div class="desktopPhoto privacy"></div>
+            </div>
+
+        </div>
+    </div>
+
     <div class="after-aboutme"></div>
 
     <div class="pic">
@@ -222,20 +292,20 @@
     <script>
         let contactFormActive = false;
 
-        function showMore() {
+        // function showMore() {
 
-            document.querySelectorAll('.more').forEach(el => {
-                el.style.maxHeight = "999rem";
-                el.style.border = "1px solid #333";
-            });
-            document.querySelector('#carica').style.height = "0";
-            document.querySelector('#carica').style.overflow = "hidden";
-            document.querySelector('#carica').style.padding = "0";
-            document.querySelector('#carica').style.outline = "0rem solid white";
-            document.querySelector('#carica').style.color = "#0000";
+        //     document.querySelectorAll('.more').forEach(el => {
+        //         el.style.maxHeight = "999rem";
+        //         el.style.border = "1px solid #333";
+        //     });
+        //     document.querySelector('#carica').style.height = "0";
+        //     document.querySelector('#carica').style.overflow = "hidden";
+        //     document.querySelector('#carica').style.padding = "0";
+        //     document.querySelector('#carica').style.outline = "0rem solid white";
+        //     document.querySelector('#carica').style.color = "#0000";
 
 
-        }
+        // }
 
 
 
@@ -444,27 +514,27 @@
 
 
 
-            document.querySelectorAll('.aboutme .text p:nth-child(even)').forEach(img => {
-                img.style.transform = "translateX(100vw)";
-            });
-            document.querySelectorAll('.aboutme .text p:nth-child(odd)').forEach(img => {
-                img.style.transform = "translateX(-100vw)";
-            });
+            // document.querySelectorAll('.aboutme .text p:nth-child(even)').forEach(img => {
+            //     img.style.transform = "translateX(100vw)";
+            // });
+            // document.querySelectorAll('.aboutme .text p:nth-child(odd)').forEach(img => {
+            //     img.style.transform = "translateX(-100vw)";
+            // });
 
 
 
-            gsap.to(".aboutme .text p", {
-                x: 0,
-                duration: 1,
-                stagger: 0.2,
-                scrollTrigger: {
-                    markers: false,
-                    trigger: ".aboutme .text",
-                    scroller: "body",
-                    start: "top bottom",
-                    toggleActions: "play none none reverse"
-                }
-            });
+            // gsap.to(".aboutme .text p", {
+            //     x: 0,
+            //     duration: 1,
+            //     stagger: 0.2,
+            //     scrollTrigger: {
+            //         markers: false,
+            //         trigger: ".aboutme .text",
+            //         scroller: "body",
+            //         start: "top bottom",
+            //         toggleActions: "play none none reverse"
+            //     }
+            // });
 
 
 
@@ -534,7 +604,75 @@
                     }
                 }
             );
+
+
+
+
+
+
+            const details = gsap.utils.toArray(".desktopContentSection:not(:first-child)")
+            const photos = gsap.utils.toArray(".desktopPhoto:not(:first-child)")
+
+
+            gsap.set(photos, { yPercent: 101 })
+
+            const allPhotos = gsap.utils.toArray(".desktopPhoto")
+
+
+            let mm = gsap.matchMedia();
+
+            mm.add("(min-width: 600px)", () => {
+                // console.log("desktop")
+
+                ScrollTrigger.create({
+                    trigger: ".gallery",
+                    start: "top top",
+                    end: "bottom bottom",
+                    pin: ".right",
+                    markers: false
+                })
+
+                details.forEach((detail, index) => {
+
+                    let paragraph = detail.querySelector("p")
+                    let animation = gsap.timeline()
+                        .to(photos[index], { yPercent: 0 })
+                        .set(allPhotos[index], { autoAlpha: 0 })
+                    ScrollTrigger.create({
+                        trigger: paragraph,
+                        start: "top 80%",
+                        end: "top 50%",
+                        animation: animation,
+                        scrub: true,
+                        markers: false
+                    })
+                })
+
+
+
+                // return () => { 
+                //     console.log("mobile")
+                // };
+            });
+
+
+
+
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </script>
 
@@ -679,7 +817,6 @@
         }
 
     </script>
-    <script defer src="../js/js2.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
         emailjs.init('GsCLbtpRlIwD7Bej-')

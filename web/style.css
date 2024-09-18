@@ -8,6 +8,7 @@
     --offwhite-50: hsla(0, 37%, 92%, 0.50);
     --offwhite-25: hsla(0, 37%, 92%, 0.25);
     --offwhite-75: hsla(0, 37%, 92%, 0.75);
+    --offwhite-90: hsla(0, 37%, 92%, 0.90);
     --offwhite: hsl(0, 40%, 94%);
 
     --broken-light: hsl(0, 0%, 68.6%);
@@ -31,9 +32,10 @@
     --shadow: drop-shadow(0px 2px 2px hsla(0, 0%, 0%, 0.5));
     --contact-inner-radius: 1rem;
     --contact-button-inset: -0.1rem;
+    --border-radius: .5rem;
 
     --aboutme-gradient: linear-gradient(120deg, var(--blob-clr-1), var(--blob-clr-2), var(--blob-clr-1));
-
+        
 }
 
 ::selection {
@@ -47,6 +49,61 @@ textarea::selection {
     background-color: var(--offwhite-50)
 }
 
+
+
+.commissioner-regular {
+    font-family: "Commissioner", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    /* 100 - 900*/
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0,
+        /* inclinazione           default:0   range: -12 - 0      */
+        "FLAR" 0,
+        /* punte                  default:0   range: 0 - 100      */
+        "VOLM" 0;
+    /* volume, dimensione     default:0   range: 0 - 100   */
+}
+
+.commissioner-title {
+    font-family: "Commissioner", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0,
+        "FLAR" 100,
+        "VOLM" 100;
+}
+.commissioner-small-title{
+    font-family: "Commissioner", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    /* 100 - 900*/
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0,
+        /* inclinazione           default:0   range: -12 - 0      */
+        "FLAR" 0,
+        /* punte                  default:0   range: 0 - 100      */
+        "VOLM" 0;
+    /* volume, dimensione     default:0   range: 0 - 100   */
+}
+.commissioner-italic-title{
+    font-family: "Commissioner", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    /* 100 - 900*/
+    font-style: normal;
+    font-variation-settings:
+        "slnt" -6,
+        /* inclinazione           default:0   range: -12 - 0      */
+        "FLAR" 0,
+        /* punte                  default:0   range: 0 - 100      */
+        "VOLM" 10;
+    /* volume, dimensione     default:0   range: 0 - 100   */
+}
 html {
     overflow-x: hidden
 }
@@ -60,7 +117,7 @@ body {
     background-color: #000;
     color: var(--offwhite);
     line-height: 1.2;
-    font-family: 'Space Mono', monospace;
+    /* font-family: 'Space Mono', monospace; */
     overflow-x: inherit
 }
 
@@ -98,18 +155,18 @@ h4 {
 }
 
 h1 {
-    line-height: .75;
+    line-height: .8;
     font-size: var(--h1);
     font-weight: 700;
-    letter-spacing: -.2rem
+    /* letter-spacing: -.2rem */
 }
 
 h2 {
-    letter-spacing: -.066rem
+    /* letter-spacing: -.066rem */
 }
 
 .titoletto {
-    letter-spacing: -.08rem
+    /* letter-spacing: -.08rem */
 }
 
 h2,
@@ -121,7 +178,7 @@ h4 {
 #showcase {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 2rem;
     justify-content: center
 }
 
@@ -188,19 +245,20 @@ h4 {
 }
 
 .tile {
-    background: #1e1e1e;
+    /* background: #1e1e1e; */
     border: 1px solid #333;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+    border-radius: var(--border-radius);
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, .5); */
     overflow: hidden;
     flex: 1 1 calc(50% - 20px);
     display: flex;
     flex-direction: column;
     position: relative;
-    font-family: 'Space Mono', monospace;
+    /* font-family: 'Space Mono', monospace; */
     top: 1rem;
     transition: filter .3s ease, border 0s;
-    height: var(--tile-h)
+    height: var(--tile-h);
+    backdrop-filter: blur(100px) brightness(120%) hue-rotate(10deg);
 }
 
 .tile .image-wrapper {
@@ -228,7 +286,8 @@ h4 {
 .tile .content {
     padding: 15px;
     z-index: 1;
-    position: relative
+    position: relative;
+    background-color: transparent;
 }
 
 .tile h2 {
@@ -298,7 +357,7 @@ p {
 
 #carica {
     width: min-content;
-    border-radius: 1rem;
+    border-radius: var(--border-radius);
     padding: 1.3rem 2rem .8rem;
     cursor: pointer;
     user-select: none;
@@ -320,17 +379,12 @@ p {
 }
 
 .before-aboutme {
-    transform: translateZ(-1rem) scale(1.25);
-    transform-style: inherit;
-    padding-top: 5rem;
-    height: 10px;
-    width: 100%;
-    background-color: transparent;
-    pointer-events: none;
-    position: relative;
-    z-index: -1
+
+    height: 2rem;
+
 }
 
+/* 
 .before-aboutme::before {
     content: "";
     position: absolute;
@@ -355,14 +409,7 @@ p {
     background-color: #000
 }
 
-.after-aboutme {
-    position: relative;
-    width: 100%;
-    background-color: transparent;
-    pointer-events: none;
-    z-index: 0;
-    height: var(--about-extra-space)
-}
+
 
 .after-aboutme::before {
     content: "";
@@ -388,9 +435,9 @@ p {
     transform: skewY(3deg);
     transform-origin: right;
     background-color: #000
-}
+} */
 
-.aboutme {
+/* .aboutme {
     transform: translateZ(.15rem);
     transform-style: inherit;
     z-index: -2;
@@ -424,8 +471,15 @@ p {
     animation: bg-animation 30s infinite;
     height: calc(100% + var(--about-extra-space) * 2);
     opacity: .5;
-}
-
+} */
+/* .after-aboutme {
+    position: relative;
+    width: 100%;
+    background-color: transparent;
+    pointer-events: none;
+    z-index: 0;
+    height: var(--about-extra-space)
+} */
 @keyframes bg-animation {
     0% {
         background-position: left
@@ -440,7 +494,7 @@ p {
     }
 }
 
-.aboutme:hover:before {
+/* .aboutme:hover:before {
     filter: brightness(.7) contrast(1.05)
 }
 
@@ -454,9 +508,9 @@ p {
     font-size: clamp(1rem, 5vw, 1.5rem);
     padding-inline: 1rem;
     letter-spacing: -.05rem
-}
+} */
 
-.rhomboid {
+/* .rhomboid {
     --width: 50svw;
     z-index: -2;
     width: var(--width);
@@ -469,14 +523,14 @@ p {
     clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
     rotate: y 90deg;
     will-change: scroll-position
-}
+} */
 
 .heading {
     margin-block: 3rem;
     width: auto;
     padding: .5rem 1.25rem;
-    border-radius: 1rem;
-    filter: var(--shadow)
+    border-radius: var(--border-radius);
+    /* filter: var(--shadow) */
 }
 
 .heading h2 {
@@ -583,18 +637,15 @@ p {
     animation: brokenLight 10s infinite
 }
 
-.titoletto {
-    filter: var(--shadow)
-}
 
 .pic {
-    margin-top: calc(var(--about-extra-space) * -1 + 8vw);
     z-index: 1;
     position: relative;
     height: var(--me-h);
     width: 100%;
     max-height: 66svh;
-    --bg-position-x: 0%
+    --bg-position-x: 0%;
+    margin-top: calc(var(--about-extra-space) / 2);
 }
 
 .pic::after {
@@ -695,13 +746,13 @@ footer .contact-button {
     margin-inline: auto;
     width: 100%;
     transition: letter-spacing 1s ease, width 1.5s ease, background-color .33s ease, transform .25s ease-in-out, padding-bottom .5s, opacity .8s;
-    letter-spacing: -.05rem
+    /* letter-spacing: -.05rem */
 }
 
 @media (width >=1100px) {
     footer .contact-button {
-        padding: .45rem 1.25rem .5rem;
-        font-size: 3rem 
+        padding: .6rem 1.25rem 1rem;
+        font-size: 3rem
     }
 }
 
@@ -741,7 +792,7 @@ footer .contact-button>div {
     footer .contact-button {
         justify-content: space-evenly;
         gap: 2rem;
-        letter-spacing: normal;
+        /* letter-spacing: normal; */
         padding: 1.25rem 1.75rem 1.5rem;
         --contact-button-inset: -0.15rem
     }
@@ -1066,4 +1117,144 @@ button {
     opacity: 0;
     animation: slideInL 1s ease-out forwards;
     animation-delay: calc(var(--delay, 0) * 1s)
+}
+
+
+
+.spacer {
+    width: 100%;
+    height: 50vh;
+    /* background:#ddd; */
+}
+
+
+.gallery h2 {
+    font-size: clamp(2em, 4vw, 6em);
+}
+
+.gallery p {
+    font-size: clamp(1.4em, 2.5vw, 3.5em);
+    line-height: 1.4;
+}
+
+
+.gallery {
+    display: flex;
+    /* outline:1px solid red; */
+}
+
+.left {
+    width: 50%;
+}
+
+.right {
+    height: 100vh;
+    /* outline:1px solid purple; */
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.desktopContent {
+    margin: auto;
+    /* width:80%; */
+    margin-right: 2rem;
+}
+
+.desktopContentSection {
+    min-height: 100vh;
+    /* outline:1px solid green; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.desktopPhotos {
+    width: 100%;
+    height: 40vw;
+    border-radius: var(--border-radius);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+    margin-left: 1rem;
+}
+
+.desktopPhoto {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.professional {
+    background: #658890 url('img/gallery/order.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.complete {
+    background: #6288ac url('img/gallery/bridge.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.unique {
+    background: #1f374a url('img/gallery/art.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.flexible {
+    background: #bfcfdf url('img/gallery/canes.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.privacy {
+    background: #421c16 url('img/gallery/cookie.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+
+.mobileContent {
+    display: none;
+    width: 100%;
+}
+
+.mobileContent h2 {
+    margin-top: 1rem;
+}
+
+.mobilePhoto {
+    width: 100%;
+    height: 80vw;
+    margin-top: 5rem;
+    border-radius: var(--border-radius);
+}
+
+
+
+
+
+
+/* defines styles for screens up to 599px wide */
+@media screen and (max-width: 599px) {
+    .left {
+        display: none;
+    }
+
+    .right {
+        height: auto;
+        width: 100%;
+        align-items: center;
+    }
+
+    .desktopPhotos {
+        display: none;
+    }
+
+    .mobileContent {
+        display: block;
+    }
+
+
 }

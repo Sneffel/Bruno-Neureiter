@@ -680,42 +680,11 @@ footer {
     position: relative
 }
 
-@property --gradient-angle {
-    syntax: "<angle>";
-    initial-value: 0deg;
-    inherits: false
-}
-
-.contact-button::after,
-.contact-button::before {
-    content: "";
-    position: absolute;
-    inset: var(--contact-button-inset);
-    z-index: -1;
-    background: conic-gradient(from var(--gradient-angle), var(--green-1), var(--clr-4), var(--clr-5), var(--clr-4), var(--green-1));
-    border-radius: var(--contact-inner-radius);
-    animation: rotation 3s linear infinite
-}
-
-.contact-button::after {
-    filter: blur(3.5rem)
-}
-
-@keyframes rotation {
-    0% {
-        --gradient-angle: 0deg
-    }
-
-    100% {
-        --gradient-angle: 360deg
-    }
-}
-
 footer .contact-button {
     padding: 1rem 1.75rem 1.25rem;
     border: none;
     border-radius: calc(var(--contact-button-inset) + var(--contact-inner-radius));
-    background-color: hsla(0, 0%, 0%, .85);
+    background-color: var(--clr-4);
     color: var(--offwhite);
     display: flex;
     flex-direction: row;
@@ -731,24 +700,24 @@ footer .contact-button {
 
 @media (width >=1100px) {
     footer .contact-button {
-        padding: .15rem 1.25rem .25rem;
-        font-size: 3rem
+        padding: .45rem 1.25rem .5rem;
+        font-size: 3rem 
     }
 }
 
 footer .contact-button:hover {
-    background-color: hsla(0, 0%, 0%, .7);
-    letter-spacing: 0rem
+    background-color: var(--clr-3);
+    /* letter-spacing: 0rem */
 }
 
-footer .contact-button:active {
+/* footer .contact-button:active {
     transform: scale(100.001%);
     bottom: 1px
 }
 
 footer .contact-button.converged {
     width: calc(100% - 1rem * 2)
-}
+} */
 
 footer .contact-button>div {
     width: max-content

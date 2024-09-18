@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Work Warehouse</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="preload" as="image" href="img/blob-bg.svg?v1" fetchpriority="high">
+    <link rel="preload" as="image" href="img/blob-bg.svg?v1" fetchpriority="high"> -->
     <link rel="stylesheet" href="style.css?v13">
     <link rel="stylesheet" href="../css/reset.css?v1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
@@ -43,7 +43,8 @@
 
     <header class="container text-center">
         <div class="heading">
-            <h3 style="color: var(--offwhite-90);letter-spacing:-.05rem;--delay:1.5" class="fade-in commissioner-italic-title">Vetrine digitali
+            <h3 style="color: var(--offwhite-90);letter-spacing:-.05rem;--delay:1.5"
+                class="fade-in commissioner-italic-title">Vetrine digitali
             </h3>
             <h1 class="commissioner-title fw-bold mt-2 mb-3 fade-in" style="--delay:.2">
                 Bruno Neureiter
@@ -146,7 +147,7 @@
         </div>
     </section> -->
 
-    <div class="gallery container">
+    <section class="gallery container">
         <div class="left">
             <div class="desktopContent">
                 <div class="desktopContentSection">
@@ -160,7 +161,8 @@
                 </div>
                 <div class="desktopContentSection">
                     <!-- <h2>Arte</h2> -->
-                    <p>Scrivo ogni sito da zero, solo <span style="letter-spacing:.3px">intelligenza</span> naturale</p><p>Unico e <span style="letter-spacing:.3px">inconfondibile</span>, proprio come te</p>
+                    <p>Scrivo ogni sito da zero, solo <span style="letter-spacing:.3px">intelligenza</span> naturale</p>
+                    <p>Unico e <span style="letter-spacing:.3px">inconfondibile</span>, proprio come te</p>
                 </div>
                 <div class="desktopContentSection">
                     <!-- <h2>Flessibile</h2> -->
@@ -178,24 +180,26 @@
             <!-- mobile content -->
             <div class="mobileContent">
                 <div class="mobilePhoto professional"></div>
-                <h2>Professional</h2>
+                <h2>Valore</h2>
                 <p>Aggiungo valore alla tua professione</p>
 
                 <div class="mobilePhoto complete"></div>
-                <h2>Complete</h2>
-                <p>Mi occupo personalmente di tutto: sviluppo della grafica, del sito, il server, le mail personalizzate
-                </p>
+                <h2>Completo</h2>
+                <p>Mi occupo personalmente di tutto: sviluppo della grafica, del sito, il server, le mail
+                    personalizzate</p>
 
                 <div class="mobilePhoto unique"></div>
-                <h2>Unique</h2>
-                <p>Scrivo ogni sito da zero. Solo intelligenza naturale. Unico e inconfondibile, proprio come te</p>
+                <h2>Arte</h2>
+                <p>Scrivo ogni sito da zero, solo <span style="letter-spacing:.3px">intelligenza</span> naturale</p>
+                <p>Unico e <span style="letter-spacing:.3px">inconfondibile</span>, proprio come te</p>
 
                 <div class="mobilePhoto flexible"></div>
-                <h2>Flexible</h2>
-                <p>Dimmi cosa ti serve, te lo posso realizzare. Piccole modifiche nel tempo? No problem</p>
+                <h2>Flessibile</h2>
+                <p>Dimmi cosa ti serve, te lo posso realizzare</p>
+                <p>Piccole modifiche nel tempo? No problem</p>
 
                 <div class="mobilePhoto privacy"></div>
-                <h2>Privacy</h2>
+                <h2>Semplice</h2>
                 <p>Cookie? No grazie</p>
             </div>
 
@@ -209,7 +213,7 @@
             </div>
 
         </div>
-    </div>
+    </section>
 
     <div class="after-aboutme"></div>
 
@@ -679,7 +683,7 @@
 
     <script>
         window.addEventListener('load', () => {
-            const carica = document.querySelector('#carica');
+            const carica = document.querySelector('.gallery.container');
             const rect = carica.getBoundingClientRect();
 
             if (window.scrollY === 0) return;

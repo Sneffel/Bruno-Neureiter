@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Work Warehouse</title>
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="preload" as="image" href="img/blob-bg.svg?v1" fetchpriority="high"> -->
-    <link rel="stylesheet" href="style.css?v13">
+    <meta name="darkreader-lock">   
+
+    <link rel="preload" as="image" href="img/blob-bg.svg?v1" fetchpriority="high">
+    <link rel="stylesheet" href="style.css?v15">
     <link rel="stylesheet" href="../css/reset.css?v1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
         media="print" onload="this.media='all'">
-
 
     <meta name="description" content="Webmaster, sviluppo siti web e grafica">
     <meta property="og:description" content="Webmaster, sviluppo siti web e grafica">
@@ -28,9 +27,15 @@
     <meta name="twitter:title" content="Bruno Neureiter - Webmaster - Web Work Warehouse">
     <meta name="twitter:image" content="https://brunoneureiter.com/web/img/page-ss.webp">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer
         onload="scrollTriggers()"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,9 +69,17 @@
                 <a class="open-btn btn btn-dark" href="https://guidogiordana.net">Apri</a>
             </div>
             <div class="content">
-                <h2>Guido Giordana</h2>
-                <p>Pagina di presentazione</p>
+                <div class="text">
+
+                    <h2>Guido Giordana</h2>
+                    <p>Pagina di presentazione</p>
+
+                </div>
+                <div class="mobile-open"> <a class="open-btn btn btn-dark" href="https://guidogiordana.net"><i
+                            class="bi bi-box-arrow-up-right"></i></a>
+                </div>
             </div>
+
         </div>
         <div class="tile slideR" style="--delay:3.2">
             <div class="image-wrapper">
@@ -74,9 +87,17 @@
                 <a class="open-btn btn btn-dark" href="demosan/">Apri</a>
             </div>
             <div class="content">
-                <h2>Vitorio Del Santo</h2>
-                <p>Insegnante con lezioni online</p>
+                <div class="text">
+
+                    <h2>Vitorio Del Santo</h2>
+                    <p>Insegnante con lezioni online</p>
+
+                </div>
+                <div class="mobile-open"> <a class="open-btn btn btn-dark" href="demosan/"><i
+                            class="bi bi-box-arrow-up-right"></i></a>
+                </div>
             </div>
+
         </div>
         <div class="tile slideL" style="--delay:3.2">
             <div class="image-wrapper">
@@ -84,9 +105,17 @@
                 <a class="open-btn btn btn-dark" href="demodar/">Apri</a>
             </div>
             <div class="content">
-                <h2>Claire Redheart</h2>
-                <p>Modella con foto e social</p>
+                <div class="text">
+
+                    <h2>Claire Redheart</h2>
+                    <p>Modella con foto e social</p>
+
+                </div>
+                <div class="mobile-open"> <a class="open-btn btn btn-dark" href="demodar/"><i
+                            class="bi bi-box-arrow-up-right"></i></a>
+                </div>
             </div>
+
         </div>
 
         <div class="tile slideR" style="--delay:3.2">
@@ -95,20 +124,36 @@
                 <a class="open-btn btn btn-dark" href="https://bareshoes.shop/">Apri</a>
             </div>
             <div class="content">
-                <h2>Bare Shop</h2>
-                <p>Vendita articoli online</p>
+                <div class="text">
+
+                    <h2>Bare Shop</h2>
+                    <p>Vendita articoli online</p>
+
+                </div>
+                <div class="mobile-open"> <a class="open-btn btn btn-dark" href="https://bareshoes.shop/"><i
+                            class="bi bi-box-arrow-up-right"></i></a>
+                </div>
             </div>
+
         </div>
 
-        <div class="tile more">
+        <!-- <div class="tile more">
             <div class="image-wrapper">
                 <img src="img/quiz.webp" alt="Website Screenshot">
                 <a class="open-btn btn btn-dark" href="https://easycpm.altervista.org/giochi/quiz/">Apri</a>
             </div>
             <div class="content">
-                <h2>Quiz</h2>
-                <p>Personalizzazione e sfida multigiocatore</p>
+                <div class="text">
+
+                    <h2>Quiz</h2>
+                    <p>Personalizzazione e sfida multigiocatore</p>
+
+                </div>
+                <div class="mobile-open"> <a class="open-btn btn btn-dark"
+                        href="https://easycpm.altervista.org/giochi/quiz/"><i class="bi bi-box-arrow-up-right"></i></a>
+                </div>
             </div>
+
         </div>
         <div class="tile more">
             <div class="image-wrapper">
@@ -116,18 +161,27 @@
                 <a class="open-btn btn btn-dark">Apri</a>
             </div>
             <div class="content">
-                <h2>Il tuo sito</h2>
-                <p>Spazio vuoto per il tuo prossimo sito!</p>
-            </div>
-        </div>
-        <!-- <div id="carica" onclick="showMore()" class="fade-in" style="--delay:2.5">
+                <div class="text">
+
+                    <h2>Il tuo sito</h2>
+                    <p>Spazio vuoto per il tuo prossimo sito!</p>
+
+                </div>
+                <div class="mobile-open"> <a class="open-btn btn btn-dark"><i class="bi bi-box-arrow-up-right"></i></a>
+                </div>
+            </div> -->
+
+    </div>
+    <!-- <div id="carica" onclick="showMore()" class="fade-in" style="--delay:2.5">
             <h3>Altro&hellip;</h3>
         </div> -->
     </div>
 
 
 
-    <div class="before-aboutme"></div>
+    <div class="before-aboutme">
+        <img src="img/arrows/curved-downward-arrow.webp" alt="arrow">
+    </div>
     <!-- <section class="aboutme">
         <div class="text container">
 
@@ -180,26 +234,26 @@
             <!-- mobile content -->
             <div class="mobileContent">
                 <div class="mobilePhoto professional"></div>
-                <h2>Valore</h2>
+                <!-- <h2>Valore</h2> -->
                 <p>Aggiungo valore alla tua professione</p>
 
                 <div class="mobilePhoto complete"></div>
-                <h2>Completo</h2>
+                <!-- <h2>Completo</h2> -->
                 <p>Mi occupo personalmente di tutto: sviluppo della grafica, del sito, il server, le mail
                     personalizzate</p>
 
                 <div class="mobilePhoto unique"></div>
-                <h2>Arte</h2>
+                <!-- <h2>Arte</h2> -->
                 <p>Scrivo ogni sito da zero, solo <span style="letter-spacing:.3px">intelligenza</span> naturale</p>
                 <p>Unico e <span style="letter-spacing:.3px">inconfondibile</span>, proprio come te</p>
 
                 <div class="mobilePhoto flexible"></div>
-                <h2>Flessibile</h2>
+                <!-- <h2>Flessibile</h2> -->
                 <p>Dimmi cosa ti serve, te lo posso realizzare</p>
                 <p>Piccole modifiche nel tempo? No problem</p>
 
                 <div class="mobilePhoto privacy"></div>
-                <h2>Semplice</h2>
+                <!-- <h2>Semplice</h2> -->
                 <p>Cookie? No grazie</p>
             </div>
 
@@ -222,7 +276,11 @@
         <img src="img/me/2.webp" alt="io" style="--index:1">
         <img src="img/me/1.webp" alt="io" style="--index:0">
         <div class="overlay"></div>
-        <div class="big">... !</div>
+        <div class="big">
+            <div class="container">
+                <img src="img/arrows/curved-arrow-with-broken-line.webp" alt="Down arrow">
+            </div>
+        </div>
     </div>
 
     <footer class="magicpattern">
@@ -256,20 +314,12 @@
                     fill="none" stroke="#555" stroke-linecap="round" stroke-width="2" />
             </g>
         </svg>
-        <div>
-            <button class="contact-button">
-                <div class="before">
-                    <i class="bi bi-phone"></i>
-                    <i class="bi bi-telephone"></i>
-                </div>
-                Contattami
-                <div class="after">
-                    <i class="bi bi-envelope-heart"></i>
-                    <i class="bi bi-whatsapp"></i>
-                </div>
-            </button>
+            <div class="container">
+                <button class="contact-button">
+                    Contattami
+                </button>
+            </div>
 
-        </div>
     </footer>
 
 
@@ -352,10 +402,10 @@
             const isMobile = window.innerWidth <= 768;
             const isApple = /iPad|iPhone|iPod/.test(navigator.userAgent);
 
-            document.querySelector('.after').children[0].style.display = isMobile ? 'none' : 'block'; // Email
-            document.querySelector('.after').children[1].style.display = isMobile ? 'block' : 'none'; // WhatsApp
-            document.querySelector('.before').children[0].style.display = isApple ? 'block' : 'none'; // Phone
-            document.querySelector('.before').children[1].style.display = isApple ? 'none' : 'block'; // Telephone
+            // document.querySelector('.after').children[0].style.display = isMobile ? 'none' : 'block'; // Email
+            // document.querySelector('.after').children[1].style.display = isMobile ? 'block' : 'none'; // WhatsApp
+            // document.querySelector('.before').children[0].style.display = isApple ? 'block' : 'none'; // Phone
+            // document.querySelector('.before').children[1].style.display = isApple ? 'none' : 'block'; // Telephone
         }
 
         updateIcons()
@@ -435,12 +485,20 @@
                 unConvergeBtn()
 
                 const hiddenContactstuff = document.querySelectorAll('#contactstuff .hidden');
+                // console.log(hiddenContactstuff)
                 for (let i = 0; i < hiddenContactstuff.length; i++) {
                     const element = hiddenContactstuff[i];
 
                     if (element.id === 'contact-form') continue;
-                    element.style.opacity = 1;
+                    element.style.opacity = element.classList.contains("bg-arrow") ? .9 : 1;
+
+                    // if(element.classList.contains("bg-arrow")){
+                    //     element.style.opacity = ".9";
+                    // }
+
                     element.style.pointerEvents = "all";
+                    
+
 
                     const nextElement = hiddenContactstuff[i + 1];
 
@@ -513,33 +571,8 @@
             });
 
 
-
-
-
-
-
-            // document.querySelectorAll('.aboutme .text p:nth-child(even)').forEach(img => {
-            //     img.style.transform = "translateX(100vw)";
-            // });
-            // document.querySelectorAll('.aboutme .text p:nth-child(odd)').forEach(img => {
-            //     img.style.transform = "translateX(-100vw)";
-            // });
-
-
-
-            // gsap.to(".aboutme .text p", {
-            //     x: 0,
-            //     duration: 1,
-            //     stagger: 0.2,
-            //     scrollTrigger: {
-            //         markers: false,
-            //         trigger: ".aboutme .text",
-            //         scroller: "body",
-            //         start: "top bottom",
-            //         toggleActions: "play none none reverse"
-            //     }
-            // });
-
+            gsap.fromTo(".titoletto", { x: "-25vw" }, { x: "0", delay: parseFloat(getComputedStyle(document.querySelector('.titoletto')).getPropertyValue('--delay')) });
+            gsap.fromTo(".heading h3", { y: "-50vh" }, { y: "0", delay: parseFloat(getComputedStyle(document.querySelector('.heading h3')).getPropertyValue('--delay')) });
 
 
             document.querySelectorAll('.pic img').forEach(img => {
@@ -572,26 +605,29 @@
 
 
 
-            document.querySelectorAll('.pic .big').forEach(img => {
-                img.style.position = "relative";
-                img.style.left = "-100vw";
-            });
-
-            gsap.to(".pic .big", {
-                left: 0,
-                duration: 1,
+            gsap.to(".big", {
+                y: "-10vmax", // Negative value to move up
+                ease: "none",
                 scrollTrigger: {
-                    markers: false,
-                    trigger: ".after-aboutme",
-                    scroller: "body",
-                    start: "top 75%",
-                    toggleActions: "play none none reverse"
+                    trigger: ".pic",
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true,
+                    markers: false
                 }
             });
 
-
-
-
+            gsap.to(".before-aboutme img", {
+                y: "-50%", // Negative value to move up
+                ease: "none",
+                scrollTrigger: {
+                    trigger: ".before-aboutme",
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true,
+                    markers: false
+                }
+            });
 
             gsap.set(".contact-button", { top: "50vh" });
 
@@ -663,7 +699,6 @@
 
 
         }
-
 
 
 
@@ -769,7 +804,7 @@
             }
 
             // sent!
-            form.innerHTML = 'Inviato!';
+            form.innerHTML = 'Inviata!';
             form.classList.add('layered-waves')
 
 

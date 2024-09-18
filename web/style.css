@@ -103,14 +103,15 @@ h2 {
     margin-top: 0;
     margin-bottom: 0.5rem;
 }
+
 h3 {
     font-size: 1.25rem;
     font-weight: 500;
     line-height: 1.2;
     margin-top: 0;
     margin-bottom: 0.5rem;
-  }
-  
+}
+
 .w-100 {
     width: 100%;
 }
@@ -144,7 +145,7 @@ h3 {
     font-size: 1rem;
     line-height: 1.5;
     /* color: #495057; */
-    /* background-color: #fff; */
+    /* background-color: var(--offwhite); */
     /* background-clip: padding-box; */
     /* border: 1px solid #ced4da; */
     border-radius: 0.25rem;
@@ -403,7 +404,7 @@ h4 {
 
 .tile {
     /* background: #1e1e1e; */
-    border: 1px solid #333;
+    /* border: 1px solid #333; */
     border-radius: var(--border-radius);
     /* box-shadow: 0 2px 5px rgba(0, 0, 0, .5); */
     overflow: hidden;
@@ -450,7 +451,7 @@ h4 {
 .tile h2 {
     margin: 0 0 10px 0;
     font-size: 1.5em;
-    color: #fff
+    color: var(--offwhite)
 }
 
 .tile p {
@@ -458,35 +459,85 @@ h4 {
     color: #ccc
 }
 
-.open-btn {
+.image-wrapper .open-btn {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+}
+
+.image-wrapper .open-btn:hover {
+
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.open-btn {
     background-color: #e8e8e8;
     backdrop-filter: blur(20px);
     color: #000;
     border: none;
     padding: .7rem 1.4rem;
-    font-size: 16px;
     cursor: pointer;
-    opacity: 0;
     outline: 2px solid #e8e8e8;
-    transition: opacity .3s, color .5s, background-color .5s, outline .5s
+    transition: opacity .3s, color .5s, background-color .5s, outline .5s, transform .25s ease;
+    text-decoration: none;
 }
 
 .open-btn:hover {
-    background-color: hsla(0, 0%, 12%, .205);
-    outline: 2px solid #fff
+    background-color: hsla(0, 0%, 12%, 0.687);
+    outline: 2px solid var(--offwhite);
+    color: var(--offwhite);
 }
 
 .image-wrapper:hover .open-btn {
     opacity: 1
 }
 
+
+
+
+
+.tile .content {
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+}
+
+
+
+.mobile-open {
+    display: none;
+}
+
+
+
+
+
+
+
+
 @media (max-width:768px) {
     .tile {
         flex: 1 1 100%
+    }
+
+    .mobile-open {
+        display: block;
+    }
+
+    .mobile-open .open-btn {
+        background-color: transparent !important;
+        color: var(--offwhite-75);
+        outline: none !important;
+        font-weight: 200;
+        filter: none;
+        backdrop-filter: none;
+        transform: translate(1.4rem, -.7rem);
+    }
+
+    .tile .content {
+        align-items: flex-start;
     }
 }
 
@@ -502,11 +553,11 @@ p {
     text-wrap: pretty
 }
 
-.tile.more {
+/* .tile.more {
     transition: all 3s ease, border 0s;
     border: 0 solid #333;
     max-height: 0
-}
+} */
 
 #carica h3 {
     color: inherit
@@ -537,8 +588,20 @@ p {
 
 .before-aboutme {
 
-    height: 2rem;
+    height: 5vmax;
+    position: relative;
 
+}
+
+.before-aboutme img {
+    position: absolute;
+    filter: invert(1);
+    height: 16vmin;
+    max-width: 100%;
+    object-fit: contain;
+    z-index: 100;
+    left: 10lvw;
+    top: 7vmax;
 }
 
 /* 
@@ -824,11 +887,6 @@ p {
 }
 
 .big {
-    text-shadow: -1px -1px #ff0, 1px 1px #be2000, 2px 2px #c02708;
-    transform: rotate(-10deg) skew(-10deg, 0);
-    padding-bottom: 50px;
-    margin-left: 10rem;
-    font-size: var(--h1);
     display: none
 }
 
@@ -838,7 +896,14 @@ p {
     }
 }
 
-.pic img {
+.big img {
+    height: 27vmin;
+    width: auto;
+    filter: invert(1);
+    transform: rotate(28.8deg) !important;
+}
+
+.pic>img {
     position: absolute;
     top: 0;
     right: 0;
@@ -894,8 +959,40 @@ footer {
     position: relative
 }
 
+.contact-button::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: -93%;
+    /* transform: scaleY(-1); */
+    scale: 1 -1;
+
+    background-image: url('img/arrows/swirly-scribbled-arrow.webp');
+    background-repeat: no-repeat;
+    background-size: contain;
+    filter: invert(1);
+
+    animation: floatContact 3s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+}
+
+@keyframes floatContact {
+
+    0%,
+    100% {
+        top: -85%;
+    }
+
+    50% {
+        top: -100%;
+    }
+}
+
 footer .contact-button {
-    padding: 1rem 1.75rem 1.25rem;
+    padding-top: 1rem;
+    padding-bottom: 1.7rem;
+    padding-inline: 3.2rem;
+
     border: none;
     border-radius: calc(var(--contact-button-inset) + var(--contact-inner-radius));
     background-color: var(--clr-4);
@@ -907,17 +1004,17 @@ footer .contact-button {
     position: relative;
     justify-content: center;
     margin-inline: auto;
-    width: 100%;
+    width: min-content;
     transition: letter-spacing 1s ease, width 1.5s ease, background-color .33s ease, transform .25s ease-in-out, padding-bottom .5s, opacity .8s;
     /* letter-spacing: -.05rem */
 }
 
-@media (width >=1100px) {
+/* @media (width >=1100px) {
     footer .contact-button {
         padding: .6rem 1.25rem 1rem;
         font-size: 3rem
     }
-}
+} */
 
 footer .contact-button:hover {
     background-color: var(--clr-3);
@@ -957,7 +1054,8 @@ footer .contact-button>div {
         gap: 2rem;
         /* letter-spacing: normal; */
         padding: 1.25rem 1.75rem 1.5rem;
-        --contact-button-inset: -0.15rem
+        --contact-button-inset: -0.15rem;
+        width: 100%;
     }
 
     .contact-button .after,
@@ -1027,7 +1125,9 @@ input[type=checkbox] {
     background-image: url(img/blob-bg.svg?v1);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 50% 50%
+    background-position: 50% 50%;
+    flex-direction: column;
+gap: 5rem;
 }
 
 #contactstuff .container {
@@ -1051,6 +1151,17 @@ input[type=checkbox] {
         margin-inline: 2rem
     }
 }
+
+#contactstuff .bg-arrow {
+    position: absolute;
+    width: 23%;
+    height: auto;
+    left: 10%;
+    filter: invert(1);
+    top: calc(50% - 5.2vmax);
+    transform: translateY(-50%);
+}
+
 
 body::before {
     content: "";
@@ -1102,7 +1213,7 @@ div.close {
     width: 100%;
     display: grid;
     place-items: center;
-    margin-top: 2.5rem;
+    /* margin-top: 2.5rem; */
     transition: opacity ease 2s
 }
 
@@ -1160,6 +1271,15 @@ div.close>i {
     backdrop-filter: blur(10px);
     border-radius: var(--contact-inner-radius);
     position: absolute;
+    max-width: 100%;
+}
+
+.form-line {
+    gap: .25rem
+}
+
+.form-line input {
+    width: 50%;
 }
 
 .form-control {
@@ -1174,7 +1294,7 @@ div.close>i {
 
 button[type=submit] {
     background-color: hsla(0, 0%, 13%, .606);
-    color: #fff;
+    color: var(--offwhite);
     transition: background-color 50ms, background-position .5s;
     background-position: 50% 0;
     background-size: 105%
@@ -1182,7 +1302,7 @@ button[type=submit] {
 
 button[type=submit]:hover {
     background-color: #001220;
-    color: #fff;
+    color: var(--offwhite);
     background-image: url(img/layered-waves.svg);
     background-repeat: no-repeat;
     background-position: 50% 80%
@@ -1190,7 +1310,7 @@ button[type=submit]:hover {
 
 button[type=submit]:active {
     background-color: var(--clr-2);
-    color: #fff
+    color: var(--offwhite)
 }
 
 .grow-wrap {
@@ -1390,9 +1510,10 @@ button {
 
 .mobilePhoto {
     width: 100%;
-    height: 80vw;
+    height: 50vmin;
     margin-top: 5rem;
     border-radius: var(--border-radius);
+    margin-bottom: 1rem;
 }
 
 

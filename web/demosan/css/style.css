@@ -1,5 +1,11 @@
 :root {
     --offwhite: hsl(0, 0%, 95%);
+
+    --primary-h: 4;
+    --primary-s: 69%;
+    --primary-l: 60%;
+    --primary: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+
     --h2: clamp(4rem, 6vw, 10rem);
     --h3: clamp(2.5rem, 4vw, 7rem);
     --h4: clamp(2rem, 3vw, 5rem);
@@ -62,6 +68,14 @@ img {
 
 .hero {
     position: relative;
+}
+.hero::after{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    inset: 0;
+    background-image: linear-gradient(to bottom, #0000 75%, #000 100%);
 }
 
 .hero img {
@@ -157,7 +171,7 @@ p {
 .box:has(+.box:hover) img,
 .box:has(+.box + .box:hover) img,
 .box:has(+.box + .box + .box:hover) img {
-    filter: grayscale(.3) brightness(.7);
+    filter: grayscale(0) brightness(1);
 }
 
 .box:hover .wrap {
@@ -167,6 +181,7 @@ p {
 .box:hover img.bg {
     transform: scale(101%);
 }
+
 
 .box,
 .box img,
@@ -180,7 +195,7 @@ p {
 }
 
 .box:hover img {
-    filter: grayscale(0) brightness(.6)
+    filter: grayscale(0) brightness(1)
 }
 
 .box .text h4 {
@@ -216,6 +231,21 @@ p {
 
     .box .text {
         transform: translateY(var(--h4));
+    }
+    .box .wrap::before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        inset: 0;
+        background-image: linear-gradient(to bottom, #0000 75%, #000 100%);
+        transform: translateY(calc(var(--h2)));
+        transition: transform 0.5s ease;
+    
+    }
+    .box:hover .wrap::before {
+        transform: translateY(0);
+    
     }
 }
 
@@ -290,34 +320,36 @@ section.mic h2 {
     align-items: end;
 }
 
-.bedroom .content div button {
+#contact-me {
     width: 12rem;
     max-width: calc(100vw - var(--lateral-margin) * 2);
     height: 50%;
     border: none;
-    border-radius: 1rem;
+    border-radius: .5rem;
     text-transform: uppercase;
-    font-size: var(--h3);
+    font-size: var(--h4);
     letter-spacing: .1rem;
     cursor: pointer;
-    padding-top: .6rem;
+    padding-top: .5rem;
     transition: .3s;
-    background-color: hsla(0, 0%, 73%, .21);
+    background-color: hsl(var(--primary-h), var(--primary-s), var(--primary-l), 33%);
     backdrop-filter: blur(.8rem);
-    filter: drop-shadow(0px 4px 4px hsla(0, 0%, 0%, 0.25));
-    /* outline: .01rem solid var(--offwhite); */
+    filter: drop-shadow(0px 4px 4px hsla(0, 0%, 0%, 0.5));
+    outline: .1rem solid hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) + 5%), 45%);
+
 }
 
-.bedroom .content div button:hover {
-    background-color: hsla(0, 0%, 80%, .21);
+#contact-me:hover {
+    background-color: hsl(var(--primary-h), var(--primary-s), var(--primary-l), 50%);
     filter: drop-shadow(0px 5px 5px hsla(0, 0%, 0%, 0.45));
-    outline: .5rem solid var(--offwhite);
+    /* outline: .5rem solid var(--offwhite); */
 }
 
-.bedroom .content div button:active {
+#contact-me:active {
     padding-top: .2rem;
     transform: translateY(-1px);
     box-shadow: 0 3px 0 rgba(13, 22, 25, 0.35), inset 0 3px 0 var(--offwhite);
+    background-color: hsl(var(--primary-h), var(--primary-s), var(--primary-l), 75%);
 }
 
 .bedroom img.render {
@@ -530,13 +562,13 @@ i::before {
         margin: auto;
     }
 
-    .bedroom .content div button {
+    #contact-me {
         width: 100%;
+    font-size: var(--h3);
+
     }
 
-    .bedroom .content div button {
-        outline: .01rem solid var(--offwhite);
-    }
+
 
 }
 

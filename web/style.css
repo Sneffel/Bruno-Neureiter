@@ -421,7 +421,7 @@ p {
     z-index: -1;
     background-size: 300%;
     background-image: var(--aboutme-gradient);
-    animation: bg-animation 25s infinite;
+    animation: bg-animation 30s infinite;
     height: calc(100% + var(--about-extra-space) * 2);
     opacity: .5;
 }

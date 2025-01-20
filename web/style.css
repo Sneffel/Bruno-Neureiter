@@ -49,6 +49,30 @@ textarea::selection {
     background-color: var(--offwhite-50)
 }
 
+strong {
+    font-weight: 650;
+}
+
+@keyframes weightPulse {
+
+    70%,
+    0% {
+        font-weight: normal;
+    }
+
+    80% {
+        font-weight: 800;
+    }
+
+    100% {
+        font-weight: 650;
+    }
+}
+
+.weight-palpita {
+    animation: weightPulse 3s ease-in-out forwards;
+}
+
 .container {
     width: 100%;
     padding-right: var(--bs-gutter-x, 1rem);
@@ -754,7 +778,7 @@ p {
 }
 
 .heading h2 {
-    margin-bottom: 1.5rem
+    margin-bottom: .5rem
 }
 
 @media (max-width:768px) {
@@ -780,6 +804,10 @@ p {
         display: flex;
         flex-wrap: wrap;
         gap: 1rem;
+    }
+
+    #webmaster {
+        margin-bottom: 0;
     }
 }
 
@@ -1127,7 +1155,7 @@ input[type=checkbox] {
     background-repeat: no-repeat;
     background-position: 50% 50%;
     flex-direction: column;
-gap: 5rem;
+    gap: 5rem;
 }
 
 #contactstuff .container {

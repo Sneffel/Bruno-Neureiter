@@ -11,11 +11,12 @@
     rel="stylesheet">
   <link rel="stylesheet" href="../css/home.css">
 </head>
+
 <body style="height:100svh">
   <div class="cont">
-    <a href="../web/">
+    <!-- <a href="../web/">
       <h1 data-value="web">web</h1>
-    </a>
+    </a> -->
     <a style="cursor: pointer;" onclick="decodeEmail()">
       <h1 data-value="contact">contact</h1>
     </a>
@@ -26,21 +27,22 @@
 
   <script src="../js/js2.js"></script>
   <script>
-  function decodeEmail() {
+    function decodeEmail() {
       let coded = "6369616f406272756e6f6e65757265697465722e636f6d";
       let key = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@.";
       let email = '';
 
       for (let i = 0; i < coded.length; i += 2) {
-          let hexPair = coded.substr(i, 2);
-          email += String.fromCharCode(parseInt(hexPair, 16));
+        let hexPair = coded.substr(i, 2);
+        email += String.fromCharCode(parseInt(hexPair, 16));
       }
 
       url = 'mailto:' + email + "?subject=Ciao!";
       console.log(url)
       window.location.href = url;
-      
-  }
+
+    }
   </script>
 </body>
+
 </html>
